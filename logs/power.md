@@ -780,10 +780,50 @@ Max Power (Sampled):  130.60 W
 Saved summary to: power_report.csv
 Saved power samples to: power_report_samples.csv
 
-
-
-
 ```
+### Roofline analysis
+```shell
+./tc_interactive.out data/data_163734.bin 0 1 1
+
+
+ncu —-csv —-import <output_file> —-page details > <roofline_file>.csv
+
+# HW performance counters
+ncu --target-processes all --set full -o fe_body_ncu.csv ./tc_interactive.out data/data_163734.bin 0 1 1
+
+ncu --set full -o d5_ncu --replay-mode application --app-replay-buffer memory ./tc_interactive.out data/data_5.bin 0 1 1 
+ncu --set default -o d5_ncu --replay-mode application --app-replay-buffer memory ./tc_interactive.out data/data_5.bin 0 1 1 
+scp arsho@polaris.alcf.anl.gov:/eagle/dist_relational_alg/arsho/mnmgJOIN/d5_ncu.ncu-rep d5_ncu.ncu-rep
+scp arsho@polaris.alcf.anl.gov:/eagle/dist_relational_alg/arsho/mnmgJOIN/ol_roofline.ncu-rep ol_roofline.ncu-rep
+
+ncu --set detailed -o d5_ncu_detail -f --replay-mode application --app-replay-buffer memory --launch-count 10 ./tc_interactive.out data/data_7035.bin 0 1 1
+ncu --set basic -o ol_basic -f --replay-mode application --app-replay-buffer memory ./tc_interactive.out data/data_7035.bin 0 1 1
+ncu --set roofline -o ol_roofline -f --replay-mode application --app-replay-buffer memory ./tc_interactive.out data/data_7035.bin 0 1 1
+
+
+nsys profile -o ol_nsys --stats=true ./tc_interactive.out data/data_7035.bin 0 1 1
+
+nsys profile -o ol_nsys --stats=true ./tc_interactive.out data/data_7035.bin 0 1 1
+
+nsys profile -o ol_nsys --stats=true ./tc_interactive.out data/data_7035.bin 0 1 1
+
+#usroads tc
+nsys profile -o power/usroads --stats=true ./tc_interactive.out data/data_165435.bin 0 1 1
+nsys profile -o power/usroads_nl --stats=true ./tc_nl_interactive.out data/data_165435.bin 0 1 1
+nsys profile -o /eagle/dist_relational_alg/arsho/mnmgJOIN/power/tc_usroads_bj --stats=true ./TC /eagle/dist_relational_alg/arsho/mnmgJOIN/data/data_165435.txt 90
+nsys profile -o /eagle/dist_relational_alg/arsho/mnmgJOIN/power/tc_usroads_gdlog --stats=true ./TC /eagle/dist_relational_alg/arsho/mnmgJOIN/data/data_165435.txt 1
+
+#fe_body sg
+nsys profile -o power/sg_fe_body --stats=true ./sg_interactive.out data/data_163734.bin 0 1 1
+nsys profile -o power/sg_nl_fe_body --stats=true ./sg_nl_interactive.out data/data_163734.bin 0 1 1
+nsys profile -o /eagle/dist_relational_alg/arsho/mnmgJOIN/power/sg_fe_body_bj --stats=true ./SG /eagle/dist_relational_alg/arsho/mnmgJOIN/data/data_163734.txt 90
+nsys profile -o /eagle/dist_relational_alg/arsho/mnmgJOIN/power/sg_fe_body_gdlog --stats=true ./SG /eagle/dist_relational_alg/arsho/mnmgJOIN/data/data_163734.txt 1
+scp -r arsho@polaris.alcf.anl.gov:/eagle/dist_relational_alg/arsho/mnmgJOIN/power/ .
+
+#bjoin
+ncu -o gnutella31_full_src_TC_joinKernels --replay-mode application --app-replay-buffer memory --app-replay-match name  --set full --import-source yes -k regex:"joinRelations|joinCountKernel" ./TC ../input/p2p-Gnutella31.txt 90
+```
+
 
 ### References
 - [cuDF install on Conda and Pip](https://docs.rapids.ai/install/)
