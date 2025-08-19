@@ -716,6 +716,224 @@ python power.py sg.csv ./sg_nl_interactive.out data/data_51971.bin 0 1 1
 
 ### Multi GPU
 ```shell
+qsub -I -l select=1 -l filesystems=home:eagle -l walltime=1:00:00 -q debug -A dist_relational_alg
+module use /soft/modulefiles
+module load conda; conda activate base
+module load nvhpc
+export MPICH_GPU_SUPPORT_ENABLED=0
+
+-----------------
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> module load nvhpc
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> module load craype-accel-nvidia80
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> export MPICH_GPU_SUPPORT_ENABLED=1
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> CC tc.cu -o tc_interactive_cam.out -O3
+
+
+# tc cam usroad 
+
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 1 mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/data_165435.bin 1 1 1
+Running command: mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/data_165435.bin 1 1 1 on 1 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+165435,1,606,871365688,75.0620,0.9480,0.0000,0.0000,0.6828,71.1806,0.0049,0.0001,0.1586,2.0870,1.0084
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           76.8981 s
+Total Energy:         7964.3256 J
+Avg Power (Timed):    103.5699 W
+Avg Power (Sampled):  103.1474 W
+Min Power (Sampled):  57.50 W
+Max Power (Sampled):  204.46 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 2 mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/data_165435.bin 1 1 1
+Running command: mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/data_165435.bin 1 1 1 on 2 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+165435,2,606,871365688,40.9890,0.4586,0.4770,17.1622,0.6970,19.9804,0.0046,0.0002,0.0755,2.1336,1.4602
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           44.0347 s
+Total Energy:         8282.3856 J
+Avg Power (Timed):    188.0876 W
+Avg Power (Sampled):  188.7812 W
+Min Power (Sampled):  111.20 W
+Max Power (Sampled):  260.99 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 4 mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/data_165435.bin 1 1 1
+Running command: mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/data_165435.bin 1 1 1 on 4 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+165435,4,606,871365688,21.9014,0.4288,0.4856,10.7698,0.7211,7.4955,0.0049,0.0003,0.0031,1.9922,0.8226
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           26.3303 s
+Total Energy:         9847.8178 J
+Avg Power (Timed):    374.0108 W
+Avg Power (Sampled):  381.1096 W
+Min Power (Sampled):  217.34 W
+Max Power (Sampled):  517.73 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+
+
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 1 mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/data_165435.bin 1 1 1
+Running command: mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/data_165435.bin 1 1 1 on 1 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+165435,1,606,871365688,75.0496,0.8956,0.0000,0.0000,0.6427,71.2760,0.0048,0.0001,0.1823,2.0480,0.9982
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           76.9350 s
+Total Energy:         8229.3206 J
+Avg Power (Timed):    106.9646 W
+Avg Power (Sampled):  105.9258 W
+Min Power (Sampled):  57.89 W
+Max Power (Sampled):  207.67 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 2 mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/data_165435.bin 1 1 1
+Running command: mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/data_165435.bin 1 1 1 on 2 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+165435,2,606,871365688,40.9287,0.4288,0.4316,17.1508,0.7116,19.8426,0.0046,0.0002,0.0844,2.2741,1.4373
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           43.8420 s
+Total Energy:         8324.8846 J
+Avg Power (Timed):    189.8838 W
+Avg Power (Sampled):  189.9678 W
+Min Power (Sampled):  111.80 W
+Max Power (Sampled):  322.27 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 4 mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/data_165435.bin 1 1 1
+Running command: mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/data_165435.bin 1 1 1 on 4 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+165435,4,606,871365688,21.8353,0.3623,0.4403,10.4006,0.7043,7.8194,0.0050,0.0003,0.0031,2.1000,0.8423
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           26.2806 s
+Total Energy:         9741.5564 J
+Avg Power (Timed):    370.6752 W
+Avg Power (Sampled):  379.2556 W
+Min Power (Sampled):  217.62 W
+Max Power (Sampled):  498.74 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+
+# sg cam vsp 
+
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 1 mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1
+Running command: mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1 on 1 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,1,513,864761518,91.5347,1.5894,0.0000,2.4402,3.5455,81.2590,0.0048,0.0001,0.1733,2.5223,1.0628
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           91.0825 s
+Total Energy:         9629.6954 J
+Avg Power (Timed):    105.7250 W
+Avg Power (Sampled):  108.2224 W
+Min Power (Sampled):  57.29 W
+Max Power (Sampled):  262.34 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 2 mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1
+Running command: mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1 on 2 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,2,513,864761518,62.5657,1.0081,0.9313,35.2266,2.1087,21.7305,0.0056,0.0002,0.1113,1.4435,0.8151
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           64.7545 s
+Total Energy:         12405.1685 J
+Avg Power (Timed):    191.5722 W
+Avg Power (Sampled):  192.7649 W
+Min Power (Sampled):  110.81 W
+Max Power (Sampled):  382.02 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 4 mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1
+Running command: mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1 on 4 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,4,513,864761518,32.3876,0.6755,0.9222,21.4397,1.6482,6.0144,0.0180,0.0011,0.0032,1.6653,0.8353
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           35.7745 s
+Total Energy:         13648.2719 J
+Avg Power (Timed):    381.5080 W
+Avg Power (Sampled):  389.4821 W
+Min Power (Sampled):  217.01 W
+Max Power (Sampled):  524.78 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 1 mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1
+Running command: mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1 on 1 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,1,520,910070918,81.1635,1.5985,0.0000,0.0000,1.4988,75.6512,0.0051,0.0002,0.1895,2.2202,1.0091
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           82.9859 s
+Total Energy:         8382.9981 J
+Avg Power (Timed):    101.0171 W
+Avg Power (Sampled):  100.7139 W
+Min Power (Sampled):  57.56 W
+Max Power (Sampled):  205.33 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 2 mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1
+Running command: mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1 on 2 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,2,520,910070918,47.5937,0.6779,0.4946,29.3207,0.9710,14.7508,0.0050,0.0002,0.0960,1.2774,1.5228
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           50.9989 s
+Total Energy:         9592.9963 J
+Avg Power (Timed):    188.1019 W
+Avg Power (Sampled):  188.6114 W
+Min Power (Sampled):  111.80 W
+Max Power (Sampled):  287.17 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+(2022-09-08/base) arsho::x3006c0s13b1n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 4 mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1
+Running command: mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1 on 4 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,4,520,910070918,24.8869,0.4913,0.5190,16.3127,0.8809,5.3776,0.0131,0.0002,0.0877,1.2044,0.8627
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           29.4327 s
+Total Energy:         10983.3961 J
+Avg Power (Timed):    373.1702 W
+Avg Power (Sampled):  381.4994 W
+Min Power (Sampled):  217.07 W
+Max Power (Sampled):  479.68 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+
+--------new ends------------
+
+
+
 python power.py tc.csv ./tc_interactive.out data/data_165435.bin 0 1 1
 Running: power.py tc.csv ./tc_interactive.out data/data_165435.bin 0 1 1
 # Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
@@ -730,6 +948,219 @@ TotalTime(S),TotalEnergy(J),AvgPowerDrawTimed(W),MinDrawSampled(W),Q1DrawSampled
 --------------------------------------------------
 
 
+------------
+#tc usroads
+python power_time.py --output power_report.csv --gpu 1 mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/data_165435.bin 0 1 1
+Running command: mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/data_165435.bin 0 1 1 on 1 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+165435,1,606,871365688,75.0639,0.9387,0.0000,0.0000,0.6328,71.0698,0.0052,0.0001,0.1764,2.2408,1.0129
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           76.8938 s
+Total Energy:         4306.7674 J
+Avg Power (Timed):    56.0093 W
+Avg Power (Sampled):  56.0086 W
+Min Power (Sampled):  55.82 W
+Max Power (Sampled):  56.20 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+
+
+python power_time.py --output power_report.csv --gpu 2 mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/data_165435.bin 0 1 1
+Running command: mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/data_165435.bin 0 1 1 on 2 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+165435,2,606,871365688,37.1347,0.5685,1.1663,1.7325,0.6125,26.5774,0.0054,0.0002,0.0936,6.3782,0.7796
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           40.6701 s
+Total Energy:         2284.1494 J
+Avg Power (Timed):    56.1629 W
+Avg Power (Sampled):  56.1636 W
+Min Power (Sampled):  56.14 W
+Max Power (Sampled):  56.20 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+
+python power_time.py --output power_report.csv --gpu 4 mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/data_165435.bin 0 1 1
+Running command: mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/data_165435.bin 0 1 1 on 4 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+165435,4,606,871365688,18.1251,0.4300,1.2282,2.1112,0.4527,9.4575,0.0054,0.0003,0.0709,4.3689,0.7856
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           22.9898 s
+Total Energy:         2189.4811 J
+Avg Power (Timed):    95.2370 W
+Avg Power (Sampled):  97.7479 W
+Min Power (Sampled):  56.14 W
+Max Power (Sampled):  147.66 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+
+
+
+
+
+(2022-09-08/base) arsho::x3006c0s1b0n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 1 mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/vsp_finan512_scagr7-2c_rlfddd.bin 0 1 1
+Running command: mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/vsp_finan512_scagr7-2c_rlfddd.bin 0 1 1 on 1 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,1,520,910070918,81.1892,1.4347,0.0000,0.0000,1.5450,75.7441,0.0059,0.0001,0.1813,2.2779,1.0534
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           83.0529 s
+Total Energy:         4638.0854 J
+Avg Power (Timed):    55.8450 W
+Avg Power (Sampled):  55.8437 W
+Min Power (Sampled):  55.82 W
+Max Power (Sampled):  55.88 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+(2022-09-08/base) arsho::x3006c0s1b0n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 2 mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/vsp_finan512_scagr7-2c_rlfddd.bin 0 1 1
+Running command: mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/vsp_finan512_scagr7-2c_rlfddd.bin 0 1 1 on 2 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,2,520,910070918,42.1618,1.0532,2.1078,2.4764,0.9018,30.6758,0.0066,0.0002,0.0919,4.8481,0.8569
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           45.9101 s
+Total Energy:         2566.1433 J
+Avg Power (Timed):    55.8950 W
+Avg Power (Sampled):  55.8909 W
+Min Power (Sampled):  55.82 W
+Max Power (Sampled):  56.20 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+(2022-09-08/base) arsho::x3006c0s1b0n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 4 mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/vsp_finan512_scagr7-2c_rlfddd.bin 0 1 1
+Running command: mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/vsp_finan512_scagr7-2c_rlfddd.bin 0 1 1 on 4 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,4,520,910070918,21.2549,0.5525,2.3220,3.2198,0.5874,7.9484,0.0058,0.0002,0.0763,6.5424,0.8451
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           26.3805 s
+Total Energy:         2429.4172 J
+Avg Power (Timed):    92.0915 W
+Avg Power (Sampled):  93.8869 W
+Min Power (Sampled):  55.88 W
+Max Power (Sampled):  142.38 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+
+# sg
+(2022-09-08/base) arsho::x3006c0s1b0n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 1 mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive.out data/vsp_finan512_scagr7-2c_rlfddd.bin 0 1 1
+Running command: mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive.out data/vsp_finan512_scagr7-2c_rlfddd.bin 0 1 1 on 1 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,1,513,864761518,91.6386,1.4041,0.0000,2.4644,3.4567,81.5821,0.0132,0.0001,0.1739,2.5441,1.0440
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           91.2749 s
+Total Energy:         5124.5682 J
+Avg Power (Timed):    56.1443 W
+Avg Power (Sampled):  56.1421 W
+Min Power (Sampled):  55.82 W
+Max Power (Sampled):  56.20 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+(2022-09-08/base) arsho::x3006c0s1b0n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 2 mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive.out data/vsp_finan512_scagr7-2c_rlfddd.bin 0 1 1
+Running command: mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive.out data/vsp_finan512_scagr7-2c_rlfddd.bin 0 1 1 on 2 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,2,513,864761518,64.3504,1.0318,6.5921,11.4799,2.1932,32.0342,0.0091,0.0015,0.0948,10.9138,0.8277
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           65.4767 s
+Total Energy:         3664.4605 J
+Avg Power (Timed):    55.9659 W
+Avg Power (Sampled):  55.9642 W
+Min Power (Sampled):  55.82 W
+Max Power (Sampled):  56.20 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+(2022-09-08/base) arsho::x3006c0s1b0n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 4 mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive.out data/vsp_finan512_scagr7-2c_rlfddd.bin 0 1 1
+Running command: mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive.out data/vsp_finan512_scagr7-2c_rlfddd.bin 0 1 1 on 4 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,4,513,864761518,36.2688,0.6992,6.5285,11.0028,1.1467,8.4889,0.0056,0.0001,0.0032,8.3938,0.8201
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           38.3029 s
+Total Energy:         3502.4250 J
+Avg Power (Timed):    91.4402 W
+Avg Power (Sampled):  92.1561 W
+Min Power (Sampled):  56.14 W
+Max Power (Sampled):  169.73 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+
+# sg CAM
+(2022-09-08/base) arsho::x3006c0s1b0n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 1 mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1
+Running command: mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1 on 1 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,1,513,864761518,91.7062,1.4830,0.0000,2.5565,3.4060,81.4526,0.0050,0.0001,0.1737,2.6292,1.0394
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           90.9940 s
+Total Energy:         5111.9064 J
+Avg Power (Timed):    56.1785 W
+Avg Power (Sampled):  56.1776 W
+Min Power (Sampled):  56.14 W
+Max Power (Sampled):  56.42 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+
+(2022-09-08/base) arsho::x3006c0s1b0n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 2 mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1
+Running command: mpiexec --np 2 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1 on 2 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,2,513,864761518,62.6453,0.9411,0.9318,35.3310,2.1975,21.5507,0.0049,0.0002,0.1009,1.5872,0.8146
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           64.4684 s
+Total Energy:         3628.5999 J
+Avg Power (Timed):    56.2849 W
+Avg Power (Sampled):  56.3032 W
+Min Power (Sampled):  56.14 W
+Max Power (Sampled):  56.69 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+
+(2022-09-08/base) arsho::x3006c0s1b0n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 4 mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1
+Running command: mpiexec --np 4 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./sg_interactive_cam.out data/vsp_finan512_scagr7-2c_rlfddd.bin 1 1 1 on 4 GPU
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,4,513,864761518,32.7221,0.6457,0.8875,22.1641,1.5537,5.5019,0.0062,0.0001,0.0048,1.9580,2.7374
+
+============================================================
+GPU POWER USAGE SUMMARY
+Total Time:           35.7627 s
+Total Energy:         3449.9781 J
+Avg Power (Timed):    96.4687 W
+Avg Power (Sampled):  98.2429 W
+Min Power (Sampled):  56.14 W
+Max Power (Sampled):  206.80 W
+============================================================
+Saved summary to: power_report.csv
+Saved power samples to: power_report_samples.csv
+
+
+
+
+------------ NEW END
 
 (2022-09-08/base) arsho::x3006c0s25b0n0 { /eagle/dist_relational_alg/arsho/mnmgJOIN }-> python power_time.py --output power_report.csv --gpu 1 mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/data_165435.bin 0 1 1
 Running command: mpiexec --np 1 --ppn 4 --depth=1 --cpu-bind depth ./set_affinity_gpu_polaris.sh ./tc_interactive.out data/data_165435.bin 0 1 1 on 1 GPU

@@ -9,17 +9,34 @@ NS_IN_S = 1_000_000_000  # Nanoseconds in a second
 def log(message):
     print(message, file=sys.stdout)
 
+def polaris_gpu_mapping(num_gpus, num_ranks):
+    """
+    Replicate the reverse-order GPU mapping used on Polaris.
+    Returns the list of GPU indices assigned to ranks [0..num_ranks-1].
+    """
+    return [num_gpus - 1 - (r % num_gpus) for r in range(num_ranks)]
+
+
 def get_power_draw(total_gpu_on_node=1):
+    # Query all GPU indices + power
     proc = subprocess.run(
-        ["nvidia-smi", "--query-gpu=power.draw", "--format=csv,noheader,nounits"],
-        capture_output=True
+        ["nvidia-smi", "--query-gpu=index,power.draw", "--format=csv,noheader,nounits"],
+        capture_output=True, check=True
     )
-    stdout = proc.stdout.decode("utf-8").strip()
-    power_values = [float(line.strip()) for line in stdout.splitlines()]
-    return sum(power_values[:total_gpu_on_node])
+    stdout = proc.stdout.decode("utf-8").strip().splitlines()
+    power = {int(line.split(",")[0]): float(line.split(",")[1]) for line in stdout}
+
+    # Figure out how many GPUs exist
+    num_gpus = len(power)
+
+    # Build mapping list for the GPUs actually used
+    device_ids = polaris_gpu_mapping(num_gpus, total_gpu_on_node)
+
+    # Sum only the mapped GPUs
+    return sum(power[i] for i in device_ids)
 
 def measure_power(cmd_args, resolution=0.1, total_gpu_on_node=1):
-    get_power_draw()  # warm-up
+    get_power_draw(total_gpu_on_node)  # warm-up
     energy_j = 0
     power_draw_samples = []
 
@@ -32,7 +49,7 @@ def measure_power(cmd_args, resolution=0.1, total_gpu_on_node=1):
             proc.wait(timeout=resolution)
         except subprocess.TimeoutExpired:
             new_time_ns = time.time_ns()
-            draw_w = get_power_draw()
+            draw_w = get_power_draw(total_gpu_on_node)
             delay_ns = new_time_ns - time_ns
             energy_j += delay_ns * draw_w / NS_IN_S
             power_draw_samples.append((new_time_ns, draw_w))

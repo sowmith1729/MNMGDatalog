@@ -1078,12 +1078,46 @@ def plot_gpu_scaling(df, output_file='scaling_study.pdf'):
     # Combine legends
     lines = l1 + l2
     labels_leg = [l.get_label() for l in lines]
-    ax1.legend(lines, labels_leg, loc='upper right', fontsize=14)
+    ax1.legend(lines, labels_leg, loc='upper center', fontsize=14)
 
     plt.tight_layout()
     plt.savefig(output_file, bbox_inches='tight', dpi=300)
     plt.close()
     print(f"Saved {output_file}")
+
+def show_table_for_metrics(df):
+
+    # Compute Tuples/Joule
+    df["TuplesPerJoule"] = df.apply(
+        lambda row: row["Tuples"] / row["TotalEnergy(J)"] if row["TotalEnergy(J)"] > 0 else np.nan,
+        axis=1
+    )
+
+    print(df)
+
+    # Engines in desired order
+    engines = ["GPULog", "MNMGDatalog", "cuDF", "BJoin", "INLJoin"]
+
+    # Pivot to get one row per dataset, engines as columns
+    pivot_df = df.pivot(index="Dataset", columns="Engine", values="TuplesPerJoule")
+
+    # Ensure all desired engines are in columns (fill missing with NaN)
+    pivot_df = pivot_df.reindex(columns=engines)
+
+    # Print header
+    print("Dataset & " + " & ".join(engines) + " \\\\")
+
+    # Print rows
+    for dataset, row in pivot_df.iterrows():
+        row_strs = []
+        for eng in engines:
+            val = row[eng]
+            if pd.isna(val):
+                row_strs.append("    --")
+            else:
+                row_strs.append(f"{int(round(val))}")
+        print(f"{dataset:15} & " + " & ".join(row_strs) + " \\\\")
+
 
 
 if __name__ == "__main__":
@@ -1101,13 +1135,40 @@ if __name__ == "__main__":
     # plot_power_time_energy(tc_data, "drawing/charts/tc_power_line.pdf")
     # plot_power_time_energy(sg_data, "drawing/charts/sg_power_line.pdf")
 
+    # show_table_for_metrics(tc_data)
+    # show_table_for_metrics(sg_data)
+
+    # scaling_data = [
+    #     {"GPUs": 1, "Total Time (s)": 76.8929, "Total Energy (J)": 3921.4198},
+    #     {"GPUs": 2, "Total Time (s)": 40.5936, "Total Energy (J)": 2069.9404},
+    #     {"GPUs": 4, "Total Time (s)": 23.2474, "Total Energy (J)": 2049.5490},
+    # ]
+    # df_scale = pd.DataFrame(scaling_data)
+    # plot_gpu_scaling(df_scale, "drawing/charts/multi_gpu.pdf")
+
+    # scaling_data = [
+    #     {"GPUs": 1, "Total Time (s)": 91.2749, "Total Energy (J)": 5124.5682},
+    #     {"GPUs": 2, "Total Time (s)": 65.4767, "Total Energy (J)": 3664.4605},
+    #     {"GPUs": 4, "Total Time (s)": 38.3029, "Total Energy (J)": 3502.4250},
+    # ]
+    # df_scale = pd.DataFrame(scaling_data)
+    # plot_gpu_scaling(df_scale, "drawing/charts/multi_gpu_sg_vspfinan.pdf")
+
     scaling_data = [
-        {"GPUs": 1, "Total Time (s)": 76.8929, "Total Energy (J)": 3921.4198},
-        {"GPUs": 2, "Total Time (s)": 40.5936, "Total Energy (J)": 2069.9404},
-        {"GPUs": 4, "Total Time (s)": 23.2474, "Total Energy (J)": 2049.5490},
+        {"GPUs": 1, "Total Time (s)": 76.8981, "Total Energy (J)": 7964.3256},
+        {"GPUs": 2, "Total Time (s)": 44.0347, "Total Energy (J)": 8282.3856},
+        {"GPUs": 4, "Total Time (s)": 26.3303, "Total Energy (J)": 9847.8178},
     ]
     df_scale = pd.DataFrame(scaling_data)
-    plot_gpu_scaling(df_scale, "drawing/charts/multi_gpu.pdf")
+    plot_gpu_scaling(df_scale, "drawing/charts/multi_gpu_tc_usroad.pdf")
+    scaling_data = [
+        {"GPUs": 1, "Total Time (s)": 91.0825, "Total Energy (J)": 9629.6954},
+        {"GPUs": 2, "Total Time (s)": 64.7545, "Total Energy (J)": 12405.1685},
+        {"GPUs": 4, "Total Time (s)": 35.7745, "Total Energy (J)": 13648.2719},
+    ]
+    df_scale = pd.DataFrame(scaling_data)
+    plot_gpu_scaling(df_scale, "drawing/charts/multi_gpu_sg_vspfinan.pdf")
+
 
     # slog_vs_mnmgjoin("drawing/charts/tc_mnmgjoin_slog.csv", "drawing/charts/mnmgJOIN_slog.pdf")
     # plot_total_chart("drawing/charts/sg.csv", "drawing/charts/sg.pdf", "SG")
