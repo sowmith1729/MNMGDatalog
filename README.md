@@ -1,4 +1,5 @@
 ## MNMGDatalog
+First multi-node multi-GPU Datalog engine.
 
 This repository hosts code for Datalog applications optimized for multi-node, multi-GPU environments:
 
