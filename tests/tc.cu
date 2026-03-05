@@ -124,7 +124,7 @@ void benchmark(int argc, char** argv) {
         global_t_full_size = get_total_size(t_full_size, total_rank);
         iterations++;
         if (rank == 0)
-            printf("Number of global tuples in full is %ll\n",
+            printf("Number of global tuples in full is %ld\n",
                    global_t_full_size);
         if (old_global_t_full_size == global_t_full_size) {
             break;
