@@ -1,41 +1,4 @@
-#include "include/comm.cu"
-#include "include/error_handler.cu"
-#include "include/hash_table.cu"
-#include "include/join.cu"
-#include "include/kernels.cu"
-#include "include/parallel_io.cu"
-#include "include/utils.cu"
-#include <assert.h>
-#include <chrono>
-#include <clocale>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <fcntl.h>
-#include <iomanip>
-#include <iostream>
-#include <math.h>
-#include <mpi.h>
-#include <set>
-#include <stdio.h>
-#include <string>
-#include <sys/stat.h>
-#include <thrust/copy.h>
-#include <thrust/count.h>
-#include <thrust/device_ptr.h>
-#include <thrust/device_vector.h>
-#include <thrust/execution_policy.h>
-#include <thrust/fill.h>
-#include <thrust/functional.h>
-#include <thrust/host_vector.h>
-#include <thrust/iterator/transform_iterator.h>
-#include <thrust/reduce.h>
-#include <thrust/set_operations.h>
-#include <thrust/sort.h>
-#include <thrust/transform.h>
-#include <thrust/unique.h>
-#include <unordered_map>
-#include <vector>
+#include "mnmg.cuh"
 
 using namespace std;
 
