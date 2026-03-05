@@ -36,19 +36,19 @@ function(add_cuda_mpi_target target_name source_file)
 endfunction()
 
 # ─── Targets ───────────────────────────────────────────────────────────────
-add_cuda_mpi_target(tc          benchmarks/tc.cu)
-add_cuda_mpi_target(tc_nl       benchmarks/tc_nl.cu)
-add_cuda_mpi_target(sg          benchmarks/sg.cu)
-add_cuda_mpi_target(sg_nl       benchmarks/sg_nl.cu)
-add_cuda_mpi_target(wcc         benchmarks/wcc.cu)
-add_cuda_mpi_target(single_join benchmarks/single_join.cu)
+add_cuda_mpi_target(tc          tests/benchmarks/tc.cu)
+add_cuda_mpi_target(tc_nl       tests/benchmarks/tc_nl.cu)
+add_cuda_mpi_target(sg          tests/benchmarks/sg.cu)
+add_cuda_mpi_target(sg_nl       tests/benchmarks/sg_nl.cu)
+add_cuda_mpi_target(wcc         tests/benchmarks/wcc.cu)
+add_cuda_mpi_target(single_join tests/benchmarks/single_join.cu)
 
 
 add_cuda_mpi_target(test_tc         tests/tc.cu)
 add_cuda_mpi_target(test_join       tests/single_join.cu)
 
 # ─── Debug variant for wcc ─────────────────────────────────────────────────
-add_cuda_mpi_target(wcc_debug benchmarks/wcc.cu)
+add_cuda_mpi_target(wcc_debug tests/benchmarks/wcc.cu)
 target_compile_definitions(wcc_debug PRIVATE DEBUG)
 
 # ─── Polaris / Cray support ────────────────────────────────────────────────

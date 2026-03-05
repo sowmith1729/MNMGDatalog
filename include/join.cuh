@@ -49,9 +49,9 @@ __global__ void get_join_result_entity(Entity* hash_table, int hash_table_size,
     }
 }
 
-Entity* get_join(int grid_size, int block_size, Entity* hash_table,
-                 int hash_table_size, Entity* relation, int relation_size,
-                 int* join_result_size, double* compute_time) {
+Entity* get_local_join(int grid_size, int block_size, Entity* hash_table,
+                       int hash_table_size, Entity* relation, int relation_size,
+                       int* join_result_size, double* compute_time) {
     double start_time, end_time, elapsed_time;
     start_time = MPI_Wtime();
     Entity* join_result = nullptr;
@@ -195,4 +195,49 @@ Entity* get_join_nl(int grid_size, int block_size, Entity* hash_table,
     elapsed_time = end_time - start_time;
     *compute_time = elapsed_time;
     return join_result;
+}
+
+int deduplicate(Entity* ar, int size) {
+    thrust::sort(thrust::device, ar, ar + size, set_cmp());
+    return (thrust::unique(thrust::device, ar, ar + size, is_equal())) - ar;
+}
+
+int subtract_known(Entity* delta, int delta_size, Entity* full,
+                   long long full_size) {
+    return thrust::set_difference(thrust::device, delta, delta + delta_size,
+                                  full, full + full_size, delta, set_cmp()) -
+           delta;
+}
+
+Entity* merge_delta(Entity* t_full, long long t_full_size, Entity* t_delta,
+                    int t_delta_size, long long* new_size) {
+    long long merged_size = (long long)t_delta_size + t_full_size;
+    Entity* merged;
+    checkCuda(cudaMalloc((void**)&merged, merged_size * sizeof(Entity)));
+    thrust::merge(thrust::device, t_full, t_full + t_full_size, t_delta,
+                  t_delta + t_delta_size, merged, set_cmp());
+    cudaFree(t_full);
+    *new_size = merged_size;
+    return merged;
+}
+
+Entity* get_global_join(int rank, int total_rank, int grid_size, int block_size,
+                        Entity* hash_table, int hash_table_size, Entity* probe,
+                        int probe_size, int total_columns, int cuda_aware_mpi,
+                        int comm_method, int iterations, int* result_size,
+                        double* compute_time) {
+    int join_result_size = 0;
+    Entity* join_result =
+        get_local_join(grid_size, block_size, hash_table, hash_table_size,
+                       probe, probe_size, &join_result_size, compute_time);
+    if (total_rank == 1) {
+        *result_size = join_result_size;
+        return join_result;
+    }
+    Entity* distributed = get_split_relation(
+        rank, join_result, join_result_size, total_columns, total_rank,
+        grid_size, block_size, cuda_aware_mpi, result_size, comm_method,
+        compute_time, compute_time, compute_time, iterations);
+    cudaFree(join_result);
+    return distributed;
 }

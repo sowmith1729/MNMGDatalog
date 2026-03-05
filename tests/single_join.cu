@@ -67,15 +67,12 @@ void benchmark(int argc, char** argv) {
         cudaMalloc((void**)&local_data_device, local_count * sizeof(int)));
     cudaMemcpy(local_data_device, local_data_host, local_count * sizeof(int),
                cudaMemcpyHostToDevice);
-    Entity* local_data;
-    checkCuda(cudaMalloc((void**)&local_data, row_size * sizeof(Entity)));
-    Entity* local_data_reverse;
-    checkCuda(
-        cudaMalloc((void**)&local_data_reverse, row_size * sizeof(Entity)));
-    create_entity_ar<<<grid_size, block_size>>>(local_data, row_size,
-                                                local_data_device);
-    create_entity_ar_reverse<<<grid_size, block_size>>>(
-        local_data_reverse, row_size, local_data_device);
+    Entity* local_data =
+        make_entity_array(grid_size, block_size, local_data_device, row_size,
+                          false);
+    Entity* local_data_reverse =
+        make_entity_array(grid_size, block_size, local_data_device, row_size,
+                          true);
 
     int input_relation_size = 0;
     Entity* input_relation;
@@ -92,12 +89,7 @@ void benchmark(int argc, char** argv) {
     cout << "Rank: " << rank << ", input_relation_size: " << input_relation_size
          << endl;
 #endif
-    thrust::sort(thrust::device, input_relation,
-                 input_relation + input_relation_size, set_cmp());
-    input_relation_size =
-        (thrust::unique(thrust::device, input_relation,
-                        input_relation + input_relation_size, is_equal())) -
-        input_relation;
+    input_relation_size = deduplicate(input_relation, input_relation_size);
 #ifdef DEBUG
     cout << "Rank: " << rank
          << ", input_relation_size after deduplication: " << input_relation_size
@@ -119,12 +111,7 @@ void benchmark(int argc, char** argv) {
     cout << "Rank: " << rank
          << ", reverse_relation_size: " << reverse_relation_size << endl;
 #endif
-    thrust::sort(thrust::device, reverse_relation,
-                 reverse_relation + reverse_relation_size, set_cmp());
-    reverse_relation_size =
-        (thrust::unique(thrust::device, reverse_relation,
-                        reverse_relation + reverse_relation_size, is_equal())) -
-        reverse_relation;
+    reverse_relation_size = deduplicate(reverse_relation, reverse_relation_size);
 #ifdef DEBUG
     cout << "Rank: " << rank << ", reverse_relation_size after deduplication: "
          << reverse_relation_size << endl;
@@ -139,41 +126,20 @@ void benchmark(int argc, char** argv) {
          << endl;
 #endif
 
-    int join_result_size = 0;
-    Entity* join_result = get_join(
-        grid_size, block_size, hash_table, hash_table_rows, reverse_relation,
-        reverse_relation_size, &join_result_size, &_t);
-#ifdef DEBUG
-    cout << "Rank: " << rank << ", join_result_size: " << join_result_size
-         << endl;
-#endif
-
     int distributed_join_result_size = 0;
-    Entity* distributed_join_result;
-    if (total_rank == 1) {
-        distributed_join_result = join_result;
-        distributed_join_result_size = join_result_size;
-    } else {
-        distributed_join_result =
-            get_split_relation(rank, join_result, join_result_size,
-                               total_columns, total_rank, grid_size, block_size,
-                               cuda_aware_mpi, &distributed_join_result_size,
-                               comm_method, &_t, &_t, &_t, iterations);
-    }
+    Entity* distributed_join_result =
+        get_global_join(rank, total_rank, grid_size, block_size, hash_table,
+                        hash_table_rows, reverse_relation, reverse_relation_size,
+                        total_columns, cuda_aware_mpi, comm_method, iterations,
+                        &distributed_join_result_size, &_t);
 #ifdef DEBUG
     cout << "Rank: " << rank
          << ", distributed_join_result_size: " << distributed_join_result_size
          << endl;
 #endif
 
-    thrust::sort(thrust::device, distributed_join_result,
-                 distributed_join_result + distributed_join_result_size,
-                 set_cmp());
     distributed_join_result_size =
-        (thrust::unique(thrust::device, distributed_join_result,
-                        distributed_join_result + distributed_join_result_size,
-                        is_equal())) -
-        distributed_join_result;
+        deduplicate(distributed_join_result, distributed_join_result_size);
 #ifdef DEBUG
     cout << "Rank: " << rank
          << ", distributed_join_result_size after deduplication: "
@@ -227,7 +193,6 @@ void benchmark(int argc, char** argv) {
     cudaFree(input_relation);
     cudaFree(local_data);
     cudaFree(local_data_reverse);
-    cudaFree(join_result);
     cudaFree(distributed_join_result);
     cudaFree(distributed_join_result_ar);
     cudaFree(hash_table);

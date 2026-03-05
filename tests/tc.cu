@@ -59,15 +59,11 @@ void benchmark(int argc, char** argv) {
         cudaMalloc((void**)&local_data_device, local_count * sizeof(int)));
     cudaMemcpy(local_data_device, local_data_host, local_count * sizeof(int),
                cudaMemcpyHostToDevice);
-    Entity* local_data;
-    checkCuda(cudaMalloc((void**)&local_data, row_size * sizeof(Entity)));
-    Entity* local_data_reverse;
-    checkCuda(
-        cudaMalloc((void**)&local_data_reverse, row_size * sizeof(Entity)));
-    create_entity_ar<<<grid_size, block_size>>>(local_data, row_size,
-                                                local_data_device);
-    create_entity_ar_reverse<<<grid_size, block_size>>>(
-        local_data_reverse, row_size, local_data_device);
+
+    Entity* local_data = make_entity_array(grid_size, block_size,
+                                           local_data_device, row_size, false);
+    Entity* local_data_reverse = make_entity_array(
+        grid_size, block_size, local_data_device, row_size, true);
 
     int input_relation_size = 0;
     Entity* input_relation;
@@ -93,10 +89,7 @@ void benchmark(int argc, char** argv) {
                                      comm_method, &_t, &_t, &_t, iterations);
     }
 
-    thrust::sort(thrust::device, t_delta, t_delta + t_delta_size, set_cmp());
-    t_delta_size = (thrust::unique(thrust::device, t_delta,
-                                   t_delta + t_delta_size, is_equal())) -
-                   t_delta;
+    t_delta_size = deduplicate(t_delta, t_delta_size);
 
     Entity* t_full;
     checkCuda(cudaMalloc((void**)&t_full, t_delta_size * sizeof(Entity)));
@@ -105,75 +98,36 @@ void benchmark(int argc, char** argv) {
 #ifdef DEBUG
     cout << "t_full initialization done" << endl;
 #endif
-    long long global_t_full_size;
     long long t_full_size = t_delta_size;
-    if (total_rank == 1) {
-        global_t_full_size = t_full_size;
-    } else {
-        MPI_Allreduce(&t_full_size, &global_t_full_size, 1, MPI_LONG_LONG_INT,
-                      MPI_SUM, MPI_COMM_WORLD);
-    }
+    long long global_t_full_size = get_total_size(t_full_size, total_rank);
 
     int hash_table_rows = 0;
     Entity* hash_table =
         get_hash_table(grid_size, block_size, input_relation,
                        input_relation_size, &hash_table_rows, &_t);
 
-    Entity* join_result;
-    Entity* new_t_full;
     while (true) {
-        int join_result_size = 0;
-        join_result =
-            get_join(grid_size, block_size, hash_table, hash_table_rows,
-                     t_delta, t_delta_size, &join_result_size, &_t);
+        Entity* old_t_delta = t_delta;
+        t_delta = get_global_join(rank, total_rank, grid_size, block_size,
+                                  hash_table, hash_table_rows, old_t_delta,
+                                  t_delta_size, total_columns, cuda_aware_mpi,
+                                  comm_method, iterations, &t_delta_size, &_t);
+        cudaFree(old_t_delta);
 
-        cudaFree(t_delta);
-        if (total_rank == 1) {
-            t_delta = join_result;
-            t_delta_size = join_result_size;
-        } else {
-            t_delta = get_split_relation(
-                rank, join_result, join_result_size, total_columns, total_rank,
-                grid_size, block_size, cuda_aware_mpi, &t_delta_size,
-                comm_method, &_t, &_t, &_t, iterations);
-        }
+        t_delta_size = deduplicate(t_delta, t_delta_size);
+        t_delta_size =
+            subtract_known(t_delta, t_delta_size, t_full, t_full_size);
+        t_full = merge_delta(t_full, t_full_size, t_delta, t_delta_size,
+                             &t_full_size);
 
-        thrust::sort(thrust::device, t_delta, t_delta + t_delta_size,
-                     set_cmp());
-        t_delta_size = (thrust::unique(thrust::device, t_delta,
-                                       t_delta + t_delta_size, is_equal())) -
-                       t_delta;
-
-        t_delta_size = thrust::set_difference(
-                           thrust::device, t_delta, t_delta + t_delta_size,
-                           t_full, t_full + t_full_size, t_delta, set_cmp()) -
-                       t_delta;
-
-        long long new_t_full_size = t_delta_size + t_full_size;
-        checkCuda(
-            cudaMalloc((void**)&new_t_full, new_t_full_size * sizeof(Entity)));
-        thrust::merge(thrust::device, t_full, t_full + t_full_size, t_delta,
-                      t_delta + t_delta_size, new_t_full, set_cmp());
-
-        cudaFree(t_full);
-        t_full = new_t_full;
-        t_full_size = new_t_full_size;
-
-        if (total_rank == 1) {
-            long long old_global_t_full_size = global_t_full_size;
-            iterations++;
-            global_t_full_size = t_full_size;
-            if (old_global_t_full_size == t_full_size) {
-                break;
-            }
-        } else {
-            long long old_global_t_full_size = global_t_full_size;
-            MPI_Allreduce(&t_full_size, &global_t_full_size, 1,
-                          MPI_LONG_LONG_INT, MPI_SUM, MPI_COMM_WORLD);
-            iterations++;
-            if (old_global_t_full_size == global_t_full_size) {
-                break;
-            }
+        long long old_global_t_full_size = global_t_full_size;
+        global_t_full_size = get_total_size(t_full_size, total_rank);
+        iterations++;
+        if (rank == 0)
+            printf("Number of global tuples in full is %ll\n",
+                   global_t_full_size);
+        if (old_global_t_full_size == global_t_full_size) {
+            break;
         }
     }
 
@@ -189,6 +143,7 @@ void benchmark(int argc, char** argv) {
                cudaMemcpyDeviceToHost);
 
     int* t_full_counts = (int*)calloc(total_rank, sizeof(int));
+    printf("the t_full_counts are %d\n", t_full_counts);
     MPI_Allgather(&t_full_size, 1, MPI_INT, t_full_counts, 1, MPI_INT,
                   MPI_COMM_WORLD);
     int* t_full_displacements = (int*)calloc(total_rank, sizeof(int));
@@ -209,7 +164,6 @@ void benchmark(int argc, char** argv) {
     cudaFree(local_data);
     cudaFree(local_data_reverse);
     cudaFree(t_full);
-    cudaFree(new_t_full);
     cudaFree(t_delta);
     cudaFree(t_full_ar);
     cudaFree(hash_table);

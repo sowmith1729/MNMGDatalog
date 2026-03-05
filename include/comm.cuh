@@ -395,3 +395,13 @@ Entity* get_split_relation(int rank, Entity* data_device, int data_size,
             communication_time, buffer_memory_clear_time, iterations);
     }
 }
+
+long long get_total_size(long long local_size, int total_rank) {
+    if (total_rank == 1) {
+        return local_size;
+    }
+    long long global_size;
+    MPI_Allreduce(&local_size, &global_size, 1, MPI_LONG_LONG_INT, MPI_SUM,
+                  MPI_COMM_WORLD);
+    return global_size;
+}

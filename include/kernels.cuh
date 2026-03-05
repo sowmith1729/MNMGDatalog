@@ -277,6 +277,20 @@ __global__ void create_entity_ar_reverse(Entity* data, int data_rows,
     }
 }
 
+Entity* make_entity_array(int grid_size, int block_size, int* data_device,
+                          int row_size, bool reverse) {
+    Entity* entity;
+    checkCuda(cudaMalloc((void**)&entity, row_size * sizeof(Entity)));
+    if (reverse) {
+        create_entity_ar_reverse<<<grid_size, block_size>>>(entity, row_size,
+                                                            data_device);
+    } else {
+        create_entity_ar<<<grid_size, block_size>>>(entity, row_size,
+                                                    data_device);
+    }
+    return entity;
+}
+
 __global__ void reverse_t_full(int* output_data, int data_rows,
                                Entity* input_data) {
     int index = (blockIdx.x * blockDim.x) + threadIdx.x;
