@@ -9,12 +9,18 @@ MNMGDatalog is a multi-node multi-GPU Datalog engine in CUDA/C++ with MPI. It ev
 ## Repository Structure
 
 ```
-include/      # Header-only library (.cuh) — all shared logic lives here
-benchmarks/   # Full benchmark programs with timing instrumentation
-src/          # Clean versions of benchmarks with timing code removed
+include/           # Header-only library (.cuh) — all shared logic lives here
+tests/
+  benchmarks/      # Full benchmark programs with timing instrumentation
+  tc.cu            # Stripped test versions (no timing, no output formatting)
+  single_join.cu
+  PXJLog.cu
+misc/
+  binary_file_utils.py   # bin↔txt converter for data files
+  graphs/                # Sample graph data (e.g. fe_body)
 ```
 
-All benchmarks and src files include a single umbrella header:
+All test and benchmark files include a single umbrella header:
 ```cpp
 #include "mnmg.cuh"
 ```
@@ -26,13 +32,15 @@ All benchmarks and src files include a single umbrella header:
 ```bash
 mkdir build && cd build
 cmake ..
-make tc          # Transitive Closure
-make sg          # Same Generation
-make wcc         # Weakly Connected Components
-make single_join # Single Join
-make tc_nl       # TC with nested-loop join
-make sg_nl       # SG with nested-loop join
+make tc          # Transitive Closure        (tests/benchmarks/tc.cu)
+make sg          # Same Generation           (tests/benchmarks/sg.cu)
+make wcc         # Weakly Connected Components (tests/benchmarks/wcc.cu)
+make single_join # Single Join               (tests/benchmarks/single_join.cu)
+make tc_nl       # TC with nested-loop join  (tests/benchmarks/tc_nl.cu)
+make sg_nl       # SG with nested-loop join  (tests/benchmarks/sg_nl.cu)
 make wcc_debug   # WCC with DEBUG macro
+make test_tc     # Stripped TC test           (tests/tc.cu)
+make test_join   # Stripped single-join test  (tests/single_join.cu)
 ```
 
 CMake options:
@@ -51,7 +59,7 @@ mpirun -np <NPROCS> ./<target>.out <data_file> <cuda_aware_mpi> <method> [job_ru
 
 `NPROCS` = number of GPUs. For local multi-GPU runs, `cudaSetDevice(rank % num_devices)` must be called after `MPI_Comm_rank` — the code does not do this automatically, so without it all ranks default to GPU 0.
 
-### Makefile (legacy)
+### Makefile (legacy — references flat file paths, may not work with current layout)
 
 ```bash
 make runtc DATA_FILE=data/data_7035.bin NPROCS=3 CUDA_AWARE_MPI=0 METHOD=0
@@ -110,11 +118,11 @@ MPI outside `get_split_relation` is only: `MPI_Allreduce` for the fixpoint check
 
 **Deduplication** always happens *after* redistribution, never before. Pre-redistribution duplicates are scattered across ranks so they can't be locally resolved; after redistribution, all tuples with the same key are on the same rank.
 
-**Data format** — binary files store `int` pairs (4 bytes each). Use `python3 binary_file_utils.py txt_to_bin` / `bin_to_txt` to convert.
+**Data format** — binary files store `int` pairs (4 bytes each). Use `python3 misc/binary_file_utils.py txt_to_bin` / `bin_to_txt` to convert.
 
 ## Code Style
 
 - `.clang-format`: LLVM style, 80-column limit, 4-space indent, left pointer alignment
 - CUDA kernels use stride loops: `for (int i = index; i < n; i += stride)`
 - Debug output gated behind `#ifdef DEBUG`
-- `src/` versions use `double _t = 0.0` as a throwaway for function signature `double*` params that originally captured timing
+- `tests/` stripped versions use `double _t = 0.0` as a throwaway for function signature `double*` params that originally captured timing

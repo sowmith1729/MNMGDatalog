@@ -396,12 +396,20 @@ Entity* get_split_relation(int rank, Entity* data_device, int data_size,
     }
 }
 
-long long get_total_size(long long local_size, int total_rank) {
+long long get_total_size(long long local_size, int total_rank,
+                        double* time = nullptr) {
     if (total_rank == 1) {
         return local_size;
     }
+    double start = 0.0, end = 0.0;
+    if (time)
+        start = MPI_Wtime();
     long long global_size;
     MPI_Allreduce(&local_size, &global_size, 1, MPI_LONG_LONG_INT, MPI_SUM,
                   MPI_COMM_WORLD);
+    if (time) {
+        end = MPI_Wtime();
+        *time += end - start;
+    }
     return global_size;
 }

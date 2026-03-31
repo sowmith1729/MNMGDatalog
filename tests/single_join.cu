@@ -5,8 +5,15 @@ using namespace std;
 void benchmark(int argc, char** argv) {
     MPI_Init(&argc, &argv);
     MPI_Barrier(MPI_COMM_WORLD);
+    int total_rank, rank;
+    int i;
+    MPI_Comm_size(MPI_COMM_WORLD, &total_rank);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     int device_id;
     int number_of_sm;
+    int num_devices;
+    cudaGetDeviceCount(&num_devices);
+    cudaSetDevice(rank % num_devices);
     cudaGetDevice(&device_id);
     cudaDeviceGetAttribute(&number_of_sm, cudaDevAttrMultiProcessorCount,
                            device_id);
@@ -15,11 +22,6 @@ void benchmark(int argc, char** argv) {
     grid_size = 32 * number_of_sm;
     setlocale(LC_ALL, "");
     double _t = 0.0;
-
-    int total_rank, rank;
-    int i;
-    MPI_Comm_size(MPI_COMM_WORLD, &total_rank);
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     int iterations = 1;
     const char* input_file;
     int comm_method = 0;

@@ -4,27 +4,34 @@ using namespace std;
 
 /*
 Base rule:
-edge(x,y) ← edge(y,x).
-cc(n, n) ← edge(n,_).
-t_delta(x, y) ← cc(x, y)
+edge(x,y) <- edge(y,x).
+cc(n, n) <- edge(n,_).
+t_delta(x, y) <- cc(x, y)
 
 Recursive rule:
-join_result(z, x) ← t_delta(y, z), edge(x, y).
-join_result(z, x) ← join_result(x, z).
-cc_new(y, min(z)) ← cc(y, z) U join_result(z, x)
-t_delta(x, y) ← cc_new(y, z) - cc_old(y, z)
-cc(x, y) ← cc_new(x, y)
+join_result(z, x) <- t_delta(y, z), edge(x, y).
+join_result(z, x) <- join_result(x, z).
+cc_new(y, min(z)) <- cc(y, z) U join_result(z, x)
+t_delta(x, y) <- cc_new(y, z) - cc_old(y, z)
+cc(x, y) <- cc_new(x, y)
 
 Final rule:
-cc_representative_node(n) ← cc(_ , n).
+cc_representative_node(n) <- cc(_ , n).
 */
 void benchmark(int argc, char** argv) {
     MPI_Init(&argc, &argv);
     MPI_Barrier(MPI_COMM_WORLD);
+    int total_rank, rank;
+    int i;
+    MPI_Comm_size(MPI_COMM_WORLD, &total_rank);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     Output output;
     KernelTimer timer;
     int device_id;
     int number_of_sm;
+    int num_devices;
+    cudaGetDeviceCount(&num_devices);
+    cudaSetDevice(rank % num_devices);
     cudaGetDevice(&device_id);
     cudaDeviceGetAttribute(&number_of_sm, cudaDevAttrMultiProcessorCount,
                            device_id);
@@ -48,10 +55,6 @@ void benchmark(int argc, char** argv) {
     double hashtable_build_time = 0.0;
 
     double total_time = 0.0, max_total_time = 0.0;
-    int total_rank, rank;
-    int i;
-    MPI_Comm_size(MPI_COMM_WORLD, &total_rank);
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     int iterations = 0;
     // Should pass the input filename in command line argument
     const char* input_file;
@@ -130,14 +133,7 @@ void benchmark(int argc, char** argv) {
     initialization_time += kernel_time;
 
     // Deduplicate local data
-    timer.start_timer();
-    thrust::sort(thrust::device, edge, edge + edge_size, set_cmp());
-    edge_size =
-        (thrust::unique(thrust::device, edge, edge + edge_size, is_equal())) -
-        edge;
-    timer.stop_timer();
-    kernel_time = timer.get_spent_time();
-    deduplication_time += kernel_time;
+    edge_size = deduplicate(edge, edge_size, &deduplication_time);
 
 #ifdef DEBUG
     show_device_entity_variable(edge, edge_size, rank, "edge", 0);
@@ -158,16 +154,9 @@ void benchmark(int argc, char** argv) {
     memory_clear_time += buffer_memory_clear_time_temp;
 
     // Deduplicate distributed edge
-    timer.start_timer();
-    thrust::sort(thrust::device, distributed_edge,
-                 distributed_edge + distributed_edge_size, set_cmp());
     distributed_edge_size =
-        (thrust::unique(thrust::device, distributed_edge,
-                        distributed_edge + distributed_edge_size, is_equal())) -
-        distributed_edge;
-    timer.stop_timer();
-    kernel_time = timer.get_spent_time();
-    deduplication_time += kernel_time;
+        deduplicate(distributed_edge, distributed_edge_size,
+                    &deduplication_time);
 
     // Create cc from edge where node, component_id = node, node
     // cc(x, x) :- edge(x, _)
@@ -185,7 +174,7 @@ void benchmark(int argc, char** argv) {
     kernel_time = timer.get_spent_time();
     initialization_time += kernel_time;
 
-    // Deduplicate cc
+    // Deduplicate cc (key-only dedup — keep min component ID per node)
     timer.start_timer();
     thrust::sort(thrust::device, cc, cc + cc_size, set_cmp());
     cc_size =
@@ -205,14 +194,10 @@ void benchmark(int argc, char** argv) {
     elapsed_time = end_time - start_time;
     initialization_time += elapsed_time;
 
-    start_time = MPI_Wtime();
     long long global_t_delta_size = 0;
-    long long t_delta_size_temp = t_delta_size;
-    MPI_Allreduce(&t_delta_size_temp, &global_t_delta_size, 1,
-                  MPI_LONG_LONG_INT, MPI_SUM, MPI_COMM_WORLD);
-    end_time = MPI_Wtime();
-    elapsed_time = end_time - start_time;
-    communication_time += elapsed_time;
+    global_t_delta_size =
+        get_total_size((long long)t_delta_size, total_rank,
+                       &communication_time);
 
     // Hash table is Edge
     double temp_hashtable_build_time = 0.0;
@@ -231,15 +216,16 @@ void benchmark(int argc, char** argv) {
         double temp_join_time = 0.0;
         int join_result_size = 0;
         Entity* join_result =
-            get_join(grid_size, block_size, hash_table, hash_table_rows,
-                     t_delta, t_delta_size, &join_result_size, &temp_join_time);
+            get_local_join(grid_size, block_size, hash_table, hash_table_rows,
+                           t_delta, t_delta_size, &join_result_size,
+                           &temp_join_time);
         join_time += temp_join_time;
 #ifdef DEBUG
 //        show_device_entity_variable(join_result, join_result_size, rank,
 //        "join_result", 0);
 #endif
 
-        // Scatter the join result with reverse among relevant processes
+        // Scatter the join result among relevant processes
         buffer_preparation_time_temp = 0.0;
         communication_time_temp = 0.0;
         buffer_memory_clear_time_temp = 0.0;
@@ -254,20 +240,10 @@ void benchmark(int argc, char** argv) {
         communication_time += communication_time_temp;
         memory_clear_time += buffer_memory_clear_time_temp;
 
-        // Deduplicate distributed join result with reverse
-        timer.start_timer();
-        thrust::sort(thrust::device, distributed_join_result,
-                     distributed_join_result + distributed_join_result_size,
-                     set_cmp());
+        // Deduplicate distributed join result
         distributed_join_result_size =
-            (thrust::unique(thrust::device, distributed_join_result,
-                            distributed_join_result +
-                                distributed_join_result_size,
-                            is_equal())) -
-            distributed_join_result;
-        timer.stop_timer();
-        kernel_time = timer.get_spent_time();
-        deduplication_time += kernel_time;
+            deduplicate(distributed_join_result, distributed_join_result_size,
+                        &deduplication_time);
 
 #ifdef DEBUG
 //        show_device_entity_variable(distributed_join_result,
@@ -289,11 +265,9 @@ void benchmark(int argc, char** argv) {
         timer.stop_timer();
         kernel_time = timer.get_spent_time();
         merge_time += kernel_time;
-        // show_device_entity_variable(new_cc, new_cc_size, rank, "new_cc merged
-        // dedpulicated", 0);
 
         // Deduplicate new cc by keeping only the minimum component ID for each
-        // node
+        // node (key-only dedup — can't use deduplicate() which uses is_equal)
         timer.start_timer();
         new_cc_size = (thrust::unique(thrust::device, new_cc,
                                       new_cc + new_cc_size, is_equal_key())) -
@@ -302,8 +276,9 @@ void benchmark(int argc, char** argv) {
         kernel_time = timer.get_spent_time();
         deduplication_time += kernel_time;
 
-        // Update t delta which is the only new facts which are not in cc and
-        // will be used in next iteration
+        // Update t delta: new facts not in old cc
+        // (WCC set-diff writes to a new buffer, not in-place like
+        // subtract_known)
         start_time = MPI_Wtime();
         Entity* t_delta_temp;
         checkCuda(
@@ -319,13 +294,9 @@ void benchmark(int argc, char** argv) {
         timer.stop_timer();
         kernel_time = timer.get_spent_time();
         merge_time += kernel_time;
-        start_time = MPI_Wtime();
-        cudaFree(t_delta);
-        end_time = MPI_Wtime();
-        elapsed_time = end_time - start_time;
-        memory_clear_time += elapsed_time;
 
         start_time = MPI_Wtime();
+        cudaFree(t_delta);
         checkCuda(cudaMalloc((void**)&t_delta, t_delta_size * sizeof(Entity)));
         cudaMemcpy(t_delta, t_delta_temp, t_delta_size * sizeof(Entity),
                    cudaMemcpyDeviceToDevice);
@@ -341,16 +312,12 @@ void benchmark(int argc, char** argv) {
         end_time = MPI_Wtime();
         elapsed_time = end_time - start_time;
         memory_clear_time += elapsed_time;
-        //        show_device_entity_variable(cc, cc_size, rank, "cc", 0);
-        start_time = MPI_Wtime();
-        long long t_delta_size_temp_loop = t_delta_size;
+
         long long old_global_t_delta_size = global_t_delta_size;
-        MPI_Allreduce(&t_delta_size_temp_loop, &global_t_delta_size, 1,
-                      MPI_LONG_LONG_INT, MPI_SUM, MPI_COMM_WORLD);
+        global_t_delta_size =
+            get_total_size((long long)t_delta_size, total_rank,
+                           &communication_time);
         iterations++;
-        end_time = MPI_Wtime();
-        elapsed_time = end_time - start_time;
-        communication_time += elapsed_time;
 
         start_time = MPI_Wtime();
         cudaFree(distributed_join_result);
@@ -421,7 +388,7 @@ void benchmark(int argc, char** argv) {
         thrust::device, component_ids, component_ids + cc_distributed_size,
         thrust::constant_iterator<int>(1), unique_component_ids,
         component_sizes, binary_pred);
-    // Calculate the number of total unique compoennt
+    // Calculate the number of total unique component
     long long total_unique_component =
         thrust::distance(component_sizes, reduce_end.second);
     // Find the largest component size
@@ -440,25 +407,20 @@ void benchmark(int argc, char** argv) {
     elapsed_time = end_time - start_time;
     communication_time += elapsed_time;
 
-    // Deduplicate component IDs
+    // Deduplicate component IDs (key-only)
     timer.start_timer();
     cc_distributed_size =
         (thrust::unique(thrust::device, cc_distributed,
                         cc_distributed + cc_distributed_size, is_equal_key())) -
         cc_distributed;
-
     timer.stop_timer();
     kernel_time = timer.get_spent_time();
     deduplication_time += kernel_time;
 
-    start_time = MPI_Wtime();
     long long global_component_size = 0;
-    long long current_component_size = cc_distributed_size;
-    MPI_Allreduce(&current_component_size, &global_component_size, 1,
-                  MPI_LONG_LONG_INT, MPI_SUM, MPI_COMM_WORLD);
-    end_time = MPI_Wtime();
-    elapsed_time = end_time - start_time;
-    communication_time += elapsed_time;
+    global_component_size =
+        get_total_size((long long)cc_distributed_size, total_rank,
+                       &communication_time);
 
     start_time = MPI_Wtime();
     int* component_ar;
@@ -589,18 +551,3 @@ int main(int argc, char** argv) {
     benchmark(argc, argv);
     return 0;
 }
-// METHOD 0 = two pass method, 1 = sorting method
-// make runwcc DATA_FILE=data/dummy.bin NPROCS=1 CUDA_AWARE_MPI=0 METHOD=0
-// make runwcc DATA_FILE=data/dummy.bin NPROCS=2 CUDA_AWARE_MPI=0 METHOD=0
-// make runwcc DATA_FILE=data/dummy.bin NPROCS=8 CUDA_AWARE_MPI=0 METHOD=0
-// make runwcc DATA_FILE=data/flickr.bin NPROCS=8 CUDA_AWARE_MPI=0 METHOD=0
-// make runwcc DATA_FILE=data/data_214078.bin NPROCS=8 CUDA_AWARE_MPI=0 METHOD=0
-// make runwcc DATA_FILE=data/data_214078.bin NPROCS=8 CUDA_AWARE_MPI=0 METHOD=1
-// make runwcc DATA_FILE=data/web-Stanford.bin NPROCS=1 CUDA_AWARE_MPI=0
-// METHOD=0 make runwcc DATA_FILE=data/roadNet-CA.bin NPROCS=8 CUDA_AWARE_MPI=0
-// METHOD=0 make runwcc DATA_FILE=data/data/large_datasets/com-Orkut.bin
-// NPROCS=8 CUDA_AWARE_MPI=0 METHOD=0
-// /opt/nvidia/hpc_sdk/Linux_x86_64/24.1/comm_libs/hpcx/bin/mpirun -np 8
-// ./cc.out data/roadNet-CA.bin 1 0 make runwcc DATA_FILE=data/data_cc.bin
-// NPROCS=2 CUDA_AWARE_MPI=0 METHOD=0 make runwccdebug DATA_FILE=data/paper.bin
-// NPROCS=2 CUDA_AWARE_MPI=0 METHOD=0

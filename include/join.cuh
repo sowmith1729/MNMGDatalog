@@ -197,20 +197,42 @@ Entity* get_join_nl(int grid_size, int block_size, Entity* hash_table,
     return join_result;
 }
 
-int deduplicate(Entity* ar, int size) {
+int deduplicate(Entity* ar, int size, double* time = nullptr) {
+    double start = 0.0, end = 0.0;
+    if (time)
+        start = MPI_Wtime();
     thrust::sort(thrust::device, ar, ar + size, set_cmp());
-    return (thrust::unique(thrust::device, ar, ar + size, is_equal())) - ar;
+    int new_size =
+        (thrust::unique(thrust::device, ar, ar + size, is_equal())) - ar;
+    if (time) {
+        end = MPI_Wtime();
+        *time += end - start;
+    }
+    return new_size;
 }
 
 int subtract_known(Entity* delta, int delta_size, Entity* full,
-                   long long full_size) {
-    return thrust::set_difference(thrust::device, delta, delta + delta_size,
-                                  full, full + full_size, delta, set_cmp()) -
-           delta;
+                   long long full_size, double* time = nullptr) {
+    double start = 0.0, end = 0.0;
+    if (time)
+        start = MPI_Wtime();
+    int new_size =
+        thrust::set_difference(thrust::device, delta, delta + delta_size, full,
+                               full + full_size, delta, set_cmp()) -
+        delta;
+    if (time) {
+        end = MPI_Wtime();
+        *time += end - start;
+    }
+    return new_size;
 }
 
 Entity* merge_delta(Entity* t_full, long long t_full_size, Entity* t_delta,
-                    int t_delta_size, long long* new_size) {
+                    int t_delta_size, long long* new_size,
+                    double* time = nullptr) {
+    double start = 0.0, end = 0.0;
+    if (time)
+        start = MPI_Wtime();
     long long merged_size = (long long)t_delta_size + t_full_size;
     Entity* merged;
     checkCuda(cudaMalloc((void**)&merged, merged_size * sizeof(Entity)));
@@ -218,6 +240,10 @@ Entity* merge_delta(Entity* t_full, long long t_full_size, Entity* t_delta,
                   t_delta + t_delta_size, merged, set_cmp());
     cudaFree(t_full);
     *new_size = merged_size;
+    if (time) {
+        end = MPI_Wtime();
+        *time += end - start;
+    }
     return merged;
 }
 
@@ -225,11 +251,15 @@ Entity* get_global_join(int rank, int total_rank, int grid_size, int block_size,
                         Entity* hash_table, int hash_table_size, Entity* probe,
                         int probe_size, int total_columns, int cuda_aware_mpi,
                         int comm_method, int iterations, int* result_size,
-                        double* compute_time) {
+                        double* join_time,
+                        double* buffer_preparation_time = nullptr,
+                        double* communication_time = nullptr,
+                        double* buffer_memory_clear_time = nullptr) {
+    double _t = 0.0;
     int join_result_size = 0;
     Entity* join_result =
         get_local_join(grid_size, block_size, hash_table, hash_table_size,
-                       probe, probe_size, &join_result_size, compute_time);
+                       probe, probe_size, &join_result_size, join_time);
     if (total_rank == 1) {
         *result_size = join_result_size;
         return join_result;
@@ -237,7 +267,9 @@ Entity* get_global_join(int rank, int total_rank, int grid_size, int block_size,
     Entity* distributed = get_split_relation(
         rank, join_result, join_result_size, total_columns, total_rank,
         grid_size, block_size, cuda_aware_mpi, result_size, comm_method,
-        compute_time, compute_time, compute_time, iterations);
+        buffer_preparation_time ? buffer_preparation_time : &_t,
+        communication_time ? communication_time : &_t,
+        buffer_memory_clear_time ? buffer_memory_clear_time : &_t, iterations);
     cudaFree(join_result);
     return distributed;
 }

@@ -46,22 +46,24 @@ add_cuda_mpi_target(single_join tests/benchmarks/single_join.cu)
 
 add_cuda_mpi_target(test_tc         tests/tc.cu)
 add_cuda_mpi_target(test_join       tests/single_join.cu)
+add_cuda_mpi_target(pxjlog          tests/PXJLog.cu)
 
 # ─── Debug variant for wcc ─────────────────────────────────────────────────
 add_cuda_mpi_target(wcc_debug tests/benchmarks/wcc.cu)
 target_compile_definitions(wcc_debug PRIVATE DEBUG)
 
-# ─── Polaris / Cray support ────────────────────────────────────────────────
-option(ENABLE_POLARIS "Build for Polaris (Cray) environment" OFF)
+# ─── Cray support (Polaris, Perlmutter, etc.) ─────────────────────────────
+option(ENABLE_CRAY "Link Cray GTL library for GPU-aware MPI" OFF)
 
-if(ENABLE_POLARIS)
-    # On Polaris the Cray compiler wrapper (CC) handles MPI and CUDA flags,
-    # so we only need to link the GTL shim for GPU-aware MPI.
+if(ENABLE_CRAY)
     set(MPICH_GTL_LIB "/opt/cray/pe/mpich/8.1.28/gtl/lib/libmpi_gtl_cuda.so"
         CACHE FILEPATH "Path to MPICH GTL CUDA library")
 
-    foreach(tgt tc sg wcc single_join)
-        if(TARGET ${tgt} AND EXISTS ${MPICH_GTL_LIB})
+    # Link GTL to all targets
+    get_property(all_targets DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY BUILDSYSTEM_TARGETS)
+    foreach(tgt ${all_targets})
+        get_target_property(tgt_type ${tgt} TYPE)
+        if(tgt_type STREQUAL "EXECUTABLE" AND EXISTS ${MPICH_GTL_LIB})
             target_link_libraries(${tgt} PRIVATE ${MPICH_GTL_LIB})
         endif()
     endforeach()

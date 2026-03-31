@@ -11,6 +11,9 @@ void benchmark(int argc, char** argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     int device_id;
     int number_of_sm;
+    int num_devices;
+    cudaGetDeviceCount(&num_devices);
+    cudaSetDevice(rank % num_devices);
     cudaGetDevice(&device_id);
     cudaDeviceGetAttribute(&number_of_sm, cudaDevAttrMultiProcessorCount,
                            device_id);
