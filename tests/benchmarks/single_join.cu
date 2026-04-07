@@ -104,7 +104,7 @@ void benchmark(int argc, char** argv) {
     elapsed_time = end_time - start_time;
     initialization_time += elapsed_time;
 
-    int input_relation_size = 0;
+    unsigned int input_relation_size = 0;
     Entity* input_relation;
     if (total_rank == 1) {
         input_relation = local_data;
@@ -135,7 +135,7 @@ void benchmark(int argc, char** argv) {
          << endl;
 #endif
 
-    int reverse_relation_size = 0;
+    unsigned int reverse_relation_size = 0;
     Entity* reverse_relation;
     if (total_rank == 1) {
         reverse_relation = local_data_reverse;
@@ -180,7 +180,7 @@ void benchmark(int argc, char** argv) {
 #endif
 
     double temp_join_time = 0.0;
-    int distributed_join_result_size = 0;
+    unsigned int distributed_join_result_size = 0;
     Entity* distributed_join_result = get_global_join(
         rank, total_rank, grid_size, block_size, hash_table, hash_table_rows,
         reverse_relation, reverse_relation_size, total_columns, cuda_aware_mpi,
@@ -204,7 +204,8 @@ void benchmark(int argc, char** argv) {
 #endif
 
     long long global_join_result_size = 0;
-    long long distributed_join_result_size_temp = distributed_join_result_size;
+    long long distributed_join_result_size_temp =
+        (long long)distributed_join_result_size;
     if (total_rank == 1) {
         global_join_result_size = distributed_join_result_size_temp;
     } else {
@@ -222,7 +223,8 @@ void benchmark(int argc, char** argv) {
     int* distributed_join_result_ar;
     checkCuda(
         cudaMalloc((void**)&distributed_join_result_ar,
-                   distributed_join_result_size * total_columns * sizeof(int)));
+                   (size_t)distributed_join_result_size * total_columns *
+                       sizeof(int)));
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
     finalization_time += elapsed_time;
@@ -237,16 +239,18 @@ void benchmark(int argc, char** argv) {
     // Copy to host for file write
     start_time = MPI_Wtime();
     int* distributed_join_result_ar_host = (int*)malloc(
-        distributed_join_result_size * total_columns * sizeof(int));
+        (size_t)distributed_join_result_size * total_columns * sizeof(int));
     cudaMemcpy(distributed_join_result_ar_host, distributed_join_result_ar,
-               distributed_join_result_size * total_columns * sizeof(int),
+               (size_t)distributed_join_result_size * total_columns *
+                   sizeof(int),
                cudaMemcpyDeviceToHost);
 
     // List the t full counts for each process and calculate the displacements
     // in the final result
     int* join_result_counts = (int*)calloc(total_rank, sizeof(int));
-    MPI_Allgather(&distributed_join_result_size, 1, MPI_INT, join_result_counts,
-                  1, MPI_INT, MPI_COMM_WORLD);
+    int distributed_join_result_size_int = (int)distributed_join_result_size;
+    MPI_Allgather(&distributed_join_result_size_int, 1, MPI_INT,
+                  join_result_counts, 1, MPI_INT, MPI_COMM_WORLD);
 
     int* join_result_displacements = (int*)calloc(total_rank, sizeof(int));
     for (i = 1; i < total_rank; i++) {

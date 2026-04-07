@@ -118,8 +118,9 @@ void benchmark(int argc, char** argv) {
     // edge(x, y) :- edge(y, x)
     start_time = MPI_Wtime();
     Entity* edge;
-    int edge_size = local_count;
-    checkCuda(cudaMalloc((void**)&edge, edge_size * sizeof(Entity)));
+    unsigned int edge_size = local_count;
+    checkCuda(
+        cudaMalloc((void**)&edge, (size_t)edge_size * sizeof(Entity)));
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
     initialization_time += elapsed_time;
@@ -139,7 +140,7 @@ void benchmark(int argc, char** argv) {
     show_device_entity_variable(edge, edge_size, rank, "edge", 0);
 #endif
     // Distribute edge
-    int distributed_edge_size = 0;
+    unsigned int distributed_edge_size = 0;
     buffer_preparation_time_temp = 0.0;
     communication_time_temp = 0.0;
     buffer_memory_clear_time_temp = 0.0;
@@ -162,8 +163,9 @@ void benchmark(int argc, char** argv) {
     // cc(x, x) :- edge(x, _)
     start_time = MPI_Wtime();
     Entity* cc;
-    int cc_size = distributed_edge_size;
-    checkCuda(cudaMalloc((void**)&cc, cc_size * sizeof(Entity)));
+    unsigned int cc_size = distributed_edge_size;
+    checkCuda(
+        cudaMalloc((void**)&cc, (size_t)cc_size * sizeof(Entity)));
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
     initialization_time += elapsed_time;
@@ -186,9 +188,10 @@ void benchmark(int argc, char** argv) {
     // t_delta = cc, key-value pair: node - component id
     start_time = MPI_Wtime();
     Entity* t_delta;
-    int t_delta_size = cc_size;
-    checkCuda(cudaMalloc((void**)&t_delta, t_delta_size * sizeof(Entity)));
-    cudaMemcpy(t_delta, cc, t_delta_size * sizeof(Entity),
+    unsigned int t_delta_size = cc_size;
+    checkCuda(cudaMalloc((void**)&t_delta,
+                         (size_t)t_delta_size * sizeof(Entity)));
+    cudaMemcpy(t_delta, cc, (size_t)t_delta_size * sizeof(Entity),
                cudaMemcpyDeviceToDevice);
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
@@ -214,7 +217,7 @@ void benchmark(int argc, char** argv) {
     Entity* new_cc;
     while (true) {
         double temp_join_time = 0.0;
-        int join_result_size = 0;
+        unsigned int join_result_size = 0;
         Entity* join_result =
             get_local_join(grid_size, block_size, hash_table, hash_table_rows,
                            t_delta, t_delta_size, &join_result_size,
@@ -229,7 +232,7 @@ void benchmark(int argc, char** argv) {
         buffer_preparation_time_temp = 0.0;
         communication_time_temp = 0.0;
         buffer_memory_clear_time_temp = 0.0;
-        int distributed_join_result_size = 0;
+        unsigned int distributed_join_result_size = 0;
         Entity* distributed_join_result = get_split_relation(
             rank, join_result, join_result_size, total_columns, total_rank,
             grid_size, block_size, cuda_aware_mpi,
@@ -253,8 +256,9 @@ void benchmark(int argc, char** argv) {
 
         // Set union of two sets (sorted cc and distributed join result)
         start_time = MPI_Wtime();
-        int new_cc_size = distributed_join_result_size + cc_size;
-        checkCuda(cudaMalloc((void**)&new_cc, new_cc_size * sizeof(Entity)));
+        unsigned int new_cc_size = distributed_join_result_size + cc_size;
+        checkCuda(cudaMalloc((void**)&new_cc,
+                             (size_t)new_cc_size * sizeof(Entity)));
         end_time = MPI_Wtime();
         elapsed_time = end_time - start_time;
         merge_time += elapsed_time;
@@ -282,7 +286,8 @@ void benchmark(int argc, char** argv) {
         start_time = MPI_Wtime();
         Entity* t_delta_temp;
         checkCuda(
-            cudaMalloc((void**)&t_delta_temp, new_cc_size * sizeof(Entity)));
+            cudaMalloc((void**)&t_delta_temp,
+                       (size_t)new_cc_size * sizeof(Entity)));
         end_time = MPI_Wtime();
         elapsed_time = end_time - start_time;
         merge_time += elapsed_time;
@@ -297,8 +302,10 @@ void benchmark(int argc, char** argv) {
 
         start_time = MPI_Wtime();
         cudaFree(t_delta);
-        checkCuda(cudaMalloc((void**)&t_delta, t_delta_size * sizeof(Entity)));
-        cudaMemcpy(t_delta, t_delta_temp, t_delta_size * sizeof(Entity),
+        checkCuda(cudaMalloc((void**)&t_delta,
+                             (size_t)t_delta_size * sizeof(Entity)));
+        cudaMemcpy(t_delta, t_delta_temp,
+                   (size_t)t_delta_size * sizeof(Entity),
                    cudaMemcpyDeviceToDevice);
         end_time = MPI_Wtime();
         elapsed_time = end_time - start_time;
@@ -343,7 +350,7 @@ void benchmark(int argc, char** argv) {
     finalization_time += kernel_time;
 
     // Scatter component IDs among relevant processes
-    int cc_distributed_size = 0;
+    unsigned int cc_distributed_size = 0;
     buffer_preparation_time_temp = 0.0;
     communication_time_temp = 0.0;
     buffer_memory_clear_time_temp = 0.0;
@@ -424,8 +431,9 @@ void benchmark(int argc, char** argv) {
 
     start_time = MPI_Wtime();
     int* component_ar;
-    checkCuda(cudaMalloc((void**)&component_ar,
-                         cc_distributed_size * total_columns * sizeof(int)));
+    checkCuda(
+        cudaMalloc((void**)&component_ar,
+                   (size_t)cc_distributed_size * total_columns * sizeof(int)));
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
     finalization_time += elapsed_time;
@@ -439,10 +447,10 @@ void benchmark(int argc, char** argv) {
 
     start_time = MPI_Wtime();
     // Copy component ar to host for file write
-    int* component_ar_host =
-        (int*)malloc(cc_distributed_size * total_columns * sizeof(int));
+    int* component_ar_host = (int*)malloc(
+        (size_t)cc_distributed_size * total_columns * sizeof(int));
     cudaMemcpy(component_ar_host, component_ar,
-               cc_distributed_size * total_columns * sizeof(int),
+               (size_t)cc_distributed_size * total_columns * sizeof(int),
                cudaMemcpyDeviceToHost);
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
@@ -452,7 +460,8 @@ void benchmark(int argc, char** argv) {
     // the final result
     start_time = MPI_Wtime();
     int* component_counts = (int*)calloc(total_rank, sizeof(int));
-    MPI_Allgather(&cc_distributed_size, 1, MPI_INT, component_counts, 1,
+    int cc_distributed_size_int = (int)cc_distributed_size;
+    MPI_Allgather(&cc_distributed_size_int, 1, MPI_INT, component_counts, 1,
                   MPI_INT, MPI_COMM_WORLD);
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;

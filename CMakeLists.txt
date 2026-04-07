@@ -47,6 +47,7 @@ add_cuda_mpi_target(single_join tests/benchmarks/single_join.cu)
 add_cuda_mpi_target(test_tc         tests/tc.cu)
 add_cuda_mpi_target(test_join       tests/single_join.cu)
 add_cuda_mpi_target(pxjlog          tests/PXJLog.cu)
+add_cuda_mpi_target(pxjlin          tests/PXJLin.cu)
 
 # ─── Debug variant for wcc ─────────────────────────────────────────────────
 add_cuda_mpi_target(wcc_debug tests/benchmarks/wcc.cu)

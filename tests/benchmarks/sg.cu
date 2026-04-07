@@ -89,7 +89,7 @@ void benchmark(int argc, char** argv) {
     elapsed_time = end_time - start_time;
     initialization_time += elapsed_time;
 
-    int input_relation_size = 0;
+    unsigned int input_relation_size = 0;
     Entity* input_relation;
     if (total_rank == 1) {
         input_relation = local_data;
@@ -110,8 +110,9 @@ void benchmark(int argc, char** argv) {
 
     start_time = MPI_Wtime();
     Entity* t_delta;
-    int t_delta_size = input_relation_size;
-    checkCuda(cudaMalloc((void**)&t_delta, t_delta_size * sizeof(Entity)));
+    unsigned int t_delta_size = input_relation_size;
+    checkCuda(cudaMalloc((void**)&t_delta,
+                         (size_t)t_delta_size * sizeof(Entity)));
     cudaMemcpy(t_delta, input_relation, t_delta_size * sizeof(Entity),
                cudaMemcpyDeviceToDevice);
     end_time = MPI_Wtime();
@@ -130,7 +131,7 @@ void benchmark(int argc, char** argv) {
 
     // Base case: sg(x, y) :- edge(p, x), edge(p, y), x != y.
     double base_join_time = 0.0;
-    int base_join_size = 0;
+    unsigned int base_join_size = 0;
     Entity* base_join_result =
         get_local_join(grid_size, block_size, hash_table, hash_table_rows,
                        t_delta, t_delta_size, &base_join_size, &base_join_time);
@@ -145,7 +146,7 @@ void benchmark(int argc, char** argv) {
     kernel_time = timer.get_spent_time();
     deduplication_time += kernel_time;
 
-    int t_delta_size_temp = 0;
+    unsigned int t_delta_size_temp = 0;
     Entity* t_delta_temp_base;
     if (total_rank == 1) {
         t_delta_temp_base = base_join_result;
@@ -178,10 +179,11 @@ void benchmark(int argc, char** argv) {
 
     start_time = MPI_Wtime();
     Entity* t_full;
-    checkCuda(cudaMalloc((void**)&t_full, t_delta_size * sizeof(Entity)));
-    cudaMemcpy(t_full, t_delta, t_delta_size * sizeof(Entity),
+    checkCuda(cudaMalloc((void**)&t_full,
+                         (size_t)t_delta_size * sizeof(Entity)));
+    cudaMemcpy(t_full, t_delta, (size_t)t_delta_size * sizeof(Entity),
                cudaMemcpyDeviceToDevice);
-    long long t_full_size = t_delta_size;
+    unsigned int t_full_size = t_delta_size;
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
     merge_time += elapsed_time;
@@ -193,7 +195,7 @@ void benchmark(int argc, char** argv) {
     while (true) {
         // Join 1: tmp(b, x) :- edge(a, x), sg(a, b).
         double first_join_time = 0.0;
-        int first_join_size = 0;
+        unsigned int first_join_size = 0;
         Entity* first_join_result =
             get_local_join(grid_size, block_size, hash_table, hash_table_rows,
                            t_delta, t_delta_size, &first_join_size,
@@ -207,7 +209,7 @@ void benchmark(int argc, char** argv) {
         join_time += kernel_time;
 
         // Scatter first join result among relevant processes
-        int distributed_first_join_size = 0;
+        unsigned int distributed_first_join_size = 0;
         Entity* distributed_first_join_result;
         if (total_rank == 1) {
             distributed_first_join_result = first_join_result;
@@ -234,7 +236,7 @@ void benchmark(int argc, char** argv) {
 
         // Join 2: sg(x, y) :- tmp(b, x), edge(b, y).
         double second_join_time = 0.0;
-        int second_join_size = 0;
+        unsigned int second_join_size = 0;
         Entity* second_join_result =
             get_local_join(grid_size, block_size, hash_table, hash_table_rows,
                            distributed_first_join_result,
@@ -254,7 +256,7 @@ void benchmark(int argc, char** argv) {
         memory_clear_time += end_time - start_time;
 
         // Scatter second join result among relevant processes
-        int distributed_second_join_size = 0;
+        unsigned int distributed_second_join_size = 0;
         Entity* distributed_second_join_result;
         if (total_rank == 1) {
             distributed_second_join_result = second_join_result;
@@ -306,7 +308,7 @@ void benchmark(int argc, char** argv) {
     start_time = MPI_Wtime();
     int* t_full_ar;
     checkCuda(cudaMalloc((void**)&t_full_ar,
-                         t_full_size * total_columns * sizeof(int)));
+                         (size_t)t_full_size * total_columns * sizeof(int)));
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
     finalization_time += elapsed_time;
@@ -320,9 +322,9 @@ void benchmark(int argc, char** argv) {
     start_time = MPI_Wtime();
     // Copy t full to host for file write
     int* t_full_ar_host =
-        (int*)malloc(t_full_size * total_columns * sizeof(int));
+        (int*)malloc((size_t)t_full_size * total_columns * sizeof(int));
     cudaMemcpy(t_full_ar_host, t_full_ar,
-               t_full_size * total_columns * sizeof(int),
+               (size_t)t_full_size * total_columns * sizeof(int),
                cudaMemcpyDeviceToHost);
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
@@ -336,7 +338,8 @@ void benchmark(int argc, char** argv) {
     elapsed_time = end_time - start_time;
     finalization_time += elapsed_time;
     start_time = MPI_Wtime();
-    MPI_Allgather(&t_full_size, 1, MPI_INT, t_full_counts, 1, MPI_INT,
+    int t_full_size_int = (int)t_full_size;
+    MPI_Allgather(&t_full_size_int, 1, MPI_INT, t_full_counts, 1, MPI_INT,
                   MPI_COMM_WORLD);
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;

@@ -100,7 +100,7 @@ void benchmark(int argc, char** argv) {
     elapsed_time = end_time - start_time;
     initialization_time += elapsed_time;
 
-    int input_relation_size = 0;
+    unsigned int input_relation_size = 0;
     Entity* input_relation;
     if (total_rank == 1) {
         input_relation = local_data;
@@ -119,7 +119,7 @@ void benchmark(int argc, char** argv) {
         memory_clear_time += buffer_memory_clear_time_temp;
     }
 
-    int t_delta_size = 0;
+    unsigned int t_delta_size = 0;
     Entity* t_delta;
     if (total_rank == 1) {
         t_delta = local_data_reverse;
@@ -143,8 +143,9 @@ void benchmark(int argc, char** argv) {
     start_time = MPI_Wtime();
     // T_FULL is t delta with first column as key
     Entity* t_full;
-    checkCuda(cudaMalloc((void**)&t_full, t_delta_size * sizeof(Entity)));
-    cudaMemcpy(t_full, t_delta, t_delta_size * sizeof(Entity),
+    checkCuda(cudaMalloc((void**)&t_full,
+                         (size_t)t_delta_size * sizeof(Entity)));
+    cudaMemcpy(t_full, t_delta, (size_t)t_delta_size * sizeof(Entity),
                cudaMemcpyDeviceToDevice);
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
@@ -153,7 +154,7 @@ void benchmark(int argc, char** argv) {
 #endif
     merge_time += elapsed_time;
     long long global_t_full_size;
-    long long t_full_size = t_delta_size;
+    unsigned int t_full_size = t_delta_size;
     global_t_full_size =
         get_total_size(t_full_size, total_rank, &communication_time);
 
@@ -201,7 +202,7 @@ void benchmark(int argc, char** argv) {
     // Reverse the t_full as we stored it in reverse order initially
     int* t_full_ar;
     checkCuda(cudaMalloc((void**)&t_full_ar,
-                         t_full_size * total_columns * sizeof(int)));
+                         (size_t)t_full_size * total_columns * sizeof(int)));
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
     finalization_time += elapsed_time;
@@ -214,9 +215,9 @@ void benchmark(int argc, char** argv) {
     start_time = MPI_Wtime();
     // Copy t full to host for file write
     int* t_full_ar_host =
-        (int*)malloc(t_full_size * total_columns * sizeof(int));
+        (int*)malloc((size_t)t_full_size * total_columns * sizeof(int));
     cudaMemcpy(t_full_ar_host, t_full_ar,
-               t_full_size * total_columns * sizeof(int),
+               (size_t)t_full_size * total_columns * sizeof(int),
                cudaMemcpyDeviceToHost);
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
@@ -225,12 +226,13 @@ void benchmark(int argc, char** argv) {
     start_time = MPI_Wtime();
     // List the t full counts for each process and calculate the displacements
     // in the final result
+    int t_full_size_int = (int)t_full_size;
     int* t_full_counts = (int*)calloc(total_rank, sizeof(int));
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
     finalization_time += elapsed_time;
     start_time = MPI_Wtime();
-    MPI_Allgather(&t_full_size, 1, MPI_INT, t_full_counts, 1, MPI_INT,
+    MPI_Allgather(&t_full_size_int, 1, MPI_INT, t_full_counts, 1, MPI_INT,
                   MPI_COMM_WORLD);
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;

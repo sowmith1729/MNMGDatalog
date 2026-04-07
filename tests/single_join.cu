@@ -69,14 +69,12 @@ void benchmark(int argc, char** argv) {
         cudaMalloc((void**)&local_data_device, local_count * sizeof(int)));
     cudaMemcpy(local_data_device, local_data_host, local_count * sizeof(int),
                cudaMemcpyHostToDevice);
-    Entity* local_data =
-        make_entity_array(grid_size, block_size, local_data_device, row_size,
-                          false);
-    Entity* local_data_reverse =
-        make_entity_array(grid_size, block_size, local_data_device, row_size,
-                          true);
+    Entity* local_data = make_entity_array(grid_size, block_size,
+                                           local_data_device, row_size, false);
+    Entity* local_data_reverse = make_entity_array(
+        grid_size, block_size, local_data_device, row_size, true);
 
-    int input_relation_size = 0;
+    unsigned int input_relation_size = 0;
     Entity* input_relation;
     if (total_rank == 1) {
         input_relation = local_data;
@@ -98,7 +96,7 @@ void benchmark(int argc, char** argv) {
          << endl;
 #endif
 
-    int reverse_relation_size = 0;
+    unsigned int reverse_relation_size = 0;
     Entity* reverse_relation;
     if (total_rank == 1) {
         reverse_relation = local_data_reverse;
@@ -113,7 +111,8 @@ void benchmark(int argc, char** argv) {
     cout << "Rank: " << rank
          << ", reverse_relation_size: " << reverse_relation_size << endl;
 #endif
-    reverse_relation_size = deduplicate(reverse_relation, reverse_relation_size);
+    reverse_relation_size =
+        deduplicate(reverse_relation, reverse_relation_size);
 #ifdef DEBUG
     cout << "Rank: " << rank << ", reverse_relation_size after deduplication: "
          << reverse_relation_size << endl;
@@ -128,12 +127,11 @@ void benchmark(int argc, char** argv) {
          << endl;
 #endif
 
-    int distributed_join_result_size = 0;
-    Entity* distributed_join_result =
-        get_global_join(rank, total_rank, grid_size, block_size, hash_table,
-                        hash_table_rows, reverse_relation, reverse_relation_size,
-                        total_columns, cuda_aware_mpi, comm_method, iterations,
-                        &distributed_join_result_size, &_t);
+    unsigned int distributed_join_result_size = 0;
+    Entity* distributed_join_result = get_global_join(
+        rank, total_rank, grid_size, block_size, hash_table, hash_table_rows,
+        reverse_relation, reverse_relation_size, total_columns, cuda_aware_mpi,
+        comm_method, iterations, &distributed_join_result_size, &_t);
 #ifdef DEBUG
     cout << "Rank: " << rank
          << ", distributed_join_result_size: " << distributed_join_result_size
@@ -149,7 +147,8 @@ void benchmark(int argc, char** argv) {
 #endif
 
     long long global_join_result_size = 0;
-    long long distributed_join_result_size_temp = distributed_join_result_size;
+    long long distributed_join_result_size_temp =
+        (long long)distributed_join_result_size;
     if (total_rank == 1) {
         global_join_result_size = distributed_join_result_size_temp;
     } else {
@@ -161,20 +160,23 @@ void benchmark(int argc, char** argv) {
     int* distributed_join_result_ar;
     checkCuda(
         cudaMalloc((void**)&distributed_join_result_ar,
-                   distributed_join_result_size * total_columns * sizeof(int)));
+                   (size_t)distributed_join_result_size * total_columns *
+                       sizeof(int)));
     get_reverse_int_ar_from_entity_ar<<<grid_size, block_size>>>(
         distributed_join_result, distributed_join_result_size,
         distributed_join_result_ar);
 
     int* distributed_join_result_ar_host = (int*)malloc(
-        distributed_join_result_size * total_columns * sizeof(int));
+        (size_t)distributed_join_result_size * total_columns * sizeof(int));
     cudaMemcpy(distributed_join_result_ar_host, distributed_join_result_ar,
-               distributed_join_result_size * total_columns * sizeof(int),
+               (size_t)distributed_join_result_size * total_columns *
+                   sizeof(int),
                cudaMemcpyDeviceToHost);
 
     int* join_result_counts = (int*)calloc(total_rank, sizeof(int));
-    MPI_Allgather(&distributed_join_result_size, 1, MPI_INT, join_result_counts,
-                  1, MPI_INT, MPI_COMM_WORLD);
+    int distributed_join_result_size_int = (int)distributed_join_result_size;
+    MPI_Allgather(&distributed_join_result_size_int, 1, MPI_INT,
+                  join_result_counts, 1, MPI_INT, MPI_COMM_WORLD);
 
     int* join_result_displacements = (int*)calloc(total_rank, sizeof(int));
     for (i = 1; i < total_rank; i++) {

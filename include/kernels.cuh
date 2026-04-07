@@ -217,31 +217,33 @@ __host__ __device__ int get_rank(int key, int total_rank) {
     //    return bucket_id % total_rank;
 }
 
-__global__ void get_send_count(Entity* local_data, int local_data_row_count,
+__global__ void get_send_count(Entity* local_data,
+                               unsigned int local_data_row_count,
                                int* send_count, int total_rank) {
-    int index = (blockIdx.x * blockDim.x) + threadIdx.x;
+    unsigned int index = (blockIdx.x * blockDim.x) + threadIdx.x;
     if (index >= local_data_row_count)
         return;
 
-    int stride = blockDim.x * gridDim.x;
+    unsigned int stride = blockDim.x * gridDim.x;
 
-    for (int i = index; i < local_data_row_count; i += stride) {
+    for (unsigned int i = index; i < local_data_row_count; i += stride) {
         int key = local_data[i].key;
         int destination_rank = get_rank(key, total_rank);
         atomicAdd(&send_count[destination_rank], 1);
     }
 }
 
-__global__ void get_rank_data(Entity* local_data, int local_data_row_count,
+__global__ void get_rank_data(Entity* local_data,
+                              unsigned int local_data_row_count,
                               int* send_count_offset, int total_rank,
                               Entity* rank_data) {
-    int index = (blockIdx.x * blockDim.x) + threadIdx.x;
+    unsigned int index = (blockIdx.x * blockDim.x) + threadIdx.x;
     if (index >= local_data_row_count)
         return;
 
-    int stride = blockDim.x * gridDim.x;
+    unsigned int stride = blockDim.x * gridDim.x;
 
-    for (int i = index; i < local_data_row_count; i += stride) {
+    for (unsigned int i = index; i < local_data_row_count; i += stride) {
         int key = local_data[i].key;
         int value = local_data[i].value;
         int destination_rank = get_rank(key, total_rank);
@@ -345,14 +347,15 @@ __global__ void get_valueless_entity_ar_from_int_ar(int* input_data,
     }
 }
 
-__global__ void reverse_entity_ar(Entity* input_data, int data_rows,
+__global__ void reverse_entity_ar(Entity* input_data,
+                                  unsigned int data_rows,
                                   Entity* output_data) {
-    int index = (blockIdx.x * blockDim.x) + threadIdx.x;
+    unsigned int index = (blockIdx.x * blockDim.x) + threadIdx.x;
     if (index >= data_rows)
         return;
 
-    int stride = blockDim.x * gridDim.x;
-    for (int i = index; i < data_rows; i += stride) {
+    unsigned int stride = blockDim.x * gridDim.x;
+    for (unsigned int i = index; i < data_rows; i += stride) {
         int key = input_data[i].key;
         int value = input_data[i].value;
         output_data[i].key = value;
@@ -386,20 +389,23 @@ __global__ void create_entity_ar_with_offset(int* input_data, int data_rows,
     }
 }
 
-__global__ void concat_entity_ar(Entity* input_data_1, int input_data_1_size,
-                                 Entity* input_data_2, int input_data_2_size,
-                                 Entity* output_data, int output_data_size) {
-    int index = (blockIdx.x * blockDim.x) + threadIdx.x;
+__global__ void concat_entity_ar(Entity* input_data_1,
+                                 unsigned int input_data_1_size,
+                                 Entity* input_data_2,
+                                 unsigned int input_data_2_size,
+                                 Entity* output_data,
+                                 unsigned int output_data_size) {
+    unsigned int index = (blockIdx.x * blockDim.x) + threadIdx.x;
     if (index >= output_data_size)
         return;
 
-    int stride = blockDim.x * gridDim.x;
+    unsigned int stride = blockDim.x * gridDim.x;
     // Copy input_data_1 to output_data
-    for (int i = index; i < input_data_1_size; i += stride) {
+    for (unsigned int i = index; i < input_data_1_size; i += stride) {
         output_data[i] = input_data_1[i];
     }
     // Copy input_data_2 to output_data (adjusted index)
-    for (int i = index; i < input_data_2_size; i += stride) {
+    for (unsigned int i = index; i < input_data_2_size; i += stride) {
         output_data[i + input_data_1_size] = input_data_2[i];
     }
 }

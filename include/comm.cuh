@@ -1,11 +1,11 @@
 // #include "utils.cu"
 
 Entity* get_split_relation_pass_method(
-    int rank, Entity* local_data_device, int row_size, int total_columns,
-    int total_rank, int grid_size, int block_size, int cuda_aware_mpi,
-    int* receive_size, double* buffer_preparation_time,
-    double* communication_time, double* buffer_memory_clear_time,
-    int iterations) {
+    int rank, Entity* local_data_device, unsigned int row_size,
+    int total_columns, int total_rank, int grid_size, int block_size,
+    int cuda_aware_mpi, unsigned int* receive_size,
+    double* buffer_preparation_time, double* communication_time,
+    double* buffer_memory_clear_time, int iterations) {
     KernelTimer timer;
     double start_time, end_time, elapsed_time, kernel_time;
     double prep_time = 0.0, comm_time = 0.0, clear_time = 0.0;
@@ -45,7 +45,8 @@ Entity* get_split_relation_pass_method(
 #endif
 
     Entity* send_data;
-    checkCuda(cudaMalloc((void**)&send_data, row_size * sizeof(Entity)));
+    checkCuda(
+        cudaMalloc((void**)&send_data, (size_t)row_size * sizeof(Entity)));
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
     prep_time += elapsed_time;
@@ -93,19 +94,19 @@ Entity* get_split_relation_pass_method(
         MPI_Abort(MPI_COMM_WORLD, mpi_error);
     }
     timer.start_timer();
-    int total_receive =
-        thrust::reduce(thrust::host, receive_count_host,
-                       receive_count_host + total_rank, 0, thrust::plus<int>());
+    unsigned int total_receive = thrust::reduce(
+        thrust::host, receive_count_host, receive_count_host + total_rank, 0u,
+        thrust::plus<unsigned int>());
     timer.stop_timer();
     kernel_time = timer.get_spent_time();
     prep_time += kernel_time;
-    int global_total_send = 0;
-    int global_total_receive = 0;
+    unsigned int global_total_send = 0;
+    unsigned int global_total_receive = 0;
     start_time = MPI_Wtime();
-    MPI_Allreduce(&row_size, &global_total_send, 1, MPI_INT, MPI_SUM,
+    MPI_Allreduce(&row_size, &global_total_send, 1, MPI_UNSIGNED, MPI_SUM,
                   MPI_COMM_WORLD);
-    MPI_Allreduce(&total_receive, &global_total_receive, 1, MPI_INT, MPI_SUM,
-                  MPI_COMM_WORLD);
+    MPI_Allreduce(&total_receive, &global_total_receive, 1, MPI_UNSIGNED,
+                  MPI_SUM, MPI_COMM_WORLD);
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
     comm_time += elapsed_time;
@@ -118,8 +119,8 @@ Entity* get_split_relation_pass_method(
     prep_time += kernel_time;
     start_time = MPI_Wtime();
     Entity* receive_data;
-    checkCuda(
-        cudaMalloc((void**)&receive_data, total_receive * sizeof(Entity)));
+    checkCuda(cudaMalloc((void**)&receive_data,
+                         (size_t)total_receive * sizeof(Entity)));
     end_time = MPI_Wtime();
     elapsed_time = end_time - start_time;
     prep_time += elapsed_time;
@@ -143,10 +144,12 @@ Entity* get_split_relation_pass_method(
         }
     } else {
         start_time = MPI_Wtime();
-        Entity* send_data_host = (Entity*)malloc(row_size * sizeof(Entity));
+        Entity* send_data_host =
+            (Entity*)malloc((size_t)row_size * sizeof(Entity));
         Entity* receive_data_host =
-            (Entity*)malloc(total_receive * sizeof(Entity));
-        cudaMemcpy(send_data_host, send_data, row_size * sizeof(Entity),
+            (Entity*)malloc((size_t)total_receive * sizeof(Entity));
+        cudaMemcpy(send_data_host, send_data,
+                   (size_t)row_size * sizeof(Entity),
                    cudaMemcpyDeviceToHost);
         end_time = MPI_Wtime();
         elapsed_time = end_time - start_time;
@@ -169,7 +172,8 @@ Entity* get_split_relation_pass_method(
         }
         start_time = MPI_Wtime();
         cudaMemcpy(receive_data, receive_data_host,
-                   total_receive * sizeof(Entity), cudaMemcpyHostToDevice);
+                   (size_t)total_receive * sizeof(Entity),
+                   cudaMemcpyHostToDevice);
         end_time = MPI_Wtime();
         elapsed_time = end_time - start_time;
         prep_time += elapsed_time;
@@ -206,10 +210,11 @@ Entity* get_split_relation_pass_method(
 }
 
 Entity* get_split_relation_sort_method(
-    int rank, Entity* local_data_device, int row_size, int total_columns,
-    int total_rank, int grid_size, int block_size, int cuda_aware_mpi,
-    int* size, double* buffer_preparation_time, double* communication_time,
-    double* buffer_memory_clear_time, int iterations) {
+    int rank, Entity* local_data_device, unsigned int row_size,
+    int total_columns, int total_rank, int grid_size, int block_size,
+    int cuda_aware_mpi, unsigned int* size, double* buffer_preparation_time,
+    double* communication_time, double* buffer_memory_clear_time,
+    int iterations) {
     double start_time, end_time, elapsed_time, kernel_time;
     double prep_time = 0.0, comm_time = 0.0, clear_time = 0.0;
     KernelTimer timer;
@@ -278,8 +283,9 @@ Entity* get_split_relation_sort_method(
     }
 
     timer.start_timer();
-    int total_receive =
-        thrust::reduce(receive_count_host.begin(), receive_count_host.end());
+    unsigned int total_receive = thrust::reduce(
+        receive_count_host.begin(), receive_count_host.end(), 0u,
+        thrust::plus<unsigned int>());
 
     thrust::host_vector<int> send_displacements_host(total_rank);
     thrust::host_vector<int> receive_displacements_host(total_rank);
@@ -294,8 +300,8 @@ Entity* get_split_relation_sort_method(
 
     start_time = MPI_Wtime();
     Entity* receive_data;
-    checkCuda(
-        cudaMalloc((void**)&receive_data, total_receive * sizeof(Entity)));
+    checkCuda(cudaMalloc((void**)&receive_data,
+                         (size_t)total_receive * sizeof(Entity)));
 
 #ifdef DEBUG
     if (iterations == 0) {
@@ -331,10 +337,12 @@ Entity* get_split_relation_sort_method(
         }
     } else {
         start_time = MPI_Wtime();
-        Entity* send_data_host = (Entity*)malloc(row_size * sizeof(Entity));
+        Entity* send_data_host =
+            (Entity*)malloc((size_t)row_size * sizeof(Entity));
         Entity* receive_data_host =
-            (Entity*)malloc(total_receive * sizeof(Entity));
-        cudaMemcpy(send_data_host, local_data_device, row_size * sizeof(Entity),
+            (Entity*)malloc((size_t)total_receive * sizeof(Entity));
+        cudaMemcpy(send_data_host, local_data_device,
+                   (size_t)row_size * sizeof(Entity),
                    cudaMemcpyDeviceToHost);
         end_time = MPI_Wtime();
         elapsed_time = end_time - start_time;
@@ -358,7 +366,8 @@ Entity* get_split_relation_sort_method(
         }
         start_time = MPI_Wtime();
         cudaMemcpy(receive_data, receive_data_host,
-                   total_receive * sizeof(Entity), cudaMemcpyHostToDevice);
+                   (size_t)total_receive * sizeof(Entity),
+                   cudaMemcpyHostToDevice);
         free(send_data_host);
         free(receive_data_host);
         end_time = MPI_Wtime();
@@ -377,10 +386,11 @@ Entity* get_split_relation_sort_method(
     return receive_data;
 }
 
-Entity* get_split_relation(int rank, Entity* data_device, int data_size,
-                           int total_columns, int total_rank, int grid_size,
-                           int block_size, int cuda_aware_mpi, int* size,
-                           int method, double* buffer_preparation_time,
+Entity* get_split_relation(int rank, Entity* data_device,
+                           unsigned int data_size, int total_columns,
+                           int total_rank, int grid_size, int block_size,
+                           int cuda_aware_mpi, unsigned int* size, int method,
+                           double* buffer_preparation_time,
                            double* communication_time,
                            double* buffer_memory_clear_time, int iterations) {
     if (method == 0) {
@@ -397,7 +407,7 @@ Entity* get_split_relation(int rank, Entity* data_device, int data_size,
 }
 
 long long get_total_size(long long local_size, int total_rank,
-                        double* time = nullptr) {
+                         double* time = nullptr) {
     if (total_rank == 1) {
         return local_size;
     }

@@ -68,7 +68,7 @@ void benchmark(int argc, char** argv) {
     Entity* local_data_reverse = make_entity_array(
         grid_size, block_size, local_data_device, row_size, true);
 
-    int input_relation_size = 0;
+    unsigned int input_relation_size = 0;
     Entity* input_relation;
     if (total_rank == 1) {
         input_relation = local_data;
@@ -80,7 +80,7 @@ void benchmark(int argc, char** argv) {
             &_t, &_t, iterations);
     }
 
-    int t_delta_size = 0;
+    unsigned int t_delta_size = 0;
     Entity* t_delta;
     if (total_rank == 1) {
         t_delta = local_data_reverse;
@@ -95,13 +95,14 @@ void benchmark(int argc, char** argv) {
     t_delta_size = deduplicate(t_delta, t_delta_size);
 
     Entity* t_full;
-    checkCuda(cudaMalloc((void**)&t_full, t_delta_size * sizeof(Entity)));
-    cudaMemcpy(t_full, t_delta, t_delta_size * sizeof(Entity),
+    checkCuda(cudaMalloc((void**)&t_full,
+                         (size_t)t_delta_size * sizeof(Entity)));
+    cudaMemcpy(t_full, t_delta, (size_t)t_delta_size * sizeof(Entity),
                cudaMemcpyDeviceToDevice);
 #ifdef DEBUG
     cout << "t_full initialization done" << endl;
 #endif
-    long long t_full_size = t_delta_size;
+    unsigned int t_full_size = t_delta_size;
     long long global_t_full_size = get_total_size(t_full_size, total_rank);
 
     int hash_table_rows = 0;
@@ -127,7 +128,7 @@ void benchmark(int argc, char** argv) {
         global_t_full_size = get_total_size(t_full_size, total_rank);
         iterations++;
         if (rank == 0)
-            printf("Number of global tuples in full is %ld\n",
+            printf("Number of global tuples in full is %lld\n",
                    global_t_full_size);
         if (old_global_t_full_size == global_t_full_size) {
             break;
@@ -136,18 +137,18 @@ void benchmark(int argc, char** argv) {
 
     int* t_full_ar;
     checkCuda(cudaMalloc((void**)&t_full_ar,
-                         t_full_size * total_columns * sizeof(int)));
+                         (size_t)t_full_size * total_columns * sizeof(int)));
     reverse_t_full<<<grid_size, block_size>>>(t_full_ar, t_full_size, t_full);
 
     int* t_full_ar_host =
-        (int*)malloc(t_full_size * total_columns * sizeof(int));
+        (int*)malloc((size_t)t_full_size * total_columns * sizeof(int));
     cudaMemcpy(t_full_ar_host, t_full_ar,
-               t_full_size * total_columns * sizeof(int),
+               (size_t)t_full_size * total_columns * sizeof(int),
                cudaMemcpyDeviceToHost);
 
+    int t_full_size_int = (int)t_full_size;
     int* t_full_counts = (int*)calloc(total_rank, sizeof(int));
-    printf("the t_full_counts are %d\n", t_full_counts);
-    MPI_Allgather(&t_full_size, 1, MPI_INT, t_full_counts, 1, MPI_INT,
+    MPI_Allgather(&t_full_size_int, 1, MPI_INT, t_full_counts, 1, MPI_INT,
                   MPI_COMM_WORLD);
     int* t_full_displacements = (int*)calloc(total_rank, sizeof(int));
     for (i = 1; i < total_rank; i++) {
