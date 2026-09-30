@@ -38,6 +38,8 @@ endfunction()
 # ─── Targets ───────────────────────────────────────────────────────────────
 add_cuda_mpi_target(tc          tests/benchmarks/tc.cu)
 add_cuda_mpi_target(tc_nl       tests/benchmarks/tc_nl.cu)
+add_cuda_mpi_target(tc_log      tests/benchmarks/tc_log.cu)
+add_cuda_mpi_target(pxj_nop3   tests/benchmarks/pxj_nop3.cu)
 add_cuda_mpi_target(sg          tests/benchmarks/sg.cu)
 add_cuda_mpi_target(sg_nl       tests/benchmarks/sg_nl.cu)
 add_cuda_mpi_target(wcc         tests/benchmarks/wcc.cu)

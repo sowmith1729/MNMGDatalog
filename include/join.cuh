@@ -98,8 +98,20 @@ Entity* get_local_join_ll(int grid_size, int block_size, Entity* hash_table,
     unsigned long long result_size_ll = last_offset + last_count;
 
     // Allocate and materialize join result
-    checkCuda(cudaMalloc((void**)&join_result,
-                         result_size_ll * sizeof(Entity)));
+    cudaError_t alloc_err = cudaMalloc((void**)&join_result,
+                                       result_size_ll * sizeof(Entity));
+    if (alloc_err != cudaSuccess) {
+        size_t _free, _total;
+        cudaMemGetInfo(&_free, &_total);
+        fprintf(stderr,
+                "OOM in join: need %llu tuples (%.1fGB), "
+                "free=%.1fGB/%.1fGB\n",
+                result_size_ll,
+                result_size_ll * sizeof(Entity) / 1e9,
+                _free / 1e9, _total / 1e9);
+        fflush(stderr);
+    }
+    checkCuda(alloc_err);
     get_join_result_entity<<<grid_size, block_size>>>(
         hash_table, hash_table_size, relation, relation_size, join_offset,
         join_result);

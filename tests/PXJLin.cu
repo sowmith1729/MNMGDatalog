@@ -352,15 +352,36 @@ void benchmark(int argc, char** argv) {
     }
 
     // ─── Phase 3: seed x TC(g^k), then global reduce/dedup ─────────────
+    // At 1 GPU: Phase 2's full IS the complete TC. Skip Phase 3.
+    if (total_rank == 1) {
+        double phase3_start = MPI_Wtime();
+        unsigned int result_size = full_size;
+        Entity* result = full;
+        double phase3_end = MPI_Wtime();
+        double phase3_time = phase3_end - phase3_start;
+        long long total_tc_size = result_size;
+        double total_time = phase1_time + phase2_time + phase3_time;
+        printf("Phase 1: %.4fs | seed_size=%d (length %d), g^k_size=%u\n",
+               phase1_time, seed_size, l_power, g_size);
+        printf("Phase 2: %.4fs | TC(g^k) = %lld tuples, %d iterations\n",
+               phase2_time, global_tc_gk_size, iterations);
+        printf("  Join: %.4fs | Dedup: %.4fs | Subtract: %.4fs | "
+               "Merge: %.4fs | HT build: %.4fs\n",
+               p2_join_time, p2_dedup_time, p2_subtract_time,
+               p2_merge_time, p2_hashtable_time);
+        printf("  Comm: %.4fs\n", p2_comm_time);
+        printf("Phase 3: %.4fs (skipped — single GPU)\n", phase3_time);
+        printf("─────────────────────────────────────\n");
+        printf("Total: %.4fs | TC size: %lld\n", total_time, total_tc_size);
+        cudaFree(result);
+        cudaFree(delta);
+        cudaFree(seed);
+        MPI_Finalize();
+        return;
+    }
+
     // Allgather seeds to every rank (tiny), build HT on seeds, probe
     // with local TC(g^k) forward. Avoids redistributing TC(g^k).
-    //
-    // Why allgather works: TC(g^k) is already hash-partitioned by col1
-    // from Phase 2. The join column is col0 (= value in reverse), which
-    // is NOT what TC is partitioned by. Rather than repartitioning the
-    // large TC(g^k), we replicate the small seeds to every rank so the
-    // join is fully local.
-    // Memory accounting at Phase 2/3 boundary
     size_t free_mem, total_mem;
     cudaMemGetInfo(&free_mem, &total_mem);
     printf("R%d [P2→P3] GPU mem: %.1fGB free / %.1fGB total\n",
