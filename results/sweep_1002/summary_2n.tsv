@@ -1,0 +1,17 @@
+variant	graph	gpus	budget	status	time	tc_size
+pxjlin	belgium_osm_clean_d	8	150000000	OK	0.5938	38271030
+pxjlin	germany_osm_clean_d	8	150000000	OK	2.3806	313705992
+pxjlin	italy_osm_clean_d	8	150000000	OK	3.4977	716184227
+pxjlin	usroads	8	150000000	OK	6.9898	871365688
+pxjlin	fe_sphere	8	150000000	OK	2.7947	78557912
+pxjlin	fe_body	8	150000000	OK	8.4596	156120489
+pxjlin	fe_ocean	8	150000000	OK	5.2431	1669750513
+pxjlin	vsp_finance	8	150000000	TIMEOUT>180s	-	-
+tc	belgium_osm_clean_d	8	150000000	OK	0.7895	38271030
+tc	germany_osm_clean_d	8	150000000	OK	4.3600	313705992
+tc	italy_osm_clean_d	8	150000000	OK	39.1746	716184227
+tc	usroads	8	150000000	OK	5.8579	871365688
+tc	fe_sphere	8	150000000	OK	0.4100	78557912
+tc	fe_body	8	150000000	OK	0.6720	156120489
+tc	fe_ocean	8	150000000	OK	3.4643	1669750513
+tc	vsp_finance	8	150000000	OK	5.3016	910070918

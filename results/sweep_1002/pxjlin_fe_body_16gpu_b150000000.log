@@ -1,0 +1,2091 @@
+R0 [P1] parallel_read done: row_size=10233 total_rows=163734
+R12 [P1] parallel_read done: row_size=10233 total_rows=163734
+R8 [P1] parallel_read done: row_size=10233 total_rows=163734
+R4 [P1] parallel_read done: row_size=10233 total_rows=163734
+R1 [P1] parallel_read done: row_size=10233 total_rows=163734
+R13 [P1] parallel_read done: row_size=10234 total_rows=163734
+R9 [P1] parallel_read done: row_size=10233 total_rows=163734
+R6 [P1] parallel_read done: row_size=10233 total_rows=163734
+R2 [P1] parallel_read done: row_size=10234 total_rows=163734
+R14 [P1] parallel_read done: row_size=10233 total_rows=163734
+R11 [P1] parallel_read done: row_size=10233 total_rows=163734
+R7 [P1] parallel_read done: row_size=10234 total_rows=163734
+R3 [P1] parallel_read done: row_size=10233 total_rows=163734
+R15 [P1] parallel_read done: row_size=10234 total_rows=163734
+R10 [P1] parallel_read done: row_size=10234 total_rows=163734
+R5 [P1] parallel_read done: row_size=10234 total_rows=163734
+R14 [P1] allgather done
+R6 [P1] allgather done
+R0 [P1] allgather done
+R1 [P1] allgather done
+R12 [P1] allgather done
+R8 [P1] allgather done
+R4 [P1] allgather done
+R2 [P1] allgather done
+R15 [P1] allgather done
+R9 [P1] allgather done
+R7 [P1] allgather done
+R3 [P1] allgather done
+R13 [P1] allgather done
+R11 [P1] allgather done
+R5 [P1] allgather done
+R10 [P1] allgather done
+R7 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R7 [P1] initial HT built: ht_rows=524288
+R1 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R1 [P1] initial HT built: ht_rows=524288
+R7 [P1] step 0: seed join done, temp_l_size=609957
+R0 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R7 [P1] step 0: seed dedup done, l_size=418467
+R1 [P1] step 0: seed join done, temp_l_size=609957
+R0 [P1] initial HT built: ht_rows=524288
+R7 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R1 [P1] step 0: seed dedup done, l_size=418467
+R0 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R7 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R1 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R2 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R6 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R0 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R3 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R6 [P1] initial HT built: ht_rows=524288
+R4 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R2 [P1] initial HT built: ht_rows=524288
+R5 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R1 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R7 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R3 [P1] initial HT built: ht_rows=524288
+R4 [P1] initial HT built: ht_rows=524288
+R5 [P1] initial HT built: ht_rows=524288
+R6 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R2 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R0 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R3 [P1] step 0: seed join done, temp_l_size=609957
+R4 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R5 [P1] step 0: seed join done, temp_l_size=609957
+R6 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R1 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R7 [P1] step 1: seed join done, temp_l_size=3815103
+R2 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R3 [P1] step 0: seed dedup done, l_size=418467
+R4 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R5 [P1] step 0: seed dedup done, l_size=418467
+R0 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R3 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R1 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R5 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R6 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R2 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R3 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R4 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R5 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R6 [P1] step 1: seed join done, temp_l_size=1536650
+R0 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R7 [P1] step 1: seed dedup done, l_size=1386355
+R2 [P1] step 1: seed join done, temp_l_size=1536650
+R1 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R3 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R4 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R5 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R6 [P1] step 1: seed dedup done, l_size=823410
+R7 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R2 [P1] step 1: seed dedup done, l_size=823410
+R0 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R3 [P1] step 1: seed join done, temp_l_size=3815103
+R5 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R4 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R6 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R2 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R1 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R7 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R3 [P1] step 1: seed dedup done, l_size=1386355
+R2 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R6 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R5 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R4 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R3 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R7 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R15 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R12 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R4 [P1] step 2: seed join done, temp_l_size=5038989
+R15 [P1] initial HT built: ht_rows=524288
+R12 [P1] initial HT built: ht_rows=524288
+R2 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R0 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R6 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R15 [P1] step 0: seed join done, temp_l_size=609957
+R5 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R10 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R12 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R11 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R10 [P1] initial HT built: ht_rows=524288
+R15 [P1] step 0: seed dedup done, l_size=418467
+R11 [P1] initial HT built: ht_rows=524288
+R12 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R14 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R9 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R4 [P1] step 2: seed dedup done, l_size=2105991
+R10 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R15 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R9 [P1] initial HT built: ht_rows=524288
+R11 [P1] step 0: seed join done, temp_l_size=609957
+R14 [P1] initial HT built: ht_rows=524288
+R10 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R5 [P1] step 2: seed join done, temp_l_size=12549529
+R9 [P1] step 0: seed join done, temp_l_size=609957
+R11 [P1] step 0: seed dedup done, l_size=418467
+R12 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R15 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R1 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R13 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R14 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R7 [P1] step 2: seed join done, temp_l_size=40714290
+R11 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R6 [P1] step 2: seed join done, temp_l_size=24374836
+R9 [P1] step 0: seed dedup done, l_size=418467
+R10 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R13 [P1] initial HT built: ht_rows=524288
+R14 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R11 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R9 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R12 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R15 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R10 [P1] step 1: seed join done, temp_l_size=1536650
+R13 [P1] step 0: seed join done, temp_l_size=609957
+R9 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R11 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R13 [P1] step 0: seed dedup done, l_size=418467
+R4 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R14 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R5 [P1] step 2: seed dedup done, l_size=2976684
+R12 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R15 [P1] step 1: seed join done, temp_l_size=3815103
+R10 [P1] step 1: seed dedup done, l_size=823410
+R13 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R14 [P1] step 1: seed join done, temp_l_size=1536650
+R11 [P1] step 1: seed join done, temp_l_size=3815103
+R9 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R13 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R10 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R15 [P1] step 1: seed dedup done, l_size=1386355
+R8 [P1] entity arrays + dedup done: g_size=163734 l_size=163734
+R14 [P1] step 1: seed dedup done, l_size=823410
+R8 [P1] initial HT built: ht_rows=524288
+R9 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R12 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R13 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R11 [P1] step 1: seed dedup done, l_size=1386355
+R15 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R8 [P1] step 0: g_rev join done, temp_g_rev_size=609957
+R10 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R6 [P1] step 2: seed dedup done, l_size=3992092
+R14 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R12 [P1] step 2: seed join done, temp_l_size=5038989
+R13 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R8 [P1] step 0: g_rev dedup done, g_rev_size=418467
+R5 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R9 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R11 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R15 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R14 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R8 [P1] step 0: g squared, g_size=418467 ht_rows=1048576
+R12 [P1] step 2: seed dedup done, l_size=2105991
+R10 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R13 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R8 [P1] step 1: g_rev join done, temp_g_rev_size=3815103
+R11 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R9 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R7 [P1] step 2: seed dedup done, l_size=5147105
+R3 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R15 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R6 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R14 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R8 [P1] step 1: g_rev dedup done, g_rev_size=1386355
+R13 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R3 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R11 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R4 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R8 [P1] step 1: g squared, g_size=1386355 ht_rows=4194304
+R2 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R13 [P1] step 2: seed join done, temp_l_size=12549529
+R12 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R10 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R14 [P1] step 2: seed join done, temp_l_size=24374836
+R7 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R15 [P1] step 2: seed join done, temp_l_size=40714290
+R9 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R3 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R11 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R5 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R13 [P1] step 2: seed dedup done, l_size=2976684
+R8 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R0 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R1 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R14 [P1] step 2: seed dedup done, l_size=3992092
+R6 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R13 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R2 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R12 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R10 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R15 [P1] step 2: seed dedup done, l_size=5147105
+R7 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R14 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R9 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R3 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R11 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R8 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R15 [P1] step 2: g_rev join done, temp_g_rev_size=40714290
+R13 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R14 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R4 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R15 [P1] step 2: g_rev dedup done, g_rev_size=5147105
+R5 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R0 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R1 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R6 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R2 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R10 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R7 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R12 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R9 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R3 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R11 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R8 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R8 [P1] step 3: seed join done, temp_l_size=18658491
+R9 [P1] step 3: seed join done, temp_l_size=46952478
+R13 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R10 [P1] step 3: seed join done, temp_l_size=91612406
+R14 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R8 [P1] step 3: seed dedup done, l_size=6433232
+R15 [P1] step 2: g squared, g_size=5147105 ht_rows=16777216
+R11 [P1] step 3: seed join done, temp_l_size=153379143
+R9 [P1] step 3: seed dedup done, l_size=7841600
+R12 [P1] step 3: seed join done, temp_l_size=232200131
+R10 [P1] step 3: seed dedup done, l_size=9366053
+R13 [P1] step 3: seed join done, temp_l_size=327537642
+R4 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R5 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R0 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R1 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R6 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R2 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R14 [P1] step 3: seed join done, temp_l_size=438521292
+R7 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R3 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R11 [P1] step 3: seed dedup done, l_size=10994082
+R8 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R15 [P1] step 3: seed join done, temp_l_size=564493780
+R9 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R12 [P1] step 3: seed dedup done, l_size=12715753
+R10 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R11 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R13 [P1] step 3: seed dedup done, l_size=14524300
+R12 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R14 [P1] step 3: seed dedup done, l_size=16413798
+R13 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R4 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R5 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R0 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R6 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R1 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R7 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R2 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R3 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R8 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R15 [P1] step 3: seed dedup done, l_size=18376157
+R14 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R9 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R10 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R11 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R15 [P1] step 3: g_rev join done, temp_g_rev_size=564493780
+R12 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R13 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R14 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R15 [P1] step 3: g_rev dedup done, g_rev_size=18376157
+R4 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R4 [P1] partition filter done: gk_fwd=1155904 gk_rev=1135805
+Rank 4 Phase 1: 1.0140s | seed_size=2105991 (length 5), g^k_size=18376157
+R4 [P2] dedup full done: full_size=1135805
+R4 [P2] delta copy done: delta_size=1135805
+R5 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R5 [P1] partition filter done: gk_fwd=1126625 gk_rev=1101402
+Rank 5 Phase 1: 1.0190s | seed_size=2976684 (length 6), g^k_size=18376157
+R5 [P2] dedup full done: full_size=1101402
+R5 [P2] delta copy done: delta_size=1101402
+R6 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R6 [P1] partition filter done: gk_fwd=1185334 gk_rev=1165671
+Rank 6 Phase 1: 1.0251s | seed_size=3992092 (length 7), g^k_size=18376157
+R6 [P2] dedup full done: full_size=1165671
+R6 [P2] delta copy done: delta_size=1165671
+R1 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R7 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R1 [P1] partition filter done: gk_fwd=1160925 gk_rev=1176493
+Rank 1 Phase 1: 1.0240s | seed_size=418467 (length 2), g^k_size=18376157
+R1 [P2] dedup full done: full_size=1176493
+R1 [P2] delta copy done: delta_size=1176493
+R7 [P1] partition filter done: gk_fwd=1137273 gk_rev=1170476
+Rank 7 Phase 1: 1.0316s | seed_size=5147105 (length 8), g^k_size=18376157
+R7 [P2] dedup full done: full_size=1170476
+R7 [P2] delta copy done: delta_size=1170476
+R0 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R2 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R4 [P2] HT built: gk_fwd_size=1155904 ht_rows=2097152
+R0 [P1] partition filter done: gk_fwd=1176579 gk_rev=1171923
+Rank 0 Phase 1: 1.0430s | seed_size=163734 (length 1), g^k_size=18376157
+R3 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R5 [P2] HT built: gk_fwd_size=1126625 ht_rows=2097152
+R0 [P2] dedup full done: full_size=1171923
+R0 [P2] delta copy done: delta_size=1171923
+R2 [P1] partition filter done: gk_fwd=1126997 gk_rev=1118104
+Rank 2 Phase 1: 1.0355s | seed_size=823410 (length 3), g^k_size=18376157
+R3 [P1] partition filter done: gk_fwd=1149441 gk_rev=1177717
+Rank 3 Phase 1: 1.0369s | seed_size=1386355 (length 4), g^k_size=18376157
+R2 [P2] dedup full done: full_size=1118104
+R2 [P2] delta copy done: delta_size=1118104
+R3 [P2] dedup full done: full_size=1177717
+R3 [P2] delta copy done: delta_size=1177717
+R6 [P2] HT built: gk_fwd_size=1185334 ht_rows=2097152
+R1 [P2] HT built: gk_fwd_size=1160925 ht_rows=2097152
+R7 [P2] HT built: gk_fwd_size=1137273 ht_rows=2097152
+R8 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R9 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R8 [P1] partition filter done: gk_fwd=1127027 gk_rev=1150521
+Rank 8 Phase 1: 0.9792s | seed_size=6433232 (length 9), g^k_size=18376157
+R9 [P1] partition filter done: gk_fwd=1178741 gk_rev=1190874
+Rank 9 Phase 1: 0.9884s | seed_size=7841600 (length 10), g^k_size=18376157
+R8 [P2] dedup full done: full_size=1150521
+R8 [P2] delta copy done: delta_size=1150521
+R9 [P2] dedup full done: full_size=1190874
+R0 [P2] HT built: gk_fwd_size=1176579 ht_rows=2097152
+R9 [P2] delta copy done: delta_size=1190874
+R2 [P2] HT built: gk_fwd_size=1126997 ht_rows=2097152
+R3 [P2] HT built: gk_fwd_size=1149441 ht_rows=2097152
+R10 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R11 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R10 [P1] partition filter done: gk_fwd=1153004 gk_rev=1195066
+Rank 10 Phase 1: 1.0030s | seed_size=9366053 (length 11), g^k_size=18376157
+R11 [P1] partition filter done: gk_fwd=1151119 gk_rev=1109560
+Rank 11 Phase 1: 0.9949s | seed_size=10994082 (length 12), g^k_size=18376157
+R10 [P2] dedup full done: full_size=1195066
+R10 [P2] delta copy done: delta_size=1195066
+R11 [P2] dedup full done: full_size=1109560
+R11 [P2] delta copy done: delta_size=1109560
+R8 [P2] HT built: gk_fwd_size=1127027 ht_rows=2097152
+R9 [P2] HT built: gk_fwd_size=1178741 ht_rows=2097152
+R11 [P2] HT built: gk_fwd_size=1151119 ht_rows=2097152
+R10 [P2] HT built: gk_fwd_size=1153004 ht_rows=2097152
+R12 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R12 [P1] partition filter done: gk_fwd=1170220 gk_rev=1156430
+Rank 12 Phase 1: 1.0582s | seed_size=12715753 (length 13), g^k_size=18376157
+R12 [P2] dedup full done: full_size=1156430
+R12 [P2] delta copy done: delta_size=1156430
+R12 [P2] HT built: gk_fwd_size=1170220 ht_rows=2097152
+R13 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R13 [P1] partition filter done: gk_fwd=1120963 gk_rev=1117472
+Rank 13 Phase 1: 1.1105s | seed_size=14524300 (length 14), g^k_size=18376157
+R13 [P2] dedup full done: full_size=1117472
+R13 [P2] delta copy done: delta_size=1117472
+R13 [P2] HT built: gk_fwd_size=1120963 ht_rows=2097152
+R14 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R14 [P1] partition filter done: gk_fwd=1111086 gk_rev=1088480
+Rank 14 Phase 1: 1.1546s | seed_size=16413798 (length 15), g^k_size=18376157
+R14 [P2] dedup full done: full_size=1088480
+R14 [P2] delta copy done: delta_size=1088480
+R14 [P2] HT built: gk_fwd_size=1111086 ht_rows=2097152
+R15 [P1] step 3: g squared, g_size=18376157 ht_rows=33554432
+R15 [P1] partition filter done: gk_fwd=1144919 gk_rev=1150163
+Rank 15 Phase 1: 1.2225s | seed_size=18376157 (length 16), g^k_size=18376157
+R15 [P2] dedup full done: full_size=1150163
+R15 [P2] delta copy done: delta_size=1150163
+R15 [P2] HT built: gk_fwd_size=1144919 ht_rows=2097152
+R0 [P2] entering loop: global_full_size=18376157
+R1 [P2] entering loop: global_full_size=18376157
+R2 [P2] entering loop: global_full_size=18376157
+R2 [P2] iter 0: PRE-JOIN GPU mem: 80.1GB free / 85.1GB total | delta_size=1118104 full_size=1118104
+R3 [P2] entering loop: global_full_size=18376157
+R0 [P2] iter 0: PRE-JOIN GPU mem: 80.1GB free / 85.1GB total | delta_size=1171923 full_size=1171923
+R3 [P2] iter 0: PRE-JOIN GPU mem: 80.1GB free / 85.1GB total | delta_size=1177717 full_size=1177717
+R1 [P2] iter 0: PRE-JOIN GPU mem: 80.1GB free / 85.1GB total | delta_size=1176493 full_size=1176493
+R8 [P2] entering loop: global_full_size=18376157
+R4 [P2] entering loop: global_full_size=18376157
+R12 [P2] entering loop: global_full_size=18376157
+R9 [P2] entering loop: global_full_size=18376157
+R5 [P2] entering loop: global_full_size=18376157
+R13 [P2] entering loop: global_full_size=18376157
+R10 [P2] entering loop: global_full_size=18376157
+R10 [P2] iter 0: PRE-JOIN GPU mem: 79.4GB free / 85.1GB total | delta_size=1195066 full_size=1195066
+R6 [P2] entering loop: global_full_size=18376157
+R14 [P2] entering loop: global_full_size=18376157
+R14 [P2] iter 0: PRE-JOIN GPU mem: 76.6GB free / 85.1GB total | delta_size=1088480 full_size=1088480
+R11 [P2] entering loop: global_full_size=18376157
+R7 [P2] entering loop: global_full_size=18376157
+R7 [P2] iter 0: PRE-JOIN GPU mem: 79.8GB free / 85.1GB total | delta_size=1170476 full_size=1170476
+R15 [P2] entering loop: global_full_size=18376157
+R15 [P2] iter 0: PRE-JOIN GPU mem: 75.6GB free / 85.1GB total | delta_size=1150163 full_size=1150163
+R11 [P2] iter 0: PRE-JOIN GPU mem: 78.9GB free / 85.1GB total | delta_size=1109560 full_size=1109560
+R5 [P2] iter 0: PRE-JOIN GPU mem: 80.0GB free / 85.1GB total | delta_size=1101402 full_size=1101402
+R12 [P2] iter 0: PRE-JOIN GPU mem: 78.2GB free / 85.1GB total | delta_size=1156430 full_size=1156430
+R9 [P2] iter 0: PRE-JOIN GPU mem: 79.7GB free / 85.1GB total | delta_size=1190874 full_size=1190874
+R4 [P2] iter 0: PRE-JOIN GPU mem: 80.1GB free / 85.1GB total | delta_size=1135805 full_size=1135805
+R13 [P2] iter 0: PRE-JOIN GPU mem: 77.5GB free / 85.1GB total | delta_size=1117472 full_size=1117472
+R8 [P2] iter 0: PRE-JOIN GPU mem: 79.9GB free / 85.1GB total | delta_size=1150521 full_size=1150521
+R6 [P2] iter 0: PRE-JOIN GPU mem: 79.9GB free / 85.1GB total | delta_size=1165671 full_size=1165671
+R13 [P2] iter 0: join done, raw=439674598 result_size=48048432
+R2 [P2] iter 0: join done, raw=445497180 result_size=48189330
+R14 [P2] iter 0: join done, raw=443940319 result_size=48067363
+R15 [P2] iter 0: join done, raw=451037959 result_size=47779113
+R8 [P2] iter 0: join done, raw=453792132 result_size=48255906
+R0 [P2] iter 0: join done, raw=466612780 result_size=48168544
+R11 [P2] iter 0: join done, raw=454526658 result_size=48139036
+R3 [P2] iter 0: join done, raw=468788955 result_size=48328919
+R9 [P2] iter 0: join done, raw=477079544 result_size=48660779
+R5 [P2] iter 0: join done, raw=450760024 result_size=48319522
+R1 [P2] iter 0: join done, raw=474394960 result_size=48545247
+R12 [P2] iter 0: join done, raw=475125547 result_size=48366789
+R10 [P2] iter 0: join done, raw=481482830 result_size=48331425
+R7 [P2] iter 0: join done, raw=458398173 result_size=48197874
+R6 [P2] iter 0: join done, raw=471044361 result_size=48188871
+R4 [P2] iter 0: join done, raw=462350238 result_size=48615175
+R5 [P2] iter 0: split done, delta_size=45982844
+R6 [P2] iter 0: split done, delta_size=49333440
+R10 [P2] iter 0: split done, delta_size=49737259
+R13 [P2] iter 0: split done, delta_size=46253440
+R12 [P2] iter 0: split done, delta_size=47807409
+R8 [P2] iter 0: split done, delta_size=48545337
+R4 [P2] iter 0: split done, delta_size=48004258
+R3 [P2] iter 0: split done, delta_size=49089475
+R14 [P2] iter 0: split done, delta_size=46044834
+R7 [P2] iter 0: split done, delta_size=49544458
+R11 [P2] iter 0: split done, delta_size=46135966
+R2 [P2] iter 0: split done, delta_size=48329531
+R15 [P2] iter 0: split done, delta_size=48678179
+R9 [P2] iter 0: split done, delta_size=50524256
+R0 [P2] iter 0: split done, delta_size=49402352
+R1 [P2] iter 0: split done, delta_size=48789287
+R5 [P2] iter 0: dedup done, delta_size=3329929
+R5 [P2] iter 0: subtract done, delta_size=2355411
+R5 [P2] iter 0: merge done, full_size=3456813
+R10 [P2] iter 0: dedup done, delta_size=3596143
+R6 [P2] iter 0: dedup done, delta_size=3581723
+R13 [P2] iter 0: dedup done, delta_size=3358842
+R10 [P2] iter 0: subtract done, delta_size=2538167
+R6 [P2] iter 0: subtract done, delta_size=2549300
+R12 [P2] iter 0: dedup done, delta_size=3463709
+R13 [P2] iter 0: subtract done, delta_size=2371222
+R12 [P2] iter 0: subtract done, delta_size=2439510
+R4 [P2] iter 0: dedup done, delta_size=3502218
+R3 [P2] iter 0: dedup done, delta_size=3566644
+R10 [P2] iter 0: merge done, full_size=3733233
+R3 [P2] iter 0: subtract done, delta_size=2524437
+R8 [P2] iter 0: dedup done, delta_size=3523794
+R13 [P2] iter 0: merge done, full_size=3488694
+R14 [P2] iter 0: dedup done, delta_size=3347087
+R2 [P2] iter 0: dedup done, delta_size=3510409
+R8 [P2] iter 0: subtract done, delta_size=2502844
+R6 [P2] iter 0: merge done, full_size=3714971
+R7 [P2] iter 0: dedup done, delta_size=3589056
+R4 [P2] iter 0: subtract done, delta_size=2498790
+R7 [P2] iter 0: subtract done, delta_size=2551677
+R3 [P2] iter 0: merge done, full_size=3702154
+R2 [P2] iter 0: subtract done, delta_size=2521591
+R8 [P2] iter 0: merge done, full_size=3653365
+R11 [P2] iter 0: dedup done, delta_size=3357395
+R12 [P2] iter 0: merge done, full_size=3595940
+R14 [P2] iter 0: subtract done, delta_size=2386433
+R15 [P2] iter 0: dedup done, delta_size=3545000
+R4 [P2] iter 0: merge done, full_size=3634595
+R15 [P2] iter 0: subtract done, delta_size=2525291
+R11 [P2] iter 0: subtract done, delta_size=2376840
+R2 [P2] iter 0: merge done, full_size=3639695
+R7 [P2] iter 0: merge done, full_size=3722153
+R14 [P2] iter 0: merge done, full_size=3474913
+R11 [P2] iter 0: merge done, full_size=3486400
+R9 [P2] iter 0: dedup done, delta_size=3669088
+R0 [P2] iter 0: dedup done, delta_size=3592625
+R1 [P2] iter 0: dedup done, delta_size=3547785
+R9 [P2] iter 0: subtract done, delta_size=2616232
+R0 [P2] iter 0: subtract done, delta_size=2556796
+R1 [P2] iter 0: subtract done, delta_size=2509291
+R15 [P2] iter 0: merge done, full_size=3675454
+R9 [P2] iter 0: merge done, full_size=3807106
+R0 [P2] iter 0: merge done, full_size=3728719
+R1 [P2] iter 0: merge done, full_size=3685784
+R0 [P2] iter 1 done: global_full_size=58199989
+R1 [P2] iter 1 done: global_full_size=58199989
+R12 [P2] iter 1 done: global_full_size=58199989
+R8 [P2] iter 1 done: global_full_size=58199989
+R4 [P2] iter 1 done: global_full_size=58199989
+R2 [P2] iter 1 done: global_full_size=58199989
+R13 [P2] iter 1 done: global_full_size=58199989
+R9 [P2] iter 1 done: global_full_size=58199989
+R5 [P2] iter 1 done: global_full_size=58199989
+R3 [P2] iter 1 done: global_full_size=58199989
+R14 [P2] iter 1 done: global_full_size=58199989
+R14 [P2] iter 1: PRE-JOIN GPU mem: 80.7GB free / 85.1GB total | delta_size=2386433 full_size=3474913
+R10 [P2] iter 1 done: global_full_size=58199989
+R6 [P2] iter 1 done: global_full_size=58199989
+R15 [P2] iter 1 done: global_full_size=58199989
+R15 [P2] iter 1: PRE-JOIN GPU mem: 79.7GB free / 85.1GB total | delta_size=2525291 full_size=3675454
+R11 [P2] iter 1 done: global_full_size=58199989
+R7 [P2] iter 1 done: global_full_size=58199989
+R12 [P2] iter 1: PRE-JOIN GPU mem: 82.4GB free / 85.1GB total | delta_size=2439510 full_size=3595940
+R8 [P2] iter 1: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=2502844 full_size=3653365
+R4 [P2] iter 1: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=2498790 full_size=3634595
+R13 [P2] iter 1: PRE-JOIN GPU mem: 81.6GB free / 85.1GB total | delta_size=2371222 full_size=3488694
+R9 [P2] iter 1: PRE-JOIN GPU mem: 83.8GB free / 85.1GB total | delta_size=2616232 full_size=3807106
+R5 [P2] iter 1: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=2355411 full_size=3456813
+R10 [P2] iter 1: PRE-JOIN GPU mem: 83.5GB free / 85.1GB total | delta_size=2538167 full_size=3733233
+R6 [P2] iter 1: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=2549300 full_size=3714971
+R11 [P2] iter 1: PRE-JOIN GPU mem: 83.0GB free / 85.1GB total | delta_size=2376840 full_size=3486400
+R7 [P2] iter 1: PRE-JOIN GPU mem: 83.9GB free / 85.1GB total | delta_size=2551677 full_size=3722153
+R0 [P2] iter 1: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=2556796 full_size=3728719
+R1 [P2] iter 1: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=2509291 full_size=3685784
+R2 [P2] iter 1: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=2521591 full_size=3639695
+R3 [P2] iter 1: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=2524437 full_size=3702154
+R5 [P2] iter 1: join done, raw=971318442 result_size=74608394
+R7 [P2] iter 1: join done, raw=1003116090 result_size=74961306
+R6 [P2] iter 1: join done, raw=1034702589 result_size=75203023
+R13 [P2] iter 1: join done, raw=940468670 result_size=74468025
+R11 [P2] iter 1: join done, raw=984264443 result_size=74604510
+R4 [P2] iter 1: join done, raw=1064187677 result_size=75910193
+R8 [P2] iter 1: join done, raw=1012257174 result_size=74596193
+R15 [P2] iter 1: join done, raw=985256395 result_size=74312771
+R9 [P2] iter 1: join done, raw=1048762450 result_size=75354536
+R14 [P2] iter 1: join done, raw=1002346035 result_size=74855414
+R2 [P2] iter 1: join done, raw=1008429424 result_size=74983885
+R0 [P2] iter 1: join done, raw=1039180994 result_size=75039029
+R12 [P2] iter 1: join done, raw=1006392447 result_size=74692353
+R10 [P2] iter 1: join done, raw=1048334495 result_size=75079608
+R3 [P2] iter 1: join done, raw=1030576133 result_size=75959815
+R1 [P2] iter 1: join done, raw=1039591444 result_size=75484684
+R12 [P2] iter 1: split done, delta_size=72082489
+R11 [P2] iter 1: split done, delta_size=72728484
+R13 [P2] iter 1: split done, delta_size=71646757
+R10 [P2] iter 1: split done, delta_size=75002897
+R15 [P2] iter 1: split done, delta_size=77233777
+R14 [P2] iter 1: split done, delta_size=72169519
+R0 [P2] iter 1: split done, delta_size=77094924
+R6 [P2] iter 1: split done, delta_size=77576377
+R7 [P2] iter 1: split done, delta_size=76452633
+R8 [P2] iter 1: split done, delta_size=75029002
+R12 [P2] iter 1: dedup done, delta_size=5091277
+R12 [P2] iter 1: subtract done, delta_size=2209475
+R4 [P2] iter 1: split done, delta_size=75055888
+R11 [P2] iter 1: dedup done, delta_size=5153541
+R12 [P2] iter 1: merge done, full_size=5805415
+R11 [P2] iter 1: subtract done, delta_size=2351109
+R11 [P2] iter 1: merge done, full_size=5837509
+R5 [P2] iter 1: split done, delta_size=71339940
+R2 [P2] iter 1: split done, delta_size=75721756
+R1 [P2] iter 1: split done, delta_size=75221488
+R9 [P2] iter 1: split done, delta_size=78963954
+R13 [P2] iter 1: dedup done, delta_size=5058348
+R13 [P2] iter 1: subtract done, delta_size=2251650
+R13 [P2] iter 1: merge done, full_size=5740344
+R10 [P2] iter 1: dedup done, delta_size=5293005
+R10 [P2] iter 1: subtract done, delta_size=2283501
+R15 [P2] iter 1: dedup done, delta_size=5465283
+R10 [P2] iter 1: merge done, full_size=6016734
+R15 [P2] iter 1: subtract done, delta_size=2483312
+R3 [P2] iter 1: split done, delta_size=76793854
+R15 [P2] iter 1: merge done, full_size=6158766
+R14 [P2] iter 1: dedup done, delta_size=5102824
+R14 [P2] iter 1: subtract done, delta_size=2303393
+R14 [P2] iter 1: merge done, full_size=5778306
+R6 [P2] iter 1: dedup done, delta_size=5477916
+R6 [P2] iter 1: subtract done, delta_size=2470836
+R7 [P2] iter 1: dedup done, delta_size=5374683
+R6 [P2] iter 1: merge done, full_size=6185807
+R8 [P2] iter 1: dedup done, delta_size=5290987
+R7 [P2] iter 1: subtract done, delta_size=2364949
+R0 [P2] iter 1: dedup done, delta_size=5461228
+R8 [P2] iter 1: subtract done, delta_size=2333136
+R0 [P2] iter 1: subtract done, delta_size=2452637
+R7 [P2] iter 1: merge done, full_size=6087102
+R8 [P2] iter 1: merge done, full_size=5986501
+R0 [P2] iter 1: merge done, full_size=6181356
+R4 [P2] iter 1: dedup done, delta_size=5319948
+R4 [P2] iter 1: subtract done, delta_size=2396476
+R5 [P2] iter 1: dedup done, delta_size=5044560
+R4 [P2] iter 1: merge done, full_size=6031071
+R5 [P2] iter 1: subtract done, delta_size=2270278
+R5 [P2] iter 1: merge done, full_size=5727091
+R9 [P2] iter 1: dedup done, delta_size=5576679
+R1 [P2] iter 1: dedup done, delta_size=5325032
+R9 [P2] iter 1: subtract done, delta_size=2499773
+R9 [P2] iter 1: merge done, full_size=6306879
+R2 [P2] iter 1: dedup done, delta_size=5353044
+R1 [P2] iter 1: subtract done, delta_size=2360417
+R2 [P2] iter 1: subtract done, delta_size=2401638
+R1 [P2] iter 1: merge done, full_size=6046201
+R3 [P2] iter 1: dedup done, delta_size=5426530
+R2 [P2] iter 1: merge done, full_size=6041333
+R3 [P2] iter 1: subtract done, delta_size=2449713
+R3 [P2] iter 1: merge done, full_size=6151867
+R0 [P2] iter 2 done: global_full_size=96082282
+R1 [P2] iter 2 done: global_full_size=96082282
+R2 [P2] iter 2 done: global_full_size=96082282
+R3 [P2] iter 2 done: global_full_size=96082282
+R3 [P2] iter 2: PRE-JOIN GPU mem: 83.9GB free / 85.1GB total | delta_size=2449713 full_size=6151867
+R0 [P2] iter 2: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=2452637 full_size=6181356
+R1 [P2] iter 2: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=2360417 full_size=6046201
+R2 [P2] iter 2: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=2401638 full_size=6041333
+R12 [P2] iter 2 done: global_full_size=96082282
+R8 [P2] iter 2 done: global_full_size=96082282
+R4 [P2] iter 2 done: global_full_size=96082282
+R13 [P2] iter 2 done: global_full_size=96082282
+R9 [P2] iter 2 done: global_full_size=96082282
+R5 [P2] iter 2 done: global_full_size=96082282
+R14 [P2] iter 2 done: global_full_size=96082282
+R10 [P2] iter 2 done: global_full_size=96082282
+R6 [P2] iter 2 done: global_full_size=96082282
+R15 [P2] iter 2 done: global_full_size=96082282
+R11 [P2] iter 2 done: global_full_size=96082282
+R7 [P2] iter 2 done: global_full_size=96082282
+R12 [P2] iter 2: PRE-JOIN GPU mem: 82.1GB free / 85.1GB total | delta_size=2209475 full_size=5805415
+R8 [P2] iter 2: PRE-JOIN GPU mem: 83.8GB free / 85.1GB total | delta_size=2333136 full_size=5986501
+R4 [P2] iter 2: PRE-JOIN GPU mem: 83.9GB free / 85.1GB total | delta_size=2396476 full_size=6031071
+R13 [P2] iter 2: PRE-JOIN GPU mem: 81.4GB free / 85.1GB total | delta_size=2251650 full_size=5740344
+R9 [P2] iter 2: PRE-JOIN GPU mem: 83.6GB free / 85.1GB total | delta_size=2499773 full_size=6306879
+R5 [P2] iter 2: PRE-JOIN GPU mem: 83.9GB free / 85.1GB total | delta_size=2270278 full_size=5727091
+R14 [P2] iter 2: PRE-JOIN GPU mem: 80.5GB free / 85.1GB total | delta_size=2303393 full_size=5778306
+R10 [P2] iter 2: PRE-JOIN GPU mem: 83.2GB free / 85.1GB total | delta_size=2283501 full_size=6016734
+R6 [P2] iter 2: PRE-JOIN GPU mem: 83.8GB free / 85.1GB total | delta_size=2470836 full_size=6185807
+R15 [P2] iter 2: PRE-JOIN GPU mem: 79.4GB free / 85.1GB total | delta_size=2483312 full_size=6158766
+R11 [P2] iter 2: PRE-JOIN GPU mem: 82.8GB free / 85.1GB total | delta_size=2351109 full_size=5837509
+R7 [P2] iter 2: PRE-JOIN GPU mem: 83.6GB free / 85.1GB total | delta_size=2364949 full_size=6087102
+R7 [P2] iter 2: join done, raw=860736654 result_size=72599199
+R12 [P2] iter 2: join done, raw=861393324 result_size=73117198
+R5 [P2] iter 2: join done, raw=884609260 result_size=73783370
+R13 [P2] iter 2: join done, raw=866228441 result_size=73265228
+R8 [P2] iter 2: join done, raw=887257278 result_size=73023880
+R0 [P2] iter 2: join done, raw=953614294 result_size=73922065
+R2 [P2] iter 2: join done, raw=913062487 result_size=74173711
+R15 [P2] iter 2: join done, raw=920553272 result_size=72975433
+R10 [P2] iter 2: join done, raw=914927712 result_size=73361747
+R1 [P2] iter 2: join done, raw=930919409 result_size=74622509
+R3 [P2] iter 2: join done, raw=930769785 result_size=75007908
+R11 [P2] iter 2: join done, raw=911925597 result_size=73457970
+R6 [P2] iter 2: join done, raw=956237651 result_size=74237566
+R4 [P2] iter 2: join done, raw=959506236 result_size=75228019
+R14 [P2] iter 2: join done, raw=939382704 result_size=73848869
+R9 [P2] iter 2: join done, raw=940119197 result_size=73944028
+R5 [P2] iter 2: split done, delta_size=70420742
+R13 [P2] iter 2: split done, delta_size=71050153
+R10 [P2] iter 2: split done, delta_size=72201574
+R7 [P2] iter 2: split done, delta_size=74222693
+R3 [P2] iter 2: split done, delta_size=75036221
+R12 [P2] iter 2: split done, delta_size=68450152
+R4 [P2] iter 2: split done, delta_size=72619854
+R0 [P2] iter 2: split done, delta_size=75170653
+R8 [P2] iter 2: split done, delta_size=74087512
+R6 [P2] iter 2: split done, delta_size=76288073
+R1 [P2] iter 2: split done, delta_size=73629680
+R2 [P2] iter 2: split done, delta_size=75096239
+R11 [P2] iter 2: split done, delta_size=72842651
+R14 [P2] iter 2: split done, delta_size=71889305
+R5 [P2] iter 2: dedup done, delta_size=5072967
+R5 [P2] iter 2: subtract done, delta_size=1658155
+R5 [P2] iter 2: merge done, full_size=7385246
+R9 [P2] iter 2: split done, delta_size=78034150
+R7 [P2] iter 2: dedup done, delta_size=5338975
+R7 [P2] iter 2: subtract done, delta_size=1655945
+R7 [P2] iter 2: merge done, full_size=7743047
+R15 [P2] iter 2: split done, delta_size=79529048
+R3 [P2] iter 2: dedup done, delta_size=5424372
+R4 [P2] iter 2: dedup done, delta_size=5264890
+R3 [P2] iter 2: subtract done, delta_size=1722540
+R4 [P2] iter 2: subtract done, delta_size=1696925
+R10 [P2] iter 2: dedup done, delta_size=5219466
+R4 [P2] iter 2: merge done, full_size=7727996
+R0 [P2] iter 2: dedup done, delta_size=5438722
+R3 [P2] iter 2: merge done, full_size=7874407
+R6 [P2] iter 2: dedup done, delta_size=5515832
+R0 [P2] iter 2: subtract done, delta_size=1715990
+R6 [P2] iter 2: subtract done, delta_size=1764201
+R0 [P2] iter 2: merge done, full_size=7897346
+R6 [P2] iter 2: merge done, full_size=7950008
+R1 [P2] iter 2: dedup done, delta_size=5344593
+R2 [P2] iter 2: dedup done, delta_size=5428340
+R1 [P2] iter 2: subtract done, delta_size=1720296
+R2 [P2] iter 2: subtract done, delta_size=1740967
+R1 [P2] iter 2: merge done, full_size=7766497
+R2 [P2] iter 2: merge done, full_size=7782300
+R13 [P2] iter 2: dedup done, delta_size=5113482
+R10 [P2] iter 2: subtract done, delta_size=1655708
+R13 [P2] iter 2: subtract done, delta_size=1665571
+R12 [P2] iter 2: dedup done, delta_size=4977727
+R8 [P2] iter 2: dedup done, delta_size=5360425
+R12 [P2] iter 2: subtract done, delta_size=1581142
+R14 [P2] iter 2: dedup done, delta_size=5178239
+R13 [P2] iter 2: merge done, full_size=7405915
+R14 [P2] iter 2: subtract done, delta_size=1696423
+R8 [P2] iter 2: subtract done, delta_size=1716814
+R12 [P2] iter 2: merge done, full_size=7386557
+R14 [P2] iter 2: merge done, full_size=7474729
+R10 [P2] iter 2: merge done, full_size=7672442
+R9 [P2] iter 2: dedup done, delta_size=5619066
+R11 [P2] iter 2: dedup done, delta_size=5259316
+R15 [P2] iter 2: dedup done, delta_size=5723502
+R15 [P2] iter 2: subtract done, delta_size=1903656
+R8 [P2] iter 2: merge done, full_size=7703315
+R15 [P2] iter 2: merge done, full_size=8062422
+R9 [P2] iter 2: subtract done, delta_size=1773638
+R11 [P2] iter 2: subtract done, delta_size=1754818
+R9 [P2] iter 2: merge done, full_size=8080517
+R11 [P2] iter 2: merge done, full_size=7592327
+R0 [P2] iter 3 done: global_full_size=123505071
+R12 [P2] iter 3 done: global_full_size=123505071
+R8 [P2] iter 3 done: global_full_size=123505071
+R1 [P2] iter 3 done: global_full_size=123505071
+R13 [P2] iter 3 done: global_full_size=123505071
+R9 [P2] iter 3 done: global_full_size=123505071
+R2 [P2] iter 3 done: global_full_size=123505071
+R14 [P2] iter 3 done: global_full_size=123505071
+R10 [P2] iter 3 done: global_full_size=123505071
+R3 [P2] iter 3 done: global_full_size=123505071
+R3 [P2] iter 3: PRE-JOIN GPU mem: 83.9GB free / 85.1GB total | delta_size=1722540 full_size=7874407
+R15 [P2] iter 3 done: global_full_size=123505071
+R15 [P2] iter 3: PRE-JOIN GPU mem: 79.4GB free / 85.1GB total | delta_size=1903656 full_size=8062422
+R11 [P2] iter 3 done: global_full_size=123505071
+R0 [P2] iter 3: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=1715990 full_size=7897346
+R12 [P2] iter 3: PRE-JOIN GPU mem: 82.2GB free / 85.1GB total | delta_size=1581142 full_size=7386557
+R4 [P2] iter 3 done: global_full_size=123505071
+R1 [P2] iter 3: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=1720296 full_size=7766497
+R13 [P2] iter 3: PRE-JOIN GPU mem: 81.4GB free / 85.1GB total | delta_size=1665571 full_size=7405915
+R5 [P2] iter 3 done: global_full_size=123505071
+R2 [P2] iter 3: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=1740967 full_size=7782300
+R14 [P2] iter 3: PRE-JOIN GPU mem: 80.5GB free / 85.1GB total | delta_size=1696423 full_size=7474729
+R6 [P2] iter 3 done: global_full_size=123505071
+R7 [P2] iter 3 done: global_full_size=123505071
+R7 [P2] iter 3: PRE-JOIN GPU mem: 83.6GB free / 85.1GB total | delta_size=1655945 full_size=7743047
+R4 [P2] iter 3: PRE-JOIN GPU mem: 83.9GB free / 85.1GB total | delta_size=1696925 full_size=7727996
+R5 [P2] iter 3: PRE-JOIN GPU mem: 83.9GB free / 85.1GB total | delta_size=1658155 full_size=7385246
+R6 [P2] iter 3: PRE-JOIN GPU mem: 83.8GB free / 85.1GB total | delta_size=1764201 full_size=7950008
+R8 [P2] iter 3: PRE-JOIN GPU mem: 83.8GB free / 85.1GB total | delta_size=1716814 full_size=7703315
+R9 [P2] iter 3: PRE-JOIN GPU mem: 83.6GB free / 85.1GB total | delta_size=1773638 full_size=8080517
+R10 [P2] iter 3: PRE-JOIN GPU mem: 83.3GB free / 85.1GB total | delta_size=1655708 full_size=7672442
+R11 [P2] iter 3: PRE-JOIN GPU mem: 82.8GB free / 85.1GB total | delta_size=1754818 full_size=7592327
+R7 [P2] iter 3: join done, raw=543518815 result_size=53989755
+R12 [P2] iter 3: join done, raw=568971362 result_size=55745202
+R13 [P2] iter 3: join done, raw=619070496 result_size=55353392
+R5 [P2] iter 3: join done, raw=610608328 result_size=55741804
+R0 [P2] iter 3: join done, raw=623616866 result_size=56482568
+R8 [P2] iter 3: join done, raw=612499014 result_size=55380459
+R3 [P2] iter 3: join done, raw=615377289 result_size=56348217
+R4 [P2] iter 3: join done, raw=635567385 result_size=56766505
+R9 [P2] iter 3: join done, raw=622959629 result_size=55746213
+R14 [P2] iter 3: join done, raw=652336525 result_size=56207946
+R2 [P2] iter 3: join done, raw=625804325 result_size=56637270
+R10 [P2] iter 3: join done, raw=624517260 result_size=55060237
+R15 [P2] iter 3: join done, raw=668866641 result_size=55663855
+R1 [P2] iter 3: join done, raw=637190792 result_size=56898535
+R6 [P2] iter 3: join done, raw=652844294 result_size=56670081
+R11 [P2] iter 3: join done, raw=653101573 result_size=55955251
+R10 [P2] iter 3: split done, delta_size=54025127
+R0 [P2] iter 3: split done, delta_size=54975292
+R2 [P2] iter 3: split done, delta_size=56780187
+R4 [P2] iter 3: split done, delta_size=53982711
+R3 [P2] iter 3: split done, delta_size=56762873
+R12 [P2] iter 3: split done, delta_size=50772814
+R1 [P2] iter 3: split done, delta_size=55810835
+R5 [P2] iter 3: split done, delta_size=53369098
+R8 [P2] iter 3: split done, delta_size=57388503
+R13 [P2] iter 3: split done, delta_size=54017491
+R7 [P2] iter 3: split done, delta_size=56311073
+R6 [P2] iter 3: split done, delta_size=57689868
+R11 [P2] iter 3: split done, delta_size=56550106
+R9 [P2] iter 3: split done, delta_size=58408941
+R14 [P2] iter 3: split done, delta_size=54213860
+R10 [P2] iter 3: dedup done, delta_size=3958590
+R0 [P2] iter 3: dedup done, delta_size=4060208
+R10 [P2] iter 3: subtract done, delta_size=918049
+R0 [P2] iter 3: subtract done, delta_size=939994
+R10 [P2] iter 3: merge done, full_size=8590491
+R0 [P2] iter 3: merge done, full_size=8837340
+R4 [P2] iter 3: dedup done, delta_size=3992217
+R12 [P2] iter 3: dedup done, delta_size=3758772
+R4 [P2] iter 3: subtract done, delta_size=978436
+R15 [P2] iter 3: split done, delta_size=63588511
+R2 [P2] iter 3: dedup done, delta_size=4171572
+R12 [P2] iter 3: subtract done, delta_size=916062
+R2 [P2] iter 3: subtract done, delta_size=967047
+R3 [P2] iter 3: dedup done, delta_size=4182607
+R4 [P2] iter 3: merge done, full_size=8706432
+R12 [P2] iter 3: merge done, full_size=8302619
+R2 [P2] iter 3: merge done, full_size=8749347
+R3 [P2] iter 3: subtract done, delta_size=1008843
+R1 [P2] iter 3: dedup done, delta_size=4114687
+R5 [P2] iter 3: dedup done, delta_size=3903219
+R3 [P2] iter 3: merge done, full_size=8883250
+R1 [P2] iter 3: subtract done, delta_size=987634
+R5 [P2] iter 3: subtract done, delta_size=909751
+R1 [P2] iter 3: merge done, full_size=8754131
+R5 [P2] iter 3: merge done, full_size=8294997
+R8 [P2] iter 3: dedup done, delta_size=4213919
+R13 [P2] iter 3: dedup done, delta_size=3957315
+R8 [P2] iter 3: subtract done, delta_size=1041599
+R13 [P2] iter 3: subtract done, delta_size=949831
+R7 [P2] iter 3: dedup done, delta_size=4117046
+R13 [P2] iter 3: merge done, full_size=8355746
+R8 [P2] iter 3: merge done, full_size=8744914
+R7 [P2] iter 3: subtract done, delta_size=967146
+R7 [P2] iter 3: merge done, full_size=8710193
+R6 [P2] iter 3: dedup done, delta_size=4257429
+R6 [P2] iter 3: subtract done, delta_size=1055842
+R11 [P2] iter 3: dedup done, delta_size=4147343
+R6 [P2] iter 3: merge done, full_size=9005850
+R11 [P2] iter 3: subtract done, delta_size=1024001
+R11 [P2] iter 3: merge done, full_size=8616328
+R14 [P2] iter 3: dedup done, delta_size=3977728
+R9 [P2] iter 3: dedup done, delta_size=4289697
+R14 [P2] iter 3: subtract done, delta_size=931199
+R9 [P2] iter 3: subtract done, delta_size=970444
+R14 [P2] iter 3: merge done, full_size=8405928
+R9 [P2] iter 3: merge done, full_size=9050961
+R15 [P2] iter 3: dedup done, delta_size=4636211
+R15 [P2] iter 3: subtract done, delta_size=1111736
+R15 [P2] iter 3: merge done, full_size=9174158
+R0 [P2] iter 4 done: global_full_size=139182685
+R1 [P2] iter 4 done: global_full_size=139182685
+R12 [P2] iter 4 done: global_full_size=139182685
+R8 [P2] iter 4 done: global_full_size=139182685
+R4 [P2] iter 4 done: global_full_size=139182685
+R2 [P2] iter 4 done: global_full_size=139182685
+R2 [P2] iter 4: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=967047 full_size=8749347
+R13 [P2] iter 4 done: global_full_size=139182685
+R9 [P2] iter 4 done: global_full_size=139182685
+R5 [P2] iter 4 done: global_full_size=139182685
+R3 [P2] iter 4 done: global_full_size=139182685
+R3 [P2] iter 4: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=1008843 full_size=8883250
+R14 [P2] iter 4 done: global_full_size=139182685
+R10 [P2] iter 4 done: global_full_size=139182685
+R6 [P2] iter 4 done: global_full_size=139182685
+R1 [P2] iter 4: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=987634 full_size=8754131
+R15 [P2] iter 4 done: global_full_size=139182685
+R15 [P2] iter 4: PRE-JOIN GPU mem: 79.5GB free / 85.1GB total | delta_size=1111736 full_size=9174158
+R11 [P2] iter 4 done: global_full_size=139182685
+R7 [P2] iter 4 done: global_full_size=139182685
+R7 [P2] iter 4: PRE-JOIN GPU mem: 83.8GB free / 85.1GB total | delta_size=967146 full_size=8710193
+R0 [P2] iter 4: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=939994 full_size=8837340
+R12 [P2] iter 4: PRE-JOIN GPU mem: 82.3GB free / 85.1GB total | delta_size=916062 full_size=8302619
+R8 [P2] iter 4: PRE-JOIN GPU mem: 83.9GB free / 85.1GB total | delta_size=1041599 full_size=8744914
+R4 [P2] iter 4: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=978436 full_size=8706432
+R13 [P2] iter 4: PRE-JOIN GPU mem: 81.5GB free / 85.1GB total | delta_size=949831 full_size=8355746
+R9 [P2] iter 4: PRE-JOIN GPU mem: 83.7GB free / 85.1GB total | delta_size=970444 full_size=9050961
+R5 [P2] iter 4: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=909751 full_size=8294997
+R14 [P2] iter 4: PRE-JOIN GPU mem: 80.6GB free / 85.1GB total | delta_size=931199 full_size=8405928
+R10 [P2] iter 4: PRE-JOIN GPU mem: 83.4GB free / 85.1GB total | delta_size=918049 full_size=8590491
+R6 [P2] iter 4: PRE-JOIN GPU mem: 83.9GB free / 85.1GB total | delta_size=1055842 full_size=9005850
+R11 [P2] iter 4: PRE-JOIN GPU mem: 82.9GB free / 85.1GB total | delta_size=1024001 full_size=8616328
+R5 [P2] iter 4: join done, raw=319358859 result_size=35274873
+R7 [P2] iter 4: join done, raw=303018928 result_size=35126048
+R10 [P2] iter 4: join done, raw=331565277 result_size=34777227
+R9 [P2] iter 4: join done, raw=327090550 result_size=35551353
+R8 [P2] iter 4: join done, raw=358274603 result_size=36194955
+R11 [P2] iter 4: join done, raw=355849929 result_size=36251695
+R0 [P2] iter 4: join done, raw=316346432 result_size=35861936
+R1 [P2] iter 4: join done, raw=343401947 result_size=36805618
+R2 [P2] iter 4: join done, raw=324933307 result_size=36547634
+R4 [P2] iter 4: join done, raw=344399805 result_size=36107563
+R6 [P2] iter 4: join done, raw=364991691 result_size=35412883
+R3 [P2] iter 4: join done, raw=343199339 result_size=36119559
+R12 [P2] iter 4: join done, raw=308502839 result_size=35916648
+R13 [P2] iter 4: join done, raw=336279257 result_size=34895258
+R14 [P2] iter 4: join done, raw=334117913 result_size=35833392
+R15 [P2] iter 4: join done, raw=377704607 result_size=35958382
+R2 [P2] iter 4: split done, delta_size=35305671
+R5 [P2] iter 4: split done, delta_size=33408281
+R13 [P2] iter 4: split done, delta_size=34588289
+R10 [P2] iter 4: split done, delta_size=34432370
+R12 [P2] iter 4: split done, delta_size=32206875
+R4 [P2] iter 4: split done, delta_size=34396360
+R0 [P2] iter 4: split done, delta_size=34387476
+R3 [P2] iter 4: split done, delta_size=36659332
+R1 [P2] iter 4: split done, delta_size=36109246
+R11 [P2] iter 4: split done, delta_size=36030422
+R9 [P2] iter 4: split done, delta_size=36609939
+R14 [P2] iter 4: split done, delta_size=33824653
+R8 [P2] iter 4: split done, delta_size=37522494
+R6 [P2] iter 4: split done, delta_size=37320273
+R7 [P2] iter 4: split done, delta_size=37077430
+R2 [P2] iter 4: dedup done, delta_size=2684732
+R2 [P2] iter 4: subtract done, delta_size=476406
+R5 [P2] iter 4: dedup done, delta_size=2517488
+R5 [P2] iter 4: subtract done, delta_size=425817
+R12 [P2] iter 4: dedup done, delta_size=2458282
+R2 [P2] iter 4: merge done, full_size=9225753
+R10 [P2] iter 4: dedup done, delta_size=2584061
+R13 [P2] iter 4: dedup done, delta_size=2611908
+R5 [P2] iter 4: merge done, full_size=8720814
+R12 [P2] iter 4: subtract done, delta_size=458940
+R10 [P2] iter 4: subtract done, delta_size=422352
+R13 [P2] iter 4: subtract done, delta_size=472063
+R12 [P2] iter 4: merge done, full_size=8761559
+R10 [P2] iter 4: merge done, full_size=9012843
+R13 [P2] iter 4: merge done, full_size=8827809
+R15 [P2] iter 4: split done, delta_size=42755913
+R4 [P2] iter 4: dedup done, delta_size=2613127
+R4 [P2] iter 4: subtract done, delta_size=517426
+R0 [P2] iter 4: dedup done, delta_size=2602647
+R4 [P2] iter 4: merge done, full_size=9223858
+R0 [P2] iter 4: subtract done, delta_size=484462
+R0 [P2] iter 4: merge done, full_size=9321802
+R1 [P2] iter 4: dedup done, delta_size=2724522
+R3 [P2] iter 4: dedup done, delta_size=2799036
+R11 [P2] iter 4: dedup done, delta_size=2734279
+R1 [P2] iter 4: subtract done, delta_size=504644
+R3 [P2] iter 4: subtract done, delta_size=529410
+R14 [P2] iter 4: dedup done, delta_size=2546641
+R11 [P2] iter 4: subtract done, delta_size=512144
+R9 [P2] iter 4: dedup done, delta_size=2764728
+R1 [P2] iter 4: merge done, full_size=9258775
+R3 [P2] iter 4: merge done, full_size=9412660
+R14 [P2] iter 4: subtract done, delta_size=431720
+R9 [P2] iter 4: subtract done, delta_size=462494
+R11 [P2] iter 4: merge done, full_size=9128472
+R14 [P2] iter 4: merge done, full_size=8837648
+R8 [P2] iter 4: dedup done, delta_size=2831194
+R9 [P2] iter 4: merge done, full_size=9513455
+R8 [P2] iter 4: subtract done, delta_size=522192
+R6 [P2] iter 4: dedup done, delta_size=2814329
+R8 [P2] iter 4: merge done, full_size=9267106
+R6 [P2] iter 4: subtract done, delta_size=534794
+R7 [P2] iter 4: dedup done, delta_size=2769287
+R6 [P2] iter 4: merge done, full_size=9540644
+R7 [P2] iter 4: subtract done, delta_size=475945
+R7 [P2] iter 4: merge done, full_size=9186138
+R15 [P2] iter 4: dedup done, delta_size=3208794
+R15 [P2] iter 4: subtract done, delta_size=538986
+R15 [P2] iter 4: merge done, full_size=9713144
+R0 [P2] iter 5 done: global_full_size=146952480
+R1 [P2] iter 5 done: global_full_size=146952480
+R8 [P2] iter 5 done: global_full_size=146952480
+R2 [P2] iter 5 done: global_full_size=146952480
+R12 [P2] iter 5 done: global_full_size=146952480
+R9 [P2] iter 5 done: global_full_size=146952480
+R3 [P2] iter 5 done: global_full_size=146952480
+R13 [P2] iter 5 done: global_full_size=146952480
+R10 [P2] iter 5 done: global_full_size=146952480
+R4 [P2] iter 5 done: global_full_size=146952480
+R0 [P2] iter 5: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=484462 full_size=9321802
+R14 [P2] iter 5 done: global_full_size=146952480
+R11 [P2] iter 5 done: global_full_size=146952480
+R5 [P2] iter 5 done: global_full_size=146952480
+R5 [P2] iter 5: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=425817 full_size=8720814
+R1 [P2] iter 5: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=504644 full_size=9258775
+R15 [P2] iter 5 done: global_full_size=146952480
+R15 [P2] iter 5: PRE-JOIN GPU mem: 79.7GB free / 85.1GB total | delta_size=538986 full_size=9713144
+R9 [P2] iter 5: PRE-JOIN GPU mem: 83.9GB free / 85.1GB total | delta_size=462494 full_size=9513455
+R6 [P2] iter 5 done: global_full_size=146952480
+R6 [P2] iter 5: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=534794 full_size=9540644
+R2 [P2] iter 5: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=476406 full_size=9225753
+R12 [P2] iter 5: PRE-JOIN GPU mem: 82.4GB free / 85.1GB total | delta_size=458940 full_size=8761559
+R10 [P2] iter 5: PRE-JOIN GPU mem: 83.5GB free / 85.1GB total | delta_size=422352 full_size=9012843
+R7 [P2] iter 5 done: global_full_size=146952480
+R7 [P2] iter 5: PRE-JOIN GPU mem: 83.9GB free / 85.1GB total | delta_size=475945 full_size=9186138
+R3 [P2] iter 5: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=529410 full_size=9412660
+R13 [P2] iter 5: PRE-JOIN GPU mem: 81.7GB free / 85.1GB total | delta_size=472063 full_size=8827809
+R11 [P2] iter 5: PRE-JOIN GPU mem: 83.0GB free / 85.1GB total | delta_size=512144 full_size=9128472
+R4 [P2] iter 5: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=517426 full_size=9223858
+R14 [P2] iter 5: PRE-JOIN GPU mem: 80.8GB free / 85.1GB total | delta_size=431720 full_size=8837648
+R8 [P2] iter 5: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=522192 full_size=9267106
+R5 [P2] iter 5: join done, raw=141189962 result_size=20014522
+R14 [P2] iter 5: join done, raw=145987106 result_size=20575827
+R10 [P2] iter 5: join done, raw=149917812 result_size=19661844
+R12 [P2] iter 5: join done, raw=150493902 result_size=20734759
+R7 [P2] iter 5: join done, raw=150323894 result_size=20392898
+R9 [P2] iter 5: join done, raw=152479743 result_size=20559586
+R13 [P2] iter 5: join done, raw=157575852 result_size=19007599
+R0 [P2] iter 5: join done, raw=155432475 result_size=20927669
+R11 [P2] iter 5: join done, raw=166406305 result_size=20663010
+R15 [P2] iter 5: join done, raw=179368617 result_size=20358149
+R8 [P2] iter 5: join done, raw=174600057 result_size=21020419
+R2 [P2] iter 5: join done, raw=156122756 result_size=21502917
+R1 [P2] iter 5: join done, raw=166033303 result_size=21444597
+R3 [P2] iter 5: join done, raw=173534598 result_size=21064581
+R6 [P2] iter 5: join done, raw=173650163 result_size=19923297
+R4 [P2] iter 5: join done, raw=173285610 result_size=20548753
+R2 [P2] iter 5: split done, delta_size=19972908
+R5 [P2] iter 5: split done, delta_size=18608180
+R10 [P2] iter 5: split done, delta_size=20387142
+R13 [P2] iter 5: split done, delta_size=20072458
+R4 [P2] iter 5: split done, delta_size=20013646
+R0 [P2] iter 5: split done, delta_size=19497980
+R8 [P2] iter 5: split done, delta_size=21070925
+R12 [P2] iter 5: split done, delta_size=18212506
+R11 [P2] iter 5: split done, delta_size=20048261
+R3 [P2] iter 5: split done, delta_size=21519459
+R1 [P2] iter 5: split done, delta_size=21032288
+R9 [P2] iter 5: split done, delta_size=20691313
+R2 [P2] iter 5: dedup done, delta_size=1578121
+R2 [P2] iter 5: subtract done, delta_size=212755
+R14 [P2] iter 5: split done, delta_size=19154902
+R2 [P2] iter 5: merge done, full_size=9438508
+R5 [P2] iter 5: dedup done, delta_size=1459546
+R13 [P2] iter 5: dedup done, delta_size=1574906
+R5 [P2] iter 5: subtract done, delta_size=186296
+R0 [P2] iter 5: dedup done, delta_size=1530188
+R0 [P2] iter 5: subtract done, delta_size=219301
+R10 [P2] iter 5: dedup done, delta_size=1581368
+R6 [P2] iter 5: split done, delta_size=21162873
+R13 [P2] iter 5: subtract done, delta_size=200227
+R4 [P2] iter 5: dedup done, delta_size=1576708
+R12 [P2] iter 5: dedup done, delta_size=1457819
+R0 [P2] iter 5: merge done, full_size=9541103
+R10 [P2] iter 5: subtract done, delta_size=178025
+R13 [P2] iter 5: merge done, full_size=9028036
+R7 [P2] iter 5: split done, delta_size=21806282
+R12 [P2] iter 5: subtract done, delta_size=184975
+R5 [P2] iter 5: merge done, full_size=8907110
+R4 [P2] iter 5: subtract done, delta_size=243355
+R8 [P2] iter 5: dedup done, delta_size=1681220
+R11 [P2] iter 5: dedup done, delta_size=1588181
+R15 [P2] iter 5: split done, delta_size=25149304
+R10 [P2] iter 5: merge done, full_size=9190868
+R9 [P2] iter 5: dedup done, delta_size=1639147
+R4 [P2] iter 5: merge done, full_size=9467213
+R12 [P2] iter 5: merge done, full_size=8946534
+R11 [P2] iter 5: subtract done, delta_size=224040
+R3 [P2] iter 5: dedup done, delta_size=1719743
+R1 [P2] iter 5: dedup done, delta_size=1652471
+R8 [P2] iter 5: subtract done, delta_size=218200
+R9 [P2] iter 5: subtract done, delta_size=208167
+R3 [P2] iter 5: subtract done, delta_size=254089
+R1 [P2] iter 5: subtract done, delta_size=220084
+R11 [P2] iter 5: merge done, full_size=9352512
+R8 [P2] iter 5: merge done, full_size=9485306
+R9 [P2] iter 5: merge done, full_size=9721622
+R3 [P2] iter 5: merge done, full_size=9666749
+R1 [P2] iter 5: merge done, full_size=9478859
+R14 [P2] iter 5: dedup done, delta_size=1496593
+R14 [P2] iter 5: subtract done, delta_size=174039
+R14 [P2] iter 5: merge done, full_size=9011687
+R6 [P2] iter 5: dedup done, delta_size=1655345
+R6 [P2] iter 5: subtract done, delta_size=226852
+R7 [P2] iter 5: dedup done, delta_size=1718516
+R6 [P2] iter 5: merge done, full_size=9767496
+R7 [P2] iter 5: subtract done, delta_size=207612
+R7 [P2] iter 5: merge done, full_size=9393750
+R15 [P2] iter 5: dedup done, delta_size=1956446
+R15 [P2] iter 5: subtract done, delta_size=221846
+R15 [P2] iter 5: merge done, full_size=9934990
+R0 [P2] iter 6 done: global_full_size=150332343
+R1 [P2] iter 6 done: global_full_size=150332343
+R4 [P2] iter 6 done: global_full_size=150332343
+R2 [P2] iter 6 done: global_full_size=150332343
+R5 [P2] iter 6 done: global_full_size=150332343
+R3 [P2] iter 6 done: global_full_size=150332343
+R3 [P2] iter 6: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=254089 full_size=9666749
+R6 [P2] iter 6 done: global_full_size=150332343
+R6 [P2] iter 6: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=226852 full_size=9767496
+R0 [P2] iter 6: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=219301 full_size=9541103
+R7 [P2] iter 6 done: global_full_size=150332343
+R7 [P2] iter 6: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=207612 full_size=9393750
+R1 [P2] iter 6: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=220084 full_size=9478859
+R4 [P2] iter 6: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=243355 full_size=9467213
+R2 [P2] iter 6: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=212755 full_size=9438508
+R5 [P2] iter 6: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=186296 full_size=8907110
+R12 [P2] iter 6 done: global_full_size=150332343
+R8 [P2] iter 6 done: global_full_size=150332343
+R13 [P2] iter 6 done: global_full_size=150332343
+R9 [P2] iter 6 done: global_full_size=150332343
+R14 [P2] iter 6 done: global_full_size=150332343
+R10 [P2] iter 6 done: global_full_size=150332343
+R15 [P2] iter 6 done: global_full_size=150332343
+R11 [P2] iter 6 done: global_full_size=150332343
+R12 [P2] iter 6: PRE-JOIN GPU mem: 82.5GB free / 85.1GB total | delta_size=184975 full_size=8946534
+R8 [P2] iter 6: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=218200 full_size=9485306
+R13 [P2] iter 6: PRE-JOIN GPU mem: 81.8GB free / 85.1GB total | delta_size=200227 full_size=9028036
+R9 [P2] iter 6: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=208167 full_size=9721622
+R14 [P2] iter 6: PRE-JOIN GPU mem: 80.9GB free / 85.1GB total | delta_size=174039 full_size=9011687
+R10 [P2] iter 6: PRE-JOIN GPU mem: 83.7GB free / 85.1GB total | delta_size=178025 full_size=9190868
+R15 [P2] iter 6: PRE-JOIN GPU mem: 79.8GB free / 85.1GB total | delta_size=221846 full_size=9934990
+R11 [P2] iter 6: PRE-JOIN GPU mem: 83.2GB free / 85.1GB total | delta_size=224040 full_size=9352512
+R12 [P2] iter 6: join done, raw=61035070 result_size=11562789
+R14 [P2] iter 6: join done, raw=59732521 result_size=11490995
+R5 [P2] iter 6: join done, raw=63745581 result_size=11807631
+R13 [P2] iter 6: join done, raw=67711683 result_size=10819959
+R10 [P2] iter 6: join done, raw=63240662 result_size=11235695
+R15 [P2] iter 6: join done, raw=74412405 result_size=11345921
+R7 [P2] iter 6: join done, raw=68053494 result_size=11466580
+R0 [P2] iter 6: join done, raw=72184033 result_size=11887158
+R2 [P2] iter 6: join done, raw=72963452 result_size=12304855
+R9 [P2] iter 6: join done, raw=70691799 result_size=12015438
+R1 [P2] iter 6: join done, raw=72999287 result_size=12343444
+R8 [P2] iter 6: join done, raw=74298253 result_size=11918491
+R11 [P2] iter 6: join done, raw=76001738 result_size=11973374
+R6 [P2] iter 6: join done, raw=77354660 result_size=11379890
+R4 [P2] iter 6: join done, raw=84218951 result_size=12136992
+R3 [P2] iter 6: join done, raw=85186489 result_size=12109340
+R11 [P2] iter 6: split done, delta_size=11112628
+R13 [P2] iter 6: split done, delta_size=11242595
+R5 [P2] iter 6: split done, delta_size=10535864
+R0 [P2] iter 6: split done, delta_size=11164764
+R12 [P2] iter 6: split done, delta_size=10016982
+R8 [P2] iter 6: split done, delta_size=11740643
+R9 [P2] iter 6: split done, delta_size=11831001
+R6 [P2] iter 6: split done, delta_size=11990419
+R10 [P2] iter 6: split done, delta_size=11636622
+R2 [P2] iter 6: split done, delta_size=11981472
+R1 [P2] iter 6: split done, delta_size=12065586
+R14 [P2] iter 6: split done, delta_size=11154472
+R4 [P2] iter 6: split done, delta_size=11971090
+R7 [P2] iter 6: split done, delta_size=12712622
+R11 [P2] iter 6: dedup done, delta_size=892554
+R3 [P2] iter 6: split done, delta_size=12219004
+R13 [P2] iter 6: dedup done, delta_size=902829
+R5 [P2] iter 6: dedup done, delta_size=838394
+R12 [P2] iter 6: dedup done, delta_size=813437
+R11 [P2] iter 6: subtract done, delta_size=111802
+R5 [P2] iter 6: subtract done, delta_size=106314
+R13 [P2] iter 6: subtract done, delta_size=104283
+R15 [P2] iter 6: split done, delta_size=14422788
+R8 [P2] iter 6: dedup done, delta_size=961966
+R5 [P2] iter 6: merge done, full_size=9013424
+R11 [P2] iter 6: merge done, full_size=9464314
+R12 [P2] iter 6: subtract done, delta_size=83132
+R0 [P2] iter 6: dedup done, delta_size=884142
+R13 [P2] iter 6: merge done, full_size=9132319
+R6 [P2] iter 6: dedup done, delta_size=955800
+R0 [P2] iter 6: subtract done, delta_size=119378
+R8 [P2] iter 6: subtract done, delta_size=113177
+R12 [P2] iter 6: merge done, full_size=9029666
+R9 [P2] iter 6: dedup done, delta_size=956482
+R10 [P2] iter 6: dedup done, delta_size=921165
+R6 [P2] iter 6: subtract done, delta_size=109822
+R8 [P2] iter 6: merge done, full_size=9598483
+R14 [P2] iter 6: dedup done, delta_size=883780
+R14 [P2] iter 6: subtract done, delta_size=101736
+R9 [P2] iter 6: subtract done, delta_size=114664
+R10 [P2] iter 6: subtract done, delta_size=100641
+R4 [P2] iter 6: dedup done, delta_size=955981
+R6 [P2] iter 6: merge done, full_size=9877318
+R14 [P2] iter 6: merge done, full_size=9113423
+R4 [P2] iter 6: subtract done, delta_size=132191
+R9 [P2] iter 6: merge done, full_size=9836286
+R10 [P2] iter 6: merge done, full_size=9291509
+R7 [P2] iter 6: dedup done, delta_size=1019793
+R4 [P2] iter 6: merge done, full_size=9599404
+R7 [P2] iter 6: subtract done, delta_size=103665
+R0 [P2] iter 6: merge done, full_size=9660481
+R7 [P2] iter 6: merge done, full_size=9497415
+R15 [P2] iter 6: dedup done, delta_size=1137602
+R15 [P2] iter 6: subtract done, delta_size=116028
+R15 [P2] iter 6: merge done, full_size=10051018
+R1 [P2] iter 6: dedup done, delta_size=964263
+R2 [P2] iter 6: dedup done, delta_size=945412
+R3 [P2] iter 6: dedup done, delta_size=987589
+R3 [P2] iter 6: subtract done, delta_size=113452
+R1 [P2] iter 6: subtract done, delta_size=127275
+R2 [P2] iter 6: subtract done, delta_size=113071
+R3 [P2] iter 6: merge done, full_size=9780201
+R2 [P2] iter 6: merge done, full_size=9551579
+R1 [P2] iter 6: merge done, full_size=9606134
+R0 [P2] iter 7 done: global_full_size=152102974
+R1 [P2] iter 7 done: global_full_size=152102974
+R2 [P2] iter 7 done: global_full_size=152102974
+R12 [P2] iter 7 done: global_full_size=152102974
+R4 [P2] iter 7 done: global_full_size=152102974
+R3 [P2] iter 7 done: global_full_size=152102974
+R13 [P2] iter 7 done: global_full_size=152102974
+R13 [P2] iter 7: PRE-JOIN GPU mem: 81.8GB free / 85.1GB total | delta_size=104283 full_size=9132319
+R8 [P2] iter 7 done: global_full_size=152102974
+R5 [P2] iter 7 done: global_full_size=152102974
+R1 [P2] iter 7: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=127275 full_size=9606134
+R14 [P2] iter 7 done: global_full_size=152102974
+R14 [P2] iter 7: PRE-JOIN GPU mem: 81.0GB free / 85.1GB total | delta_size=101736 full_size=9113423
+R9 [P2] iter 7 done: global_full_size=152102974
+R6 [P2] iter 7 done: global_full_size=152102974
+R2 [P2] iter 7: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=113071 full_size=9551579
+R15 [P2] iter 7 done: global_full_size=152102974
+R15 [P2] iter 7: PRE-JOIN GPU mem: 79.9GB free / 85.1GB total | delta_size=116028 full_size=10051018
+R10 [P2] iter 7 done: global_full_size=152102974
+R7 [P2] iter 7 done: global_full_size=152102974
+R7 [P2] iter 7: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=103665 full_size=9497415
+R0 [P2] iter 7: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=119378 full_size=9660481
+R12 [P2] iter 7: PRE-JOIN GPU mem: 82.6GB free / 85.1GB total | delta_size=83132 full_size=9029666
+R11 [P2] iter 7 done: global_full_size=152102974
+R4 [P2] iter 7: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=132191 full_size=9599404
+R3 [P2] iter 7: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=113452 full_size=9780201
+R8 [P2] iter 7: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=113177 full_size=9598483
+R5 [P2] iter 7: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=106314 full_size=9013424
+R9 [P2] iter 7: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=114664 full_size=9836286
+R6 [P2] iter 7: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=109822 full_size=9877318
+R10 [P2] iter 7: PRE-JOIN GPU mem: 83.7GB free / 85.1GB total | delta_size=100641 full_size=9291509
+R11 [P2] iter 7: PRE-JOIN GPU mem: 83.2GB free / 85.1GB total | delta_size=111802 full_size=9464314
+R12 [P2] iter 7: join done, raw=26588883 result_size=7003431
+R14 [P2] iter 7: join done, raw=34021111 result_size=7158717
+R13 [P2] iter 7: join done, raw=34302765 result_size=7136608
+R7 [P2] iter 7: join done, raw=32720350 result_size=6914684
+R8 [P2] iter 7: join done, raw=36772815 result_size=7323585
+R5 [P2] iter 7: join done, raw=34873194 result_size=7552421
+R15 [P2] iter 7: join done, raw=37201854 result_size=7131635
+R6 [P2] iter 7: join done, raw=36638995 result_size=7335734
+R10 [P2] iter 7: join done, raw=35177055 result_size=6986240
+R9 [P2] iter 7: join done, raw=37291094 result_size=7614623
+R11 [P2] iter 7: join done, raw=39992902 result_size=7677155
+R0 [P2] iter 7: join done, raw=38806370 result_size=7426949
+R2 [P2] iter 7: join done, raw=39800424 result_size=7783204
+R3 [P2] iter 7: join done, raw=39487796 result_size=7941294
+R1 [P2] iter 7: join done, raw=39626696 result_size=7717140
+R4 [P2] iter 7: join done, raw=46794017 result_size=8005820
+R5 [P2] iter 7: split done, delta_size=6604726
+R10 [P2] iter 7: split done, delta_size=7223247
+R2 [P2] iter 7: split done, delta_size=7929014
+R13 [P2] iter 7: split done, delta_size=6909699
+R12 [P2] iter 7: split done, delta_size=6124311
+R8 [P2] iter 7: split done, delta_size=7490080
+R6 [P2] iter 7: split done, delta_size=7635415
+R0 [P2] iter 7: split done, delta_size=7105028
+R14 [P2] iter 7: split done, delta_size=7209685
+R11 [P2] iter 7: split done, delta_size=6892189
+R3 [P2] iter 7: split done, delta_size=7459952
+R4 [P2] iter 7: split done, delta_size=7605483
+R9 [P2] iter 7: split done, delta_size=7523606
+R1 [P2] iter 7: split done, delta_size=7732281
+R7 [P2] iter 7: split done, delta_size=8308377
+R10 [P2] iter 7: dedup done, delta_size=588446
+R5 [P2] iter 7: dedup done, delta_size=546575
+R10 [P2] iter 7: subtract done, delta_size=71794
+R2 [P2] iter 7: dedup done, delta_size=649829
+R15 [P2] iter 7: split done, delta_size=8956147
+R5 [P2] iter 7: subtract done, delta_size=69194
+R12 [P2] iter 7: dedup done, delta_size=507024
+R13 [P2] iter 7: dedup done, delta_size=577853
+R2 [P2] iter 7: subtract done, delta_size=81922
+R0 [P2] iter 7: dedup done, delta_size=585887
+R8 [P2] iter 7: dedup done, delta_size=636402
+R6 [P2] iter 7: dedup done, delta_size=636108
+R0 [P2] iter 7: subtract done, delta_size=98442
+R10 [P2] iter 7: merge done, full_size=9363303
+R14 [P2] iter 7: dedup done, delta_size=594151
+R5 [P2] iter 7: merge done, full_size=9082618
+R12 [P2] iter 7: subtract done, delta_size=69123
+R2 [P2] iter 7: merge done, full_size=9633501
+R6 [P2] iter 7: subtract done, delta_size=100968
+R8 [P2] iter 7: subtract done, delta_size=110691
+R13 [P2] iter 7: subtract done, delta_size=82418
+R11 [P2] iter 7: dedup done, delta_size=583259
+R14 [P2] iter 7: subtract done, delta_size=80422
+R0 [P2] iter 7: merge done, full_size=9758923
+R3 [P2] iter 7: dedup done, delta_size=638396
+R4 [P2] iter 7: dedup done, delta_size=642102
+R9 [P2] iter 7: dedup done, delta_size=619968
+R11 [P2] iter 7: subtract done, delta_size=82158
+R1 [P2] iter 7: dedup done, delta_size=631968
+R3 [P2] iter 7: subtract done, delta_size=100757
+R12 [P2] iter 7: merge done, full_size=9098789
+R4 [P2] iter 7: subtract done, delta_size=107990
+R6 [P2] iter 7: merge done, full_size=9978286
+R8 [P2] iter 7: merge done, full_size=9709174
+R9 [P2] iter 7: subtract done, delta_size=86331
+R13 [P2] iter 7: merge done, full_size=9214737
+R14 [P2] iter 7: merge done, full_size=9193845
+R7 [P2] iter 7: dedup done, delta_size=676328
+R1 [P2] iter 7: subtract done, delta_size=94631
+R11 [P2] iter 7: merge done, full_size=9546472
+R3 [P2] iter 7: merge done, full_size=9880958
+R9 [P2] iter 7: merge done, full_size=9922617
+R1 [P2] iter 7: merge done, full_size=9700765
+R15 [P2] iter 7: dedup done, delta_size=725514
+R15 [P2] iter 7: subtract done, delta_size=82688
+R15 [P2] iter 7: merge done, full_size=10133706
+R7 [P2] iter 7: subtract done, delta_size=82739
+R4 [P2] iter 7: merge done, full_size=9707394
+R7 [P2] iter 7: merge done, full_size=9580154
+R12 [P2] iter 8 done: global_full_size=153505242
+R0 [P2] iter 8 done: global_full_size=153505242
+R13 [P2] iter 8 done: global_full_size=153505242
+R1 [P2] iter 8 done: global_full_size=153505242
+R14 [P2] iter 8 done: global_full_size=153505242
+R14 [P2] iter 8: PRE-JOIN GPU mem: 81.0GB free / 85.1GB total | delta_size=80422 full_size=9193845
+R8 [P2] iter 8 done: global_full_size=153505242
+R2 [P2] iter 8 done: global_full_size=153505242
+R2 [P2] iter 8: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=81922 full_size=9633501
+R15 [P2] iter 8 done: global_full_size=153505242
+R15 [P2] iter 8: PRE-JOIN GPU mem: 80.0GB free / 85.1GB total | delta_size=82688 full_size=10133706
+R9 [P2] iter 8 done: global_full_size=153505242
+R3 [P2] iter 8 done: global_full_size=153505242
+R3 [P2] iter 8: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=100757 full_size=9880958
+R12 [P2] iter 8: PRE-JOIN GPU mem: 82.6GB free / 85.1GB total | delta_size=69123 full_size=9098789
+R10 [P2] iter 8 done: global_full_size=153505242
+R0 [P2] iter 8: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=98442 full_size=9758923
+R13 [P2] iter 8: PRE-JOIN GPU mem: 81.9GB free / 85.1GB total | delta_size=82418 full_size=9214737
+R11 [P2] iter 8 done: global_full_size=153505242
+R1 [P2] iter 8: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=94631 full_size=9700765
+R8 [P2] iter 8: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=110691 full_size=9709174
+R9 [P2] iter 8: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=86331 full_size=9922617
+R10 [P2] iter 8: PRE-JOIN GPU mem: 83.8GB free / 85.1GB total | delta_size=71794 full_size=9363303
+R11 [P2] iter 8: PRE-JOIN GPU mem: 83.3GB free / 85.1GB total | delta_size=82158 full_size=9546472
+R4 [P2] iter 8 done: global_full_size=153505242
+R5 [P2] iter 8 done: global_full_size=153505242
+R6 [P2] iter 8 done: global_full_size=153505242
+R7 [P2] iter 8 done: global_full_size=153505242
+R4 [P2] iter 8: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=107990 full_size=9707394
+R5 [P2] iter 8: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=69194 full_size=9082618
+R6 [P2] iter 8: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=100968 full_size=9978286
+R7 [P2] iter 8: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=82739 full_size=9580154
+R12 [P2] iter 8: join done, raw=22595132 result_size=4612572
+R15 [P2] iter 8: join done, raw=27712608 result_size=5016469
+R2 [P2] iter 8: join done, raw=29267869 result_size=5333275
+R14 [P2] iter 8: join done, raw=29447126 result_size=5137886
+R10 [P2] iter 8: join done, raw=26410095 result_size=4563775
+R13 [P2] iter 8: join done, raw=29294310 result_size=5261903
+R1 [P2] iter 8: join done, raw=31627616 result_size=5240218
+R0 [P2] iter 8: join done, raw=33471108 result_size=5292616
+R11 [P2] iter 8: join done, raw=29652448 result_size=5321109
+R9 [P2] iter 8: join done, raw=30736788 result_size=5174103
+R3 [P2] iter 8: join done, raw=35579199 result_size=5647351
+R5 [P2] iter 8: join done, raw=24086585 result_size=4939394
+R8 [P2] iter 8: join done, raw=38160652 result_size=5174446
+R7 [P2] iter 8: join done, raw=27155879 result_size=4467390
+R6 [P2] iter 8: join done, raw=34821276 result_size=5414184
+R4 [P2] iter 8: join done, raw=42236650 result_size=5647154
+R3 [P2] iter 8: split done, delta_size=5077746
+R13 [P2] iter 8: split done, delta_size=4595208
+R10 [P2] iter 8: split done, delta_size=4708605
+R0 [P2] iter 8: split done, delta_size=5231146
+R4 [P2] iter 8: split done, delta_size=5078614
+R1 [P2] iter 8: split done, delta_size=5322079
+R5 [P2] iter 8: split done, delta_size=4832997
+R12 [P2] iter 8: split done, delta_size=4273322
+R14 [P2] iter 8: split done, delta_size=4992476
+R9 [P2] iter 8: split done, delta_size=5302207
+R11 [P2] iter 8: split done, delta_size=4851227
+R8 [P2] iter 8: split done, delta_size=5326987
+R2 [P2] iter 8: split done, delta_size=5622588
+R7 [P2] iter 8: split done, delta_size=5726012
+R6 [P2] iter 8: split done, delta_size=5166736
+R15 [P2] iter 8: split done, delta_size=6135895
+R13 [P2] iter 8: dedup done, delta_size=362497
+R3 [P2] iter 8: dedup done, delta_size=407286
+R10 [P2] iter 8: dedup done, delta_size=367200
+R13 [P2] iter 8: subtract done, delta_size=52378
+R0 [P2] iter 8: dedup done, delta_size=411317
+R3 [P2] iter 8: subtract done, delta_size=67392
+R0 [P2] iter 8: subtract done, delta_size=73888
+R12 [P2] iter 8: dedup done, delta_size=335715
+R10 [P2] iter 8: subtract done, delta_size=43111
+R4 [P2] iter 8: dedup done, delta_size=412251
+R5 [P2] iter 8: dedup done, delta_size=383002
+R14 [P2] iter 8: dedup done, delta_size=391087
+R1 [P2] iter 8: dedup done, delta_size=413451
+R13 [P2] iter 8: merge done, full_size=9267115
+R12 [P2] iter 8: subtract done, delta_size=42637
+R4 [P2] iter 8: subtract done, delta_size=68189
+R5 [P2] iter 8: subtract done, delta_size=51486
+R0 [P2] iter 8: merge done, full_size=9832811
+R2 [P2] iter 8: dedup done, delta_size=453867
+R14 [P2] iter 8: subtract done, delta_size=55167
+R11 [P2] iter 8: dedup done, delta_size=391471
+R9 [P2] iter 8: dedup done, delta_size=417067
+R1 [P2] iter 8: subtract done, delta_size=56329
+R6 [P2] iter 8: dedup done, delta_size=405007
+R3 [P2] iter 8: merge done, full_size=9948350
+R15 [P2] iter 8: dedup done, delta_size=479124
+R10 [P2] iter 8: merge done, full_size=9406414
+R8 [P2] iter 8: dedup done, delta_size=427607
+R7 [P2] iter 8: dedup done, delta_size=442404
+R2 [P2] iter 8: subtract done, delta_size=59887
+R11 [P2] iter 8: subtract done, delta_size=57912
+R12 [P2] iter 8: merge done, full_size=9141426
+R9 [P2] iter 8: subtract done, delta_size=53552
+R14 [P2] iter 8: merge done, full_size=9249012
+R6 [P2] iter 8: subtract done, delta_size=50932
+R4 [P2] iter 8: merge done, full_size=9775583
+R1 [P2] iter 8: merge done, full_size=9757094
+R15 [P2] iter 8: subtract done, delta_size=53140
+R5 [P2] iter 8: merge done, full_size=9134104
+R8 [P2] iter 8: subtract done, delta_size=60379
+R7 [P2] iter 8: subtract done, delta_size=51113
+R2 [P2] iter 8: merge done, full_size=9693388
+R15 [P2] iter 8: merge done, full_size=10186846
+R11 [P2] iter 8: merge done, full_size=9604384
+R6 [P2] iter 8: merge done, full_size=10029218
+R9 [P2] iter 8: merge done, full_size=9976169
+R7 [P2] iter 8: merge done, full_size=9631267
+R8 [P2] iter 8: merge done, full_size=9769553
+R0 [P2] iter 9 done: global_full_size=154402734
+R12 [P2] iter 9 done: global_full_size=154402734
+R8 [P2] iter 9 done: global_full_size=154402734
+R1 [P2] iter 9 done: global_full_size=154402734
+R1 [P2] iter 9: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=56329 full_size=9757094
+R13 [P2] iter 9 done: global_full_size=154402734
+R9 [P2] iter 9 done: global_full_size=154402734
+R4 [P2] iter 9 done: global_full_size=154402734
+R2 [P2] iter 9 done: global_full_size=154402734
+R2 [P2] iter 9: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=59887 full_size=9693388
+R14 [P2] iter 9 done: global_full_size=154402734
+R10 [P2] iter 9 done: global_full_size=154402734
+R5 [P2] iter 9 done: global_full_size=154402734
+R5 [P2] iter 9: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=51486 full_size=9134104
+R3 [P2] iter 9 done: global_full_size=154402734
+R3 [P2] iter 9: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=67392 full_size=9948350
+R15 [P2] iter 9 done: global_full_size=154402734
+R11 [P2] iter 9 done: global_full_size=154402734
+R6 [P2] iter 9 done: global_full_size=154402734
+R6 [P2] iter 9: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=50932 full_size=10029218
+R0 [P2] iter 9: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=73888 full_size=9832811
+R12 [P2] iter 9: PRE-JOIN GPU mem: 82.7GB free / 85.1GB total | delta_size=42637 full_size=9141426
+R8 [P2] iter 9: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=60379 full_size=9769553
+R7 [P2] iter 9 done: global_full_size=154402734
+R7 [P2] iter 9: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=51113 full_size=9631267
+R15 [P2] iter 9: PRE-JOIN GPU mem: 80.0GB free / 85.1GB total | delta_size=53140 full_size=10186846
+R9 [P2] iter 9: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=53552 full_size=9976169
+R4 [P2] iter 9: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=68189 full_size=9775583
+R13 [P2] iter 9: PRE-JOIN GPU mem: 81.9GB free / 85.1GB total | delta_size=52378 full_size=9267115
+R10 [P2] iter 9: PRE-JOIN GPU mem: 83.8GB free / 85.1GB total | delta_size=43111 full_size=9406414
+R14 [P2] iter 9: PRE-JOIN GPU mem: 81.0GB free / 85.1GB total | delta_size=55167 full_size=9249012
+R11 [P2] iter 9: PRE-JOIN GPU mem: 83.3GB free / 85.1GB total | delta_size=57912 full_size=9604384
+R12 [P2] iter 9: join done, raw=13311964 result_size=2478759
+R14 [P2] iter 9: join done, raw=18642598 result_size=3637573
+R8 [P2] iter 9: join done, raw=19395725 result_size=3182561
+R15 [P2] iter 9: join done, raw=17973637 result_size=3674350
+R10 [P2] iter 9: join done, raw=16128100 result_size=3440831
+R2 [P2] iter 9: join done, raw=20980817 result_size=3669566
+R1 [P2] iter 9: join done, raw=18104439 result_size=3513976
+R13 [P2] iter 9: join done, raw=17856911 result_size=3622414
+R3 [P2] iter 9: join done, raw=22731364 result_size=3817975
+R9 [P2] iter 9: join done, raw=16647248 result_size=3441710
+R11 [P2] iter 9: join done, raw=19087515 result_size=3515167
+R0 [P2] iter 9: join done, raw=24482918 result_size=3638146
+R6 [P2] iter 9: join done, raw=17517097 result_size=3223009
+R5 [P2] iter 9: join done, raw=16854489 result_size=3464722
+R7 [P2] iter 9: join done, raw=15459164 result_size=3280192
+R4 [P2] iter 9: join done, raw=24325883 result_size=3793365
+R10 [P2] iter 9: split done, delta_size=3230972
+R4 [P2] iter 9: split done, delta_size=3306323
+R6 [P2] iter 9: split done, delta_size=3392740
+R8 [P2] iter 9: split done, delta_size=3449920
+R11 [P2] iter 9: split done, delta_size=3303048
+R12 [P2] iter 9: split done, delta_size=2550006
+R5 [P2] iter 9: split done, delta_size=3575123
+R2 [P2] iter 9: split done, delta_size=4235947
+R7 [P2] iter 9: split done, delta_size=3769918
+R3 [P2] iter 9: split done, delta_size=3249247
+R9 [P2] iter 9: split done, delta_size=3902818
+R1 [P2] iter 9: split done, delta_size=3477324
+R0 [P2] iter 9: split done, delta_size=3618380
+R4 [P2] iter 9: dedup done, delta_size=257553
+R6 [P2] iter 9: dedup done, delta_size=264810
+R13 [P2] iter 9: split done, delta_size=2854839
+R4 [P2] iter 9: subtract done, delta_size=8637
+R6 [P2] iter 9: subtract done, delta_size=5745
+R5 [P2] iter 9: dedup done, delta_size=272333
+R10 [P2] iter 9: dedup done, delta_size=247897
+R7 [P2] iter 9: dedup done, delta_size=295639
+R0 [P2] iter 9: dedup done, delta_size=277327
+R2 [P2] iter 9: dedup done, delta_size=329471
+R0 [P2] iter 9: subtract done, delta_size=8252
+R3 [P2] iter 9: dedup done, delta_size=261831
+R5 [P2] iter 9: subtract done, delta_size=5372
+R1 [P2] iter 9: dedup done, delta_size=266688
+R14 [P2] iter 9: split done, delta_size=3484322
+R15 [P2] iter 9: split done, delta_size=3993389
+R7 [P2] iter 9: subtract done, delta_size=6122
+R2 [P2] iter 9: subtract done, delta_size=7107
+R6 [P2] iter 9: merge done, full_size=10034963
+R11 [P2] iter 9: dedup done, delta_size=259803
+R8 [P2] iter 9: dedup done, delta_size=273249
+R4 [P2] iter 9: merge done, full_size=9784220
+R3 [P2] iter 9: subtract done, delta_size=7226
+R0 [P2] iter 9: merge done, full_size=9841063
+R1 [P2] iter 9: subtract done, delta_size=7264
+R5 [P2] iter 9: merge done, full_size=9139476
+R7 [P2] iter 9: merge done, full_size=9637389
+R2 [P2] iter 9: merge done, full_size=9700495
+R3 [P2] iter 9: merge done, full_size=9955576
+R1 [P2] iter 9: merge done, full_size=9764358
+R10 [P2] iter 9: subtract done, delta_size=6257
+R12 [P2] iter 9: dedup done, delta_size=200899
+R11 [P2] iter 9: subtract done, delta_size=6688
+R8 [P2] iter 9: subtract done, delta_size=6682
+R13 [P2] iter 9: dedup done, delta_size=229330
+R9 [P2] iter 9: dedup done, delta_size=301513
+R12 [P2] iter 9: subtract done, delta_size=4561
+R15 [P2] iter 9: dedup done, delta_size=308646
+R14 [P2] iter 9: dedup done, delta_size=265943
+R13 [P2] iter 9: subtract done, delta_size=7216
+R10 [P2] iter 9: merge done, full_size=9412671
+R9 [P2] iter 9: subtract done, delta_size=5560
+R11 [P2] iter 9: merge done, full_size=9611072
+R8 [P2] iter 9: merge done, full_size=9776235
+R9 [P2] iter 9: merge done, full_size=9981729
+R15 [P2] iter 9: subtract done, delta_size=6983
+R14 [P2] iter 9: subtract done, delta_size=6559
+R12 [P2] iter 9: merge done, full_size=9145987
+R13 [P2] iter 9: merge done, full_size=9274331
+R14 [P2] iter 9: merge done, full_size=9255571
+R15 [P2] iter 9: merge done, full_size=10193829
+R0 [P2] iter 10 done: global_full_size=154508965
+R1 [P2] iter 10 done: global_full_size=154508965
+R1 [P2] iter 10: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=7264 full_size=9764358
+R12 [P2] iter 10 done: global_full_size=154508965
+R8 [P2] iter 10 done: global_full_size=154508965
+R2 [P2] iter 10 done: global_full_size=154508965
+R13 [P2] iter 10 done: global_full_size=154508965
+R9 [P2] iter 10 done: global_full_size=154508965
+R3 [P2] iter 10 done: global_full_size=154508965
+R14 [P2] iter 10 done: global_full_size=154508965
+R10 [P2] iter 10 done: global_full_size=154508965
+R0 [P2] iter 10: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=8252 full_size=9841063
+R15 [P2] iter 10 done: global_full_size=154508965
+R11 [P2] iter 10 done: global_full_size=154508965
+R2 [P2] iter 10: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=7107 full_size=9700495
+R13 [P2] iter 10: PRE-JOIN GPU mem: 81.9GB free / 85.1GB total | delta_size=7216 full_size=9274331
+R3 [P2] iter 10: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=7226 full_size=9955576
+R14 [P2] iter 10: PRE-JOIN GPU mem: 81.0GB free / 85.1GB total | delta_size=6559 full_size=9255571
+R4 [P2] iter 10 done: global_full_size=154508965
+R15 [P2] iter 10: PRE-JOIN GPU mem: 80.0GB free / 85.1GB total | delta_size=6983 full_size=10193829
+R5 [P2] iter 10 done: global_full_size=154508965
+R12 [P2] iter 10: PRE-JOIN GPU mem: 82.7GB free / 85.1GB total | delta_size=4561 full_size=9145987
+R6 [P2] iter 10 done: global_full_size=154508965
+R7 [P2] iter 10 done: global_full_size=154508965
+R4 [P2] iter 10: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=8637 full_size=9784220
+R5 [P2] iter 10: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=5372 full_size=9139476
+R6 [P2] iter 10: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=5745 full_size=10034963
+R7 [P2] iter 10: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=6122 full_size=9637389
+R8 [P2] iter 10: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=6682 full_size=9776235
+R9 [P2] iter 10: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=5560 full_size=9981729
+R10 [P2] iter 10: PRE-JOIN GPU mem: 83.8GB free / 85.1GB total | delta_size=6257 full_size=9412671
+R11 [P2] iter 10: PRE-JOIN GPU mem: 83.3GB free / 85.1GB total | delta_size=6688 full_size=9611072
+R2 [P2] iter 10: join done, raw=2664531 result_size=770430
+R5 [P2] iter 10: join done, raw=1804204 result_size=597537
+R6 [P2] iter 10: join done, raw=1867240 result_size=420615
+R3 [P2] iter 10: join done, raw=2545109 result_size=749056
+R1 [P2] iter 10: join done, raw=2462212 result_size=759920
+R0 [P2] iter 10: join done, raw=2822365 result_size=685872
+R4 [P2] iter 10: join done, raw=3268792 result_size=833849
+R7 [P2] iter 10: join done, raw=2019687 result_size=648203
+R15 [P2] iter 10: join done, raw=2396957 result_size=827096
+R12 [P2] iter 10: join done, raw=1419593 result_size=303979
+R14 [P2] iter 10: join done, raw=2432931 result_size=802211
+R13 [P2] iter 10: join done, raw=2737978 result_size=818228
+R8 [P2] iter 10: join done, raw=2087492 result_size=425458
+R10 [P2] iter 10: join done, raw=2610106 result_size=763760
+R9 [P2] iter 10: join done, raw=1755180 result_size=509853
+R11 [P2] iter 10: join done, raw=2260100 result_size=626339
+R12 [P2] iter 10: split done, delta_size=482344
+R13 [P2] iter 10: split done, delta_size=531179
+R9 [P2] iter 10: split done, delta_size=754564
+R3 [P2] iter 10: split done, delta_size=603808
+R4 [P2] iter 10: split done, delta_size=618235
+R6 [P2] iter 10: split done, delta_size=675787
+R5 [P2] iter 10: split done, delta_size=688793
+R7 [P2] iter 10: split done, delta_size=726673
+R11 [P2] iter 10: split done, delta_size=620853
+R0 [P2] iter 10: split done, delta_size=674871
+R10 [P2] iter 10: split done, delta_size=628374
+R15 [P2] iter 10: split done, delta_size=749685
+R14 [P2] iter 10: split done, delta_size=684397
+R12 [P2] iter 10: dedup done, delta_size=48557
+R8 [P2] iter 10: split done, delta_size=640661
+R1 [P2] iter 10: split done, delta_size=630996
+R2 [P2] iter 10: split done, delta_size=831186
+R0 [P2] iter 10: dedup done, delta_size=67275
+R12 [P2] iter 10: subtract done, delta_size=240
+R0 [P2] iter 10: subtract done, delta_size=526
+R3 [P2] iter 10: dedup done, delta_size=63567
+R13 [P2] iter 10: dedup done, delta_size=54864
+R9 [P2] iter 10: dedup done, delta_size=78712
+R6 [P2] iter 10: dedup done, delta_size=69501
+R5 [P2] iter 10: dedup done, delta_size=69577
+R11 [P2] iter 10: dedup done, delta_size=64373
+R10 [P2] iter 10: dedup done, delta_size=63615
+R0 [P2] iter 10: merge done, full_size=9841589
+R7 [P2] iter 10: dedup done, delta_size=74674
+R3 [P2] iter 10: subtract done, delta_size=290
+R4 [P2] iter 10: dedup done, delta_size=62607
+R1 [P2] iter 10: dedup done, delta_size=63444
+R9 [P2] iter 10: subtract done, delta_size=420
+R13 [P2] iter 10: subtract done, delta_size=287
+R14 [P2] iter 10: dedup done, delta_size=68250
+R15 [P2] iter 10: dedup done, delta_size=74742
+R2 [P2] iter 10: dedup done, delta_size=85117
+R6 [P2] iter 10: subtract done, delta_size=331
+R5 [P2] iter 10: subtract done, delta_size=272
+R12 [P2] iter 10: merge done, full_size=9146227
+R8 [P2] iter 10: dedup done, delta_size=64685
+R10 [P2] iter 10: subtract done, delta_size=145
+R11 [P2] iter 10: subtract done, delta_size=397
+R4 [P2] iter 10: subtract done, delta_size=291
+R7 [P2] iter 10: subtract done, delta_size=276
+R1 [P2] iter 10: subtract done, delta_size=452
+R2 [P2] iter 10: subtract done, delta_size=297
+R14 [P2] iter 10: subtract done, delta_size=205
+R3 [P2] iter 10: merge done, full_size=9955866
+R15 [P2] iter 10: subtract done, delta_size=330
+R9 [P2] iter 10: merge done, full_size=9982149
+R8 [P2] iter 10: subtract done, delta_size=474
+R13 [P2] iter 10: merge done, full_size=9274618
+R11 [P2] iter 10: merge done, full_size=9611469
+R6 [P2] iter 10: merge done, full_size=10035294
+R10 [P2] iter 10: merge done, full_size=9412816
+R2 [P2] iter 10: merge done, full_size=9700792
+R5 [P2] iter 10: merge done, full_size=9139748
+R1 [P2] iter 10: merge done, full_size=9764810
+R15 [P2] iter 10: merge done, full_size=10194159
+R14 [P2] iter 10: merge done, full_size=9255776
+R7 [P2] iter 10: merge done, full_size=9637665
+R8 [P2] iter 10: merge done, full_size=9776709
+R4 [P2] iter 10: merge done, full_size=9784511
+R4 [P2] iter 11 done: global_full_size=154514198
+R8 [P2] iter 11 done: global_full_size=154514198
+R5 [P2] iter 11 done: global_full_size=154514198
+R0 [P2] iter 11 done: global_full_size=154514198
+R9 [P2] iter 11 done: global_full_size=154514198
+R1 [P2] iter 11 done: global_full_size=154514198
+R12 [P2] iter 11 done: global_full_size=154514198
+R10 [P2] iter 11 done: global_full_size=154514198
+R6 [P2] iter 11 done: global_full_size=154514198
+R2 [P2] iter 11 done: global_full_size=154514198
+R2 [P2] iter 11: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=297 full_size=9700792
+R13 [P2] iter 11 done: global_full_size=154514198
+R11 [P2] iter 11 done: global_full_size=154514198
+R7 [P2] iter 11 done: global_full_size=154514198
+R3 [P2] iter 11 done: global_full_size=154514198
+R3 [P2] iter 11: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=290 full_size=9955866
+R14 [P2] iter 11 done: global_full_size=154514198
+R9 [P2] iter 11: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=420 full_size=9982149
+R4 [P2] iter 11: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=291 full_size=9784511
+R0 [P2] iter 11: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=526 full_size=9841589
+R15 [P2] iter 11 done: global_full_size=154514198
+R8 [P2] iter 11: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=474 full_size=9776709
+R5 [P2] iter 11: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=272 full_size=9139748
+R1 [P2] iter 11: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=452 full_size=9764810
+R12 [P2] iter 11: PRE-JOIN GPU mem: 82.7GB free / 85.1GB total | delta_size=240 full_size=9146227
+R10 [P2] iter 11: PRE-JOIN GPU mem: 83.8GB free / 85.1GB total | delta_size=145 full_size=9412816
+R6 [P2] iter 11: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=331 full_size=10035294
+R13 [P2] iter 11: PRE-JOIN GPU mem: 81.9GB free / 85.1GB total | delta_size=287 full_size=9274618
+R11 [P2] iter 11: PRE-JOIN GPU mem: 83.3GB free / 85.1GB total | delta_size=397 full_size=9611469
+R7 [P2] iter 11: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=276 full_size=9637665
+R14 [P2] iter 11: PRE-JOIN GPU mem: 81.0GB free / 85.1GB total | delta_size=205 full_size=9255776
+R15 [P2] iter 11: PRE-JOIN GPU mem: 80.0GB free / 85.1GB total | delta_size=330 full_size=10194159
+R5 [P2] iter 11: join done, raw=56725 result_size=25265
+R10 [P2] iter 11: join done, raw=20973 result_size=14920
+R15 [P2] iter 11: join done, raw=66592 result_size=32598
+R8 [P2] iter 11: join done, raw=108065 result_size=40313
+R9 [P2] iter 11: join done, raw=83424 result_size=35303
+R7 [P2] iter 11: join done, raw=55776 result_size=28789
+R14 [P2] iter 11: join done, raw=50741 result_size=20955
+R3 [P2] iter 11: join done, raw=69003 result_size=36847
+R2 [P2] iter 11: join done, raw=69763 result_size=39811
+R13 [P2] iter 11: join done, raw=56197 result_size=27843
+R1 [P2] iter 11: join done, raw=102443 result_size=35417
+R6 [P2] iter 11: join done, raw=79871 result_size=39852
+R11 [P2] iter 11: join done, raw=89169 result_size=29294
+R12 [P2] iter 11: join done, raw=62656 result_size=28731
+R4 [P2] iter 11: join done, raw=73850 result_size=41007
+R0 [P2] iter 11: join done, raw=127811 result_size=42613
+R12 [P2] iter 11: split done, delta_size=21554
+R10 [P2] iter 11: split done, delta_size=33367
+R13 [P2] iter 11: split done, delta_size=29043
+R11 [P2] iter 11: split done, delta_size=32678
+R4 [P2] iter 11: split done, delta_size=30246
+R14 [P2] iter 11: split done, delta_size=36811
+R8 [P2] iter 11: split done, delta_size=29393
+R6 [P2] iter 11: split done, delta_size=31489
+R15 [P2] iter 11: split done, delta_size=38724
+R9 [P2] iter 11: split done, delta_size=36179
+R7 [P2] iter 11: split done, delta_size=29897
+R0 [P2] iter 11: split done, delta_size=35780
+R13 [P2] iter 11: dedup done, delta_size=3100
+R11 [P2] iter 11: dedup done, delta_size=3509
+R5 [P2] iter 11: split done, delta_size=36170
+R1 [P2] iter 11: split done, delta_size=36711
+R12 [P2] iter 11: dedup done, delta_size=2388
+R6 [P2] iter 11: dedup done, delta_size=3359
+R2 [P2] iter 11: split done, delta_size=34245
+R7 [P2] iter 11: dedup done, delta_size=3443
+R3 [P2] iter 11: split done, delta_size=27271
+R4 [P2] iter 11: dedup done, delta_size=3331
+R5 [P2] iter 11: dedup done, delta_size=3972
+R14 [P2] iter 11: dedup done, delta_size=3890
+R8 [P2] iter 11: dedup done, delta_size=3365
+R1 [P2] iter 11: dedup done, delta_size=4046
+R15 [P2] iter 11: dedup done, delta_size=4324
+R9 [P2] iter 11: dedup done, delta_size=3803
+R2 [P2] iter 11: dedup done, delta_size=3915
+R10 [P2] iter 11: dedup done, delta_size=3548
+R3 [P2] iter 11: dedup done, delta_size=3168
+R12 [P2] iter 11: subtract done, delta_size=0
+R13 [P2] iter 11: subtract done, delta_size=0
+R11 [P2] iter 11: subtract done, delta_size=0
+R7 [P2] iter 11: subtract done, delta_size=0
+R0 [P2] iter 11: dedup done, delta_size=3918
+R4 [P2] iter 11: subtract done, delta_size=0
+R14 [P2] iter 11: subtract done, delta_size=0
+R10 [P2] iter 11: subtract done, delta_size=0
+R6 [P2] iter 11: subtract done, delta_size=0
+R2 [P2] iter 11: subtract done, delta_size=0
+R8 [P2] iter 11: subtract done, delta_size=0
+R5 [P2] iter 11: subtract done, delta_size=0
+R3 [P2] iter 11: subtract done, delta_size=0
+R15 [P2] iter 11: subtract done, delta_size=0
+R9 [P2] iter 11: subtract done, delta_size=0
+R1 [P2] iter 11: subtract done, delta_size=0
+R0 [P2] iter 11: subtract done, delta_size=0
+R0 [P2] iter 12 done: global_full_size=154514198
+R1 [P2] iter 12 done: global_full_size=154514198
+R2 [P2] iter 12 done: global_full_size=154514198
+R3 [P2] iter 12 done: global_full_size=154514198
+R12 [P2] iter 12 done: global_full_size=154514198
+R8 [P2] iter 12 done: global_full_size=154514198
+R13 [P2] iter 12 done: global_full_size=154514198
+R9 [P2] iter 12 done: global_full_size=154514198
+R14 [P2] iter 12 done: global_full_size=154514198
+R10 [P2] iter 12 done: global_full_size=154514198
+R15 [P2] iter 12 done: global_full_size=154514198
+R11 [P2] iter 12 done: global_full_size=154514198
+R4 [P2] iter 12 done: global_full_size=154514198
+R5 [P2] iter 12 done: global_full_size=154514198
+R12 [P2→P3] GPU mem: 82.7GB free / 85.1GB total
+R12 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9146227 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               12715753 tuples = 0.1GB
+R12 [P2→P3] Accounted: 0.2GB | Unaccounted: 2.2GB
+R12 [P3] entering Phase 3: seed_size=12715753 full_size=9146227
+R13 [P2→P3] GPU mem: 81.9GB free / 85.1GB total
+R13 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9274618 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               14524300 tuples = 0.1GB
+R13 [P2→P3] Accounted: 0.2GB | Unaccounted: 3.0GB
+R13 [P3] entering Phase 3: seed_size=14524300 full_size=9274618
+R6 [P2] iter 12 done: global_full_size=154514198
+Phase 2: 4.1150s | TC(g^k) = 154514198 tuples, 12 iterations
+  Join: 1.5707s | Dedup: 0.0965s | Subtract: 0.0027s | Merge: 0.0114s | HT build: 0.0002s
+  Comm: 1.9811s
+R0 [P2→P3] GPU mem: 84.6GB free / 85.1GB total
+R0 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9841589 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               163734 tuples = 0.0GB
+R0 [P2→P3] Accounted: 0.1GB | Unaccounted: 0.5GB
+R0 [P3] entering Phase 3: seed_size=163734 full_size=9841589
+R14 [P2→P3] GPU mem: 81.1GB free / 85.1GB total
+R14 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9255776 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               16413798 tuples = 0.1GB
+R14 [P2→P3] Accounted: 0.2GB | Unaccounted: 3.8GB
+R14 [P3] entering Phase 3: seed_size=16413798 full_size=9255776
+R8 [P2→P3] GPU mem: 84.4GB free / 85.1GB total
+R8 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9776709 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               6433232 tuples = 0.1GB
+R8 [P2→P3] Accounted: 0.1GB | Unaccounted: 0.6GB
+R8 [P3] entering Phase 3: seed_size=6433232 full_size=9776709
+R7 [P2] iter 12 done: global_full_size=154514198
+R1 [P2→P3] GPU mem: 84.6GB free / 85.1GB total
+R1 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9764810 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               418467 tuples = 0.0GB
+R1 [P2→P3] Accounted: 0.1GB | Unaccounted: 0.5GB
+R1 [P3] entering Phase 3: seed_size=418467 full_size=9764810
+R15 [P2→P3] GPU mem: 80.0GB free / 85.1GB total
+R15 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 10194159 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               18376157 tuples = 0.1GB
+R15 [P2→P3] Accounted: 0.2GB | Unaccounted: 4.8GB
+R15 [P3] entering Phase 3: seed_size=18376157 full_size=10194159
+R9 [P2→P3] GPU mem: 84.2GB free / 85.1GB total
+R9 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9982149 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               7841600 tuples = 0.1GB
+R9 [P2→P3] Accounted: 0.1GB | Unaccounted: 0.8GB
+R9 [P3] entering Phase 3: seed_size=7841600 full_size=9982149
+R7 [P2→P3] GPU mem: 84.2GB free / 85.1GB total
+R7 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9637665 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               5147105 tuples = 0.0GB
+R7 [P2→P3] Accounted: 0.1GB | Unaccounted: 0.7GB
+R7 [P3] entering Phase 3: seed_size=5147105 full_size=9637665
+R2 [P2→P3] GPU mem: 84.6GB free / 85.1GB total
+R2 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9700792 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               823410 tuples = 0.0GB
+R2 [P2→P3] Accounted: 0.1GB | Unaccounted: 0.5GB
+R2 [P3] entering Phase 3: seed_size=823410 full_size=9700792
+R12 [P3] allgather counts done: total_seed_size=113678813
+R10 [P2→P3] GPU mem: 83.8GB free / 85.1GB total
+R10 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9412816 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               9366053 tuples = 0.1GB
+R10 [P2→P3] Accounted: 0.2GB | Unaccounted: 1.1GB
+R10 [P3] entering Phase 3: seed_size=9366053 full_size=9412816
+R4 [P2→P3] GPU mem: 84.5GB free / 85.1GB total
+R4 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9784511 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               2105991 tuples = 0.0GB
+R4 [P2→P3] Accounted: 0.1GB | Unaccounted: 0.5GB
+R4 [P3] entering Phase 3: seed_size=2105991 full_size=9784511
+R3 [P2→P3] GPU mem: 84.5GB free / 85.1GB total
+R3 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9955866 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               1386355 tuples = 0.0GB
+R3 [P2→P3] Accounted: 0.1GB | Unaccounted: 0.5GB
+R3 [P3] entering Phase 3: seed_size=1386355 full_size=9955866
+R3 [P3] allgather counts done: total_seed_size=113678813
+R13 [P3] allgather counts done: total_seed_size=113678813
+R11 [P2→P3] GPU mem: 83.3GB free / 85.1GB total
+R11 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9611469 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               10994082 tuples = 0.1GB
+R11 [P2→P3] Accounted: 0.2GB | Unaccounted: 1.6GB
+R11 [P3] entering Phase 3: seed_size=10994082 full_size=9611469
+R11 [P3] allgather counts done: total_seed_size=113678813
+R5 [P2→P3] GPU mem: 84.5GB free / 85.1GB total
+R5 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 9139748 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               2976684 tuples = 0.0GB
+R5 [P2→P3] Accounted: 0.1GB | Unaccounted: 0.5GB
+R5 [P3] entering Phase 3: seed_size=2976684 full_size=9139748
+R0 [P3] allgather counts done: total_seed_size=113678813
+R14 [P3] allgather counts done: total_seed_size=113678813
+R8 [P3] allgather counts done: total_seed_size=113678813
+R6 [P2→P3] GPU mem: 84.4GB free / 85.1GB total
+R6 [P2→P3] Live allocations:
+  full (TC(g^k) rev): 10035294 tuples = 0.1GB
+  delta:              0 tuples = 0.0GB
+  seed:               3992092 tuples = 0.0GB
+R6 [P2→P3] Accounted: 0.1GB | Unaccounted: 0.6GB
+R6 [P3] entering Phase 3: seed_size=3992092 full_size=10035294
+R1 [P3] allgather counts done: total_seed_size=113678813
+R15 [P3] allgather counts done: total_seed_size=113678813
+R9 [P3] allgather counts done: total_seed_size=113678813
+R4 [P3] allgather counts done: total_seed_size=113678813
+R2 [P3] allgather counts done: total_seed_size=113678813
+R10 [P3] allgather counts done: total_seed_size=113678813
+R5 [P3] allgather counts done: total_seed_size=113678813
+R6 [P3] allgather counts done: total_seed_size=113678813
+R7 [P3] allgather counts done: total_seed_size=113678813
+R14 [P3] allgatherv seeds done
+R13 [P3] allgatherv seeds done
+R12 [P3] allgatherv seeds done
+R11 [P3] allgatherv seeds done
+R10 [P3] allgatherv seeds done
+R9 [P3] allgatherv seeds done
+R8 [P3] allgatherv seeds done
+R7 [P3] allgatherv seeds done
+R6 [P3] allgatherv seeds done
+R5 [P3] allgatherv seeds done
+R4 [P3] allgatherv seeds done
+R3 [P3] allgatherv seeds done
+R2 [P3] allgatherv seeds done
+R1 [P3] allgatherv seeds done
+R0 [P3] allgatherv seeds done
+R15 [P3] allgatherv seeds done
+R9 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 82.0GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.1GB + seed_ht=2.1GB = 2.3GB | used=3.1GB
+R9 [P3] reversed full in place: full_size=9982149
+R9 [P3] PRE-JOIN GPU mem: 82.0GB free / 85.1GB total | probe_size=9982149 seed_ht_rows=268435456
+R0 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 82.4GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.0GB + seed_ht=2.1GB = 2.2GB | used=2.7GB
+R0 [P3] reversed full in place: full_size=9841589
+R0 [P3] PRE-JOIN GPU mem: 82.4GB free / 85.1GB total | probe_size=9841589 seed_ht_rows=268435456
+R11 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 81.2GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.1GB + seed_ht=2.1GB = 2.3GB | used=3.9GB
+R11 [P3] reversed full in place: full_size=9611469
+R11 [P3] PRE-JOIN GPU mem: 81.2GB free / 85.1GB total | probe_size=9611469 seed_ht_rows=268435456
+R13 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 79.8GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.1GB + seed_ht=2.1GB = 2.3GB | used=5.3GB
+R13 [P3] reversed full in place: full_size=9274618
+R13 [P3] PRE-JOIN GPU mem: 79.8GB free / 85.1GB total | probe_size=9274618 seed_ht_rows=268435456
+R6 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 82.2GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.0GB + seed_ht=2.1GB = 2.3GB | used=2.9GB
+R6 [P3] reversed full in place: full_size=10035294
+R6 [P3] PRE-JOIN GPU mem: 82.2GB free / 85.1GB total | probe_size=10035294 seed_ht_rows=268435456
+R1 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 82.4GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.0GB + seed_ht=2.1GB = 2.2GB | used=2.7GB
+R1 [P3] reversed full in place: full_size=9764810
+R1 [P3] PRE-JOIN GPU mem: 82.4GB free / 85.1GB total | probe_size=9764810 seed_ht_rows=268435456
+R14 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 78.9GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.1GB + seed_ht=2.1GB = 2.4GB | used=6.2GB
+R14 [P3] reversed full in place: full_size=9255776
+R14 [P3] PRE-JOIN GPU mem: 78.9GB free / 85.1GB total | probe_size=9255776 seed_ht_rows=268435456
+R10 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 81.7GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.1GB + seed_ht=2.1GB = 2.3GB | used=3.4GB
+R10 [P3] reversed full in place: full_size=9412816
+R10 [P3] PRE-JOIN GPU mem: 81.7GB free / 85.1GB total | probe_size=9412816 seed_ht_rows=268435456
+R8 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 82.3GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.1GB + seed_ht=2.1GB = 2.3GB | used=2.8GB
+R8 [P3] reversed full in place: full_size=9776709
+R8 [P3] PRE-JOIN GPU mem: 82.3GB free / 85.1GB total | probe_size=9776709 seed_ht_rows=268435456
+R12 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 80.6GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.1GB + seed_ht=2.1GB = 2.3GB | used=4.5GB
+R12 [P3] reversed full in place: full_size=9146227
+R12 [P3] PRE-JOIN GPU mem: 80.6GB free / 85.1GB total | probe_size=9146227 seed_ht_rows=268435456
+R2 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 82.4GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.0GB + seed_ht=2.1GB = 2.2GB | used=2.7GB
+R2 [P3] reversed full in place: full_size=9700792
+R2 [P3] PRE-JOIN GPU mem: 82.4GB free / 85.1GB total | probe_size=9700792 seed_ht_rows=268435456
+R7 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 82.1GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.0GB + seed_ht=2.1GB = 2.3GB | used=3.0GB
+R7 [P3] reversed full in place: full_size=9637665
+R7 [P3] PRE-JOIN GPU mem: 82.1GB free / 85.1GB total | probe_size=9637665 seed_ht_rows=268435456
+R15 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 77.9GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.1GB + seed_ht=2.1GB = 2.4GB | used=7.2GB
+R15 [P3] reversed full in place: full_size=10194159
+R15 [P3] PRE-JOIN GPU mem: 77.9GB free / 85.1GB total | probe_size=10194159 seed_ht_rows=268435456
+R5 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 82.3GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.0GB + seed_ht=2.1GB = 2.2GB | used=2.8GB
+R5 [P3] reversed full in place: full_size=9139748
+R5 [P3] PRE-JOIN GPU mem: 82.3GB free / 85.1GB total | probe_size=9139748 seed_ht_rows=268435456
+R4 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 82.4GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.0GB + seed_ht=2.1GB = 2.2GB | used=2.7GB
+R4 [P3] reversed full in place: full_size=9784511
+R4 [P3] PRE-JOIN GPU mem: 82.4GB free / 85.1GB total | probe_size=9784511 seed_ht_rows=268435456
+R3 [P3] seed HT built: total_seed_size=113678813 seed_ht_rows=268435456 | GPU mem: 82.4GB free
+  Live: full=0.1GB + delta=0.0GB + seed=0.0GB + seed_ht=2.1GB = 2.2GB | used=2.7GB
+R3 [P3] reversed full in place: full_size=9955866
+R3 [P3] PRE-JOIN GPU mem: 82.4GB free / 85.1GB total | probe_size=9955866 seed_ht_rows=268435456
+R12 [P3] join raw=21447843884 -> kept=9142240 (2346.0x collapse)
+R12 [P3] join done: extended_size=9142240 (0.1GB) | GPU mem: 82.6GB free
+R12 [P3] PRE-SPLIT GPU mem: 82.7GB free / 85.1GB total | extended_size=9142240 (0.1GB)
+R12 [P3] extended sorted & copied to host, GPU freed: 82.8GB free
+R5 [P3] join raw=21738348305 -> kept=9135685 (2379.5x collapse)
+R5 [P3] join done: extended_size=9135685 (0.1GB) | GPU mem: 84.4GB free
+R5 [P3] PRE-SPLIT GPU mem: 84.5GB free / 85.1GB total | extended_size=9135685 (0.1GB)
+R5 [P3] extended sorted & copied to host, GPU freed: 84.5GB free
+R13 [P3] join raw=21969913466 -> kept=9270269 (2369.9x collapse)
+R13 [P3] join done: extended_size=9270269 (0.1GB) | GPU mem: 81.9GB free
+R13 [P3] PRE-SPLIT GPU mem: 81.9GB free / 85.1GB total | extended_size=9270269 (0.1GB)
+R13 [P3] extended sorted & copied to host, GPU freed: 82.0GB free
+R14 [P3] join raw=21997304608 -> kept=9251896 (2377.6x collapse)
+R14 [P3] join done: extended_size=9251896 (0.1GB) | GPU mem: 81.0GB free
+R14 [P3] PRE-SPLIT GPU mem: 81.1GB free / 85.1GB total | extended_size=9251896 (0.1GB)
+R14 [P3] extended sorted & copied to host, GPU freed: 81.1GB free
+R10 [P3] join raw=22151139252 -> kept=9408494 (2354.4x collapse)
+R10 [P3] join done: extended_size=9408494 (0.1GB) | GPU mem: 83.8GB free
+R10 [P3] PRE-SPLIT GPU mem: 83.8GB free / 85.1GB total | extended_size=9408494 (0.1GB)
+R10 [P3] extended sorted & copied to host, GPU freed: 83.9GB free
+R0 [P3] join raw=23240222632 -> kept=9837399 (2362.4x collapse)
+R0 [P3] join done: extended_size=9837399 (0.1GB) | GPU mem: 84.5GB free
+R0 [P3] PRE-SPLIT GPU mem: 84.6GB free / 85.1GB total | extended_size=9837399 (0.1GB)
+R0 [P3] extended sorted & copied to host, GPU freed: 84.6GB free
+R11 [P3] join raw=22917387986 -> kept=9607609 (2385.3x collapse)
+R11 [P3] join done: extended_size=9607609 (0.1GB) | GPU mem: 83.3GB free
+R11 [P3] PRE-SPLIT GPU mem: 83.3GB free / 85.1GB total | extended_size=9607609 (0.1GB)
+R11 [P3] extended sorted & copied to host, GPU freed: 83.4GB free
+R1 [P3] join raw=23168209215 -> kept=9760763 (2373.6x collapse)
+R1 [P3] join done: extended_size=9760763 (0.1GB) | GPU mem: 84.5GB free
+R1 [P3] PRE-SPLIT GPU mem: 84.6GB free / 85.1GB total | extended_size=9760763 (0.1GB)
+R1 [P3] extended sorted & copied to host, GPU freed: 84.6GB free
+R7 [P3] join raw=23044740064 -> kept=9633671 (2392.1x collapse)
+R7 [P3] join done: extended_size=9633671 (0.1GB) | GPU mem: 84.2GB free
+R7 [P3] PRE-SPLIT GPU mem: 84.2GB free / 85.1GB total | extended_size=9633671 (0.1GB)
+R7 [P3] extended sorted & copied to host, GPU freed: 84.3GB free
+R4 [P3] join raw=23211596075 -> kept=9780579 (2373.2x collapse)
+R4 [P3] join done: extended_size=9780579 (0.1GB) | GPU mem: 84.4GB free
+R4 [P3] PRE-SPLIT GPU mem: 84.5GB free / 85.1GB total | extended_size=9780579 (0.1GB)
+R4 [P3] extended sorted & copied to host, GPU freed: 84.6GB free
+R2 [P3] join raw=23242198301 -> kept=9697009 (2396.8x collapse)
+R2 [P3] join done: extended_size=9697009 (0.1GB) | GPU mem: 84.5GB free
+R2 [P3] PRE-SPLIT GPU mem: 84.6GB free / 85.1GB total | extended_size=9697009 (0.1GB)
+R2 [P3] extended sorted & copied to host, GPU freed: 84.6GB free
+R8 [P3] join raw=23223954562 -> kept=9772238 (2376.5x collapse)
+R8 [P3] join done: extended_size=9772238 (0.1GB) | GPU mem: 84.3GB free
+R8 [P3] PRE-SPLIT GPU mem: 84.4GB free / 85.1GB total | extended_size=9772238 (0.1GB)
+R8 [P3] extended sorted & copied to host, GPU freed: 84.5GB free
+R9 [P3] join raw=23818126767 -> kept=9977929 (2387.1x collapse)
+R9 [P3] join done: extended_size=9977929 (0.1GB) | GPU mem: 84.1GB free
+R9 [P3] PRE-SPLIT GPU mem: 84.2GB free / 85.1GB total | extended_size=9977929 (0.1GB)
+R6 [P3] join raw=23918393771 -> kept=10030835 (2384.5x collapse)
+R6 [P3] join done: extended_size=10030835 (0.1GB) | GPU mem: 84.3GB free
+R6 [P3] PRE-SPLIT GPU mem: 84.4GB free / 85.1GB total | extended_size=10030835 (0.1GB)
+R9 [P3] extended sorted & copied to host, GPU freed: 84.3GB free
+R6 [P3] extended sorted & copied to host, GPU freed: 84.4GB free
+R3 [P3] join raw=23680315426 -> kept=9951652 (2379.5x collapse)
+R3 [P3] join done: extended_size=9951652 (0.1GB) | GPU mem: 84.5GB free
+R3 [P3] PRE-SPLIT GPU mem: 84.5GB free / 85.1GB total | extended_size=9951652 (0.1GB)
+R3 [P3] extended sorted & copied to host, GPU freed: 84.6GB free
+R15 [P3] join raw=24420209181 -> kept=10190381 (2396.4x collapse)
+R15 [P3] join done: extended_size=10190381 (0.1GB) | GPU mem: 80.0GB free
+R15 [P3] PRE-SPLIT GPU mem: 80.0GB free / 85.1GB total | extended_size=10190381 (0.1GB)
+R15 [P3] extended sorted & copied to host, GPU freed: 80.1GB free
+R13 [P3] extended split done: ext_split_size=9270269
+R14 [P3] extended split done: ext_split_size=9251896
+R12 [P3] extended split done: ext_split_size=9142240
+R1 [P3] extended split done: ext_split_size=9760763
+R5 [P3] extended split done: ext_split_size=9135685
+R9 [P3] extended split done: ext_split_size=9977929
+R10 [P3] extended split done: ext_split_size=9408494
+R8 [P3] extended split done: ext_split_size=9772238
+R4 [P3] extended split done: ext_split_size=9780579
+R6 [P3] extended split done: ext_split_size=10030835
+R0 [P3] extended split done: ext_split_size=9837399
+R2 [P3] extended split done: ext_split_size=9697009
+R11 [P3] extended split done: ext_split_size=9607609
+R7 [P3] extended split done: ext_split_size=9633671
+R3 [P3] extended split done: ext_split_size=9951652
+R15 [P3] extended split done: ext_split_size=10190381
+R2 [P3] seed split done: seed_split_size=6905870
+R2 [P3] concat done: result_size=16602879 (seed=6905870 + ext=9697009)
+R6 [P3] seed split done: seed_split_size=7170050
+R4 [P3] seed split done: seed_split_size=7035031
+R7 [P3] seed split done: seed_split_size=7223272
+R6 [P3] concat done: result_size=17200885 (seed=7170050 + ext=10030835)
+R4 [P3] concat done: result_size=16815610 (seed=7035031 + ext=9780579)
+R5 [P3] seed split done: seed_split_size=6830239
+R7 [P3] concat done: result_size=16856943 (seed=7223272 + ext=9633671)
+R3 [P3] seed split done: seed_split_size=7299167
+R8 [P3] seed split done: seed_split_size=7109191
+R12 [P3] seed split done: seed_split_size=7164942
+R5 [P3] concat done: result_size=15965924 (seed=6830239 + ext=9135685)
+R8 [P3] concat done: result_size=16881429 (seed=7109191 + ext=9772238)
+R1 [P3] seed split done: seed_split_size=7302440
+R3 [P3] concat done: result_size=17250819 (seed=7299167 + ext=9951652)
+R12 [P3] concat done: result_size=16307182 (seed=7164942 + ext=9142240)
+R1 [P3] concat done: result_size=17063203 (seed=7302440 + ext=9760763)
+R10 [P3] seed split done: seed_split_size=7354795
+R0 [P3] seed split done: seed_split_size=7255985
+R2 [P3] dedup done: result_size=9798492
+R9 [P3] seed split done: seed_split_size=7340644
+R14 [P3] seed split done: seed_split_size=6750712
+R0 [P3] concat done: result_size=17093384 (seed=7255985 + ext=9837399)
+R11 [P3] seed split done: seed_split_size=6883143
+R10 [P3] concat done: result_size=16763289 (seed=7354795 + ext=9408494)
+R9 [P3] concat done: result_size=17318573 (seed=7340644 + ext=9977929)
+R11 [P3] concat done: result_size=16490752 (seed=6883143 + ext=9607609)
+R6 [P3] dedup done: result_size=10135259
+R4 [P3] dedup done: result_size=9885723
+R13 [P3] seed split done: seed_split_size=6944619
+R7 [P3] dedup done: result_size=9738711
+R5 [P3] dedup done: result_size=9236916
+R8 [P3] dedup done: result_size=9874695
+R3 [P3] dedup done: result_size=10059044
+R1 [P3] dedup done: result_size=9868501
+R15 [P3] seed split done: seed_split_size=7108713
+R14 [P3] concat done: result_size=16002608 (seed=6750712 + ext=9251896)
+R0 [P3] dedup done: result_size=9944579
+R13 [P3] concat done: result_size=16214888 (seed=6944619 + ext=9270269)
+R12 [P3] dedup done: result_size=9246923
+R15 [P3] concat done: result_size=17299094 (seed=7108713 + ext=10190381)
+R10 [P3] dedup done: result_size=9516675
+R11 [P3] dedup done: result_size=9709199
+R9 [P3] dedup done: result_size=10086818
+R14 [P3] dedup done: result_size=9353027
+R13 [P3] dedup done: result_size=9371313
+R15 [P3] dedup done: result_size=10294614
+Phase 1: 1.0430s | seed_size=163734 (length 1), g^k_size=18376157
+Phase 2: 4.1150s | TC(g^k) = 154514198 tuples, 12 iterations
+  Join: 1.5707s | Dedup: 0.0965s | Subtract: 0.0027s | Merge: 0.0114s | HT build: 0.0002s
+  Comm: 1.9811s
+Phase 3: 34.8546s
+  Join: 14.8876s | HT build: 17.0820s | Comm: 2.8663s | Dedup: 0.0054s | Kernels: 0.0127s
+─────────────────────────────────────
+Total: 40.0126s | TC size: 156120489

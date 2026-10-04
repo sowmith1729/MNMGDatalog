@@ -1,0 +1,7 @@
+srun: forcing job termination
+srun: got SIGCONT
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+[2026-10-02T20:59:00.358] error: *** STEP 59224755.23 ON nid008496 CANCELLED AT 2026-10-02T20:59:00 DUE to SIGNAL Killed ***
+srun: error: nid008496: task 0: Killed
+srun: Terminating StepId=59224755.23
+srun: error: nid008496: task 1: Killed

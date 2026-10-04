@@ -166,6 +166,14 @@ void benchmark(int argc, char** argv) {
                                         &temp_hashtable_build_time);
     hashtable_build_time += temp_hashtable_build_time;
 
+    // MNMG_JOIN_DEDUP_TUPLES > 0 makes each iteration collapse duplicate
+    // pairs locally before redistributing, in slices of at most that many
+    // tuples. Unset/0 keeps the original behaviour (redistribute the raw
+    // join multiset, deduplicate after it lands).
+    unsigned long long dedup_budget = 0;
+    if (const char* env = getenv("MNMG_JOIN_DEDUP_TUPLES"))
+        dedup_budget = strtoull(env, nullptr, 10);
+
     while (true) {
         double temp_join_time = 0.0;
         Entity* old_t_delta = t_delta;
@@ -174,7 +182,7 @@ void benchmark(int argc, char** argv) {
             hash_table_rows, old_t_delta, t_delta_size, total_columns,
             cuda_aware_mpi, comm_method, iterations, &t_delta_size,
             &temp_join_time, &buffer_preparation_time, &communication_time,
-            &memory_clear_time);
+            &memory_clear_time, dedup_budget);
         join_time += temp_join_time;
 
         start_time = MPI_Wtime();

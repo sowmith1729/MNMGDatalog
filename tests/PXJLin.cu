@@ -251,6 +251,14 @@ void benchmark(int argc, char** argv) {
            rank, global_full_size);
     fflush(stdout);
 
+    // PXJ_P2_CHUNK_TUPLES: as PXJ_P3_CHUNK_TUPLES, but for the Phase 2 loop.
+    // Phase 2 joins against g^k, which densifies as k grows, so the raw join
+    // multiset runs up to ~150x the distinct pairs it reduces to at k=16 --
+    // and all of it is redistributed before anything removes the duplicates.
+    unsigned long long p2_chunk = 0;
+    if (const char* env = getenv("PXJ_P2_CHUNK_TUPLES"))
+        p2_chunk = strtoull(env, nullptr, 10);
+
     while (true) {
         // Local join
         size_t free_mem, total_mem;
@@ -262,13 +270,22 @@ void benchmark(int argc, char** argv) {
         fflush(stdout);
         double t0 = MPI_Wtime();
         unsigned int join_result_size = 0;
-        Entity* join_result =
-            get_local_join(grid_size, block_size, hash_table, ht_rows,
-                           delta, delta_size, &join_result_size, &_t);
+        unsigned long long join_raw = 0;
+        Entity* join_result;
+        if (p2_chunk > 0) {
+            join_result = get_local_join_dedup(
+                grid_size, block_size, hash_table, ht_rows, delta, delta_size,
+                p2_chunk, &join_result_size, &join_raw, &_t);
+        } else {
+            join_result =
+                get_local_join(grid_size, block_size, hash_table, ht_rows,
+                               delta, delta_size, &join_result_size, &_t);
+            join_raw = join_result_size;
+        }
         checkCuda(cudaDeviceSynchronize());
         checkCuda(cudaGetLastError());
-        printf("R%d [P2] iter %d: join done, result_size=%u\n",
-               rank, iterations, join_result_size);
+        printf("R%d [P2] iter %d: join done, raw=%llu result_size=%u\n",
+               rank, iterations, join_raw, join_result_size);
         fflush(stdout);
         cudaFree(delta);
         double t1 = MPI_Wtime();
@@ -470,16 +487,22 @@ void benchmark(int argc, char** argv) {
            (total_mem - free_mem) / 1e9);
     fflush(stdout);
 
-    // Reverse local TC(g^k) to forward (no comm — data stays on rank)
+    // Reverse local TC(g^k) to forward, in place (no comm — data stays on
+    // rank). Done in place rather than into a second buffer: `full` is not
+    // read again after the join below, and at k=1 it is the largest live
+    // allocation (7GB on usroads), so a copy here doubles peak memory at
+    // exactly the wrong moment.
     t0 = MPI_Wtime();
-    Entity* full_fwd;
-    checkCuda(
-        cudaMalloc((void**)&full_fwd, (size_t)full_size * sizeof(Entity)));
-    reverse_entity_ar<<<grid_size, block_size>>>(full, full_size, full_fwd);
+    thrust::for_each(thrust::device, full, full + full_size,
+                     [] __device__(Entity & e) {
+                         int tmp = e.key;
+                         e.key = e.value;
+                         e.value = tmp;
+                     });
     checkCuda(cudaDeviceSynchronize());
     checkCuda(cudaGetLastError());
     p3_kernel_time += MPI_Wtime() - t0;
-    printf("R%d [P3] reversed full to full_fwd: full_size=%u\n",
+    printf("R%d [P3] reversed full in place: full_size=%u\n",
            rank, full_size);
     fflush(stdout);
 
@@ -491,15 +514,42 @@ void benchmark(int argc, char** argv) {
            "probe_size=%u seed_ht_rows=%d\n",
            rank, free_mem / 1e9, total_mem / 1e9, full_size, seed_ht_rows);
     fflush(stdout);
+    // PXJ_P3_CHUNK_TUPLES selects the Phase 3 join strategy:
+    //   unset / 0 -> materialize the whole join, redistribute, dedup after
+    //   N         -> materialize in <=N-tuple slices, dedup each slice and
+    //                fold, so only distinct pairs are ever redistributed
+    // The join result here is the raw path multiset: on dense graphs it runs
+    // 60-150x larger than the set of distinct pairs it reduces to, and the
+    // whole of it currently crosses the network before anything removes the
+    // duplicates.
+    unsigned long long p3_chunk = 0;
+    if (const char* env = getenv("PXJ_P3_CHUNK_TUPLES"))
+        p3_chunk = strtoull(env, nullptr, 10);
+
     unsigned long long extended_size = 0;
-    Entity* extended =
-        get_local_join_ll(grid_size, block_size, seed_ht, seed_ht_rows,
-                          full_fwd, full_size, &extended_size, &_t);
+    unsigned long long extended_raw = 0;
+    Entity* extended;
+    if (p3_chunk > 0) {
+        unsigned int ext_u32 = 0;
+        extended = get_local_join_dedup(grid_size, block_size, seed_ht,
+                                        seed_ht_rows, full, full_size,
+                                        p3_chunk, &ext_u32, &extended_raw,
+                                        &_t);
+        extended_size = ext_u32;
+    } else {
+        extended = get_local_join_ll(grid_size, block_size, seed_ht,
+                                     seed_ht_rows, full, full_size,
+                                     &extended_size, &_t);
+        extended_raw = extended_size;
+    }
     checkCuda(cudaDeviceSynchronize());
     checkCuda(cudaGetLastError());
     cudaFree(seed_ht);
-    cudaFree(full_fwd);
     p3_join_time += MPI_Wtime() - t0;
+    printf("R%d [P3] join raw=%llu -> kept=%llu (%.1fx collapse)\n", rank,
+           extended_raw, extended_size,
+           extended_size ? (double)extended_raw / extended_size : 1.0);
+    fflush(stdout);
     cudaMemGetInfo(&free_mem, &total_mem);
     printf("R%d [P3] join done: extended_size=%llu (%.1fGB) | "
            "GPU mem: %.1fGB free\n",

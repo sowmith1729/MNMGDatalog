@@ -1,0 +1,1335 @@
+R0 [P1] parallel_read done: row_size=49152 total_rows=49152
+R0 [P1] allgather done
+R0 [P1] entity arrays + dedup done: g_size=49152 l_size=49152
+R0 [P1] initial HT built: ht_rows=131072
+R0 [P1] partition filter done: gk_fwd=49152 gk_rev=49152
+Rank 0 Phase 1: 0.0560s | seed_size=49152 (length 1), g^k_size=49152
+R0 [P2] dedup full done: full_size=49152
+R0 [P2] delta copy done: delta_size=49152
+R0 [P2] HT built: gk_fwd_size=49152 ht_rows=131072
+R0 [P2] entering loop: global_full_size=49152
+R0 [P2] iter 0: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=49152 full_size=49152
+R0 [P2] iter 0: join done, raw=146350 result_size=98904
+R0 [P2] iter 0: split done, delta_size=98904
+R0 [P2] iter 0: dedup done, delta_size=98904
+R0 [P2] iter 0: subtract done, delta_size=81668
+R0 [P2] iter 0: merge done, full_size=130820
+R0 [P2] iter 1 done: global_full_size=130820
+R0 [P2] iter 1: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=81668 full_size=130820
+R0 [P2] iter 1: join done, raw=243050 result_size=163687
+R0 [P2] iter 1: split done, delta_size=163687
+R0 [P2] iter 1: dedup done, delta_size=163687
+R0 [P2] iter 1: subtract done, delta_size=113978
+R0 [P2] iter 1: merge done, full_size=244798
+R0 [P2] iter 2 done: global_full_size=244798
+R0 [P2] iter 2: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=113978 full_size=244798
+R0 [P2] iter 2: join done, raw=339304 result_size=229025
+R0 [P2] iter 2: split done, delta_size=229025
+R0 [P2] iter 2: dedup done, delta_size=229025
+R0 [P2] iter 2: subtract done, delta_size=146112
+R0 [P2] iter 2: merge done, full_size=390910
+R0 [P2] iter 3 done: global_full_size=390910
+R0 [P2] iter 3: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=146112 full_size=390910
+R0 [P2] iter 3: join done, raw=435090 result_size=294554
+R0 [P2] iter 3: split done, delta_size=294554
+R0 [P2] iter 3: dedup done, delta_size=294554
+R0 [P2] iter 3: subtract done, delta_size=178058
+R0 [P2] iter 3: merge done, full_size=568968
+R0 [P2] iter 4 done: global_full_size=568968
+R0 [P2] iter 4: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=178058 full_size=568968
+R0 [P2] iter 4: join done, raw=530290 result_size=360106
+R0 [P2] iter 4: split done, delta_size=360106
+R0 [P2] iter 4: dedup done, delta_size=360106
+R0 [P2] iter 4: subtract done, delta_size=209786
+R0 [P2] iter 4: merge done, full_size=778754
+R0 [P2] iter 5 done: global_full_size=778754
+R0 [P2] iter 5: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=209786 full_size=778754
+R0 [P2] iter 5: join done, raw=624896 result_size=425729
+R0 [P2] iter 5: split done, delta_size=425729
+R0 [P2] iter 5: dedup done, delta_size=425729
+R0 [P2] iter 5: subtract done, delta_size=241316
+R0 [P2] iter 5: merge done, full_size=1020070
+R0 [P2] iter 6 done: global_full_size=1020070
+R0 [P2] iter 6: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=241316 full_size=1020070
+R0 [P2] iter 6: join done, raw=718940 result_size=491367
+R0 [P2] iter 6: split done, delta_size=491367
+R0 [P2] iter 6: dedup done, delta_size=491367
+R0 [P2] iter 6: subtract done, delta_size=272640
+R0 [P2] iter 6: merge done, full_size=1292710
+R0 [P2] iter 7 done: global_full_size=1292710
+R0 [P2] iter 7: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=272640 full_size=1292710
+R0 [P2] iter 7: join done, raw=812372 result_size=556936
+R0 [P2] iter 7: split done, delta_size=556936
+R0 [P2] iter 7: dedup done, delta_size=556936
+R0 [P2] iter 7: subtract done, delta_size=303730
+R0 [P2] iter 7: merge done, full_size=1596440
+R0 [P2] iter 8 done: global_full_size=1596440
+R0 [P2] iter 8: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=303730 full_size=1596440
+R0 [P2] iter 8: join done, raw=904972 result_size=622368
+R0 [P2] iter 8: split done, delta_size=622368
+R0 [P2] iter 8: dedup done, delta_size=622368
+R0 [P2] iter 8: subtract done, delta_size=334568
+R0 [P2] iter 8: merge done, full_size=1931008
+R0 [P2] iter 9 done: global_full_size=1931008
+R0 [P2] iter 9: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=334568 full_size=1931008
+R0 [P2] iter 9: join done, raw=996902 result_size=687752
+R0 [P2] iter 9: split done, delta_size=687752
+R0 [P2] iter 9: dedup done, delta_size=687752
+R0 [P2] iter 9: subtract done, delta_size=365154
+R0 [P2] iter 9: merge done, full_size=2296162
+R0 [P2] iter 10 done: global_full_size=2296162
+R0 [P2] iter 10: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=365154 full_size=2296162
+R0 [P2] iter 10: join done, raw=1088132 result_size=753004
+R0 [P2] iter 10: split done, delta_size=753004
+R0 [P2] iter 10: dedup done, delta_size=753004
+R0 [P2] iter 10: subtract done, delta_size=395482
+R0 [P2] iter 10: merge done, full_size=2691644
+R0 [P2] iter 11 done: global_full_size=2691644
+R0 [P2] iter 11: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=395482 full_size=2691644
+R0 [P2] iter 11: join done, raw=1178616 result_size=818039
+R0 [P2] iter 11: split done, delta_size=818039
+R0 [P2] iter 11: dedup done, delta_size=818039
+R0 [P2] iter 11: subtract done, delta_size=425532
+R0 [P2] iter 11: merge done, full_size=3117176
+R0 [P2] iter 12 done: global_full_size=3117176
+R0 [P2] iter 12: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=425532 full_size=3117176
+R0 [P2] iter 12: join done, raw=1268198 result_size=882743
+R0 [P2] iter 12: split done, delta_size=882743
+R0 [P2] iter 12: dedup done, delta_size=882743
+R0 [P2] iter 12: subtract done, delta_size=455252
+R0 [P2] iter 12: merge done, full_size=3572428
+R0 [P2] iter 13 done: global_full_size=3572428
+R0 [P2] iter 13: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=455252 full_size=3572428
+R0 [P2] iter 13: join done, raw=1356728 result_size=947036
+R0 [P2] iter 13: split done, delta_size=947036
+R0 [P2] iter 13: dedup done, delta_size=947036
+R0 [P2] iter 13: subtract done, delta_size=484598
+R0 [P2] iter 13: merge done, full_size=4057026
+R0 [P2] iter 14 done: global_full_size=4057026
+R0 [P2] iter 14: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=484598 full_size=4057026
+R0 [P2] iter 14: join done, raw=1444100 result_size=1010856
+R0 [P2] iter 14: split done, delta_size=1010856
+R0 [P2] iter 14: dedup done, delta_size=1010856
+R0 [P2] iter 14: subtract done, delta_size=513524
+R0 [P2] iter 14: merge done, full_size=4570550
+R0 [P2] iter 15 done: global_full_size=4570550
+R0 [P2] iter 15: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=513524 full_size=4570550
+R0 [P2] iter 15: join done, raw=1530196 result_size=1074112
+R0 [P2] iter 15: split done, delta_size=1074112
+R0 [P2] iter 15: dedup done, delta_size=1074112
+R0 [P2] iter 15: subtract done, delta_size=541998
+R0 [P2] iter 15: merge done, full_size=5112548
+R0 [P2] iter 16 done: global_full_size=5112548
+R0 [P2] iter 16: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=541998 full_size=5112548
+R0 [P2] iter 16: join done, raw=1614898 result_size=1136726
+R0 [P2] iter 16: split done, delta_size=1136726
+R0 [P2] iter 16: dedup done, delta_size=1136726
+R0 [P2] iter 16: subtract done, delta_size=569990
+R0 [P2] iter 16: merge done, full_size=5682538
+R0 [P2] iter 17 done: global_full_size=5682538
+R0 [P2] iter 17: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=569990 full_size=5682538
+R0 [P2] iter 17: join done, raw=1698132 result_size=1198667
+R0 [P2] iter 17: split done, delta_size=1198667
+R0 [P2] iter 17: dedup done, delta_size=1198667
+R0 [P2] iter 17: subtract done, delta_size=597472
+R0 [P2] iter 17: merge done, full_size=6280010
+R0 [P2] iter 18 done: global_full_size=6280010
+R0 [P2] iter 18: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=597472 full_size=6280010
+R0 [P2] iter 18: join done, raw=1779806 result_size=1259861
+R0 [P2] iter 18: split done, delta_size=1259861
+R0 [P2] iter 18: dedup done, delta_size=1259861
+R0 [P2] iter 18: subtract done, delta_size=624416
+R0 [P2] iter 18: merge done, full_size=6904426
+R0 [P2] iter 19 done: global_full_size=6904426
+R0 [P2] iter 19: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=624416 full_size=6904426
+R0 [P2] iter 19: join done, raw=1859862 result_size=1320266
+R0 [P2] iter 19: split done, delta_size=1320266
+R0 [P2] iter 19: dedup done, delta_size=1320266
+R0 [P2] iter 19: subtract done, delta_size=650794
+R0 [P2] iter 19: merge done, full_size=7555220
+R0 [P2] iter 20 done: global_full_size=7555220
+R0 [P2] iter 20: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=650794 full_size=7555220
+R0 [P2] iter 20: join done, raw=1938224 result_size=1379810
+R0 [P2] iter 20: split done, delta_size=1379810
+R0 [P2] iter 20: dedup done, delta_size=1379810
+R0 [P2] iter 20: subtract done, delta_size=676584
+R0 [P2] iter 20: merge done, full_size=8231804
+R0 [P2] iter 21 done: global_full_size=8231804
+R0 [P2] iter 21: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=676584 full_size=8231804
+R0 [P2] iter 21: join done, raw=2014794 result_size=1438420
+R0 [P2] iter 21: split done, delta_size=1438420
+R0 [P2] iter 21: dedup done, delta_size=1438420
+R0 [P2] iter 21: subtract done, delta_size=701758
+R0 [P2] iter 21: merge done, full_size=8933562
+R0 [P2] iter 22 done: global_full_size=8933562
+R0 [P2] iter 22: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=701758 full_size=8933562
+R0 [P2] iter 22: join done, raw=2089490 result_size=1496034
+R0 [P2] iter 22: split done, delta_size=1496034
+R0 [P2] iter 22: dedup done, delta_size=1496034
+R0 [P2] iter 22: subtract done, delta_size=726282
+R0 [P2] iter 22: merge done, full_size=9659844
+R0 [P2] iter 23 done: global_full_size=9659844
+R0 [P2] iter 23: PRE-JOIN GPU mem: 84.6GB free / 85.1GB total | delta_size=726282 full_size=9659844
+R0 [P2] iter 23: join done, raw=2162248 result_size=1552587
+R0 [P2] iter 23: split done, delta_size=1552587
+R0 [P2] iter 23: dedup done, delta_size=1552587
+R0 [P2] iter 23: subtract done, delta_size=750124
+R0 [P2] iter 23: merge done, full_size=10409968
+R0 [P2] iter 24 done: global_full_size=10409968
+R0 [P2] iter 24: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=750124 full_size=10409968
+R0 [P2] iter 24: join done, raw=2232968 result_size=1607977
+R0 [P2] iter 24: split done, delta_size=1607977
+R0 [P2] iter 24: dedup done, delta_size=1607977
+R0 [P2] iter 24: subtract done, delta_size=773268
+R0 [P2] iter 24: merge done, full_size=11183236
+R0 [P2] iter 25 done: global_full_size=11183236
+R0 [P2] iter 25: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=773268 full_size=11183236
+R0 [P2] iter 25: join done, raw=2301576 result_size=1662124
+R0 [P2] iter 25: split done, delta_size=1662124
+R0 [P2] iter 25: dedup done, delta_size=1662124
+R0 [P2] iter 25: subtract done, delta_size=795682
+R0 [P2] iter 25: merge done, full_size=11978918
+R0 [P2] iter 26 done: global_full_size=11978918
+R0 [P2] iter 26: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=795682 full_size=11978918
+R0 [P2] iter 26: join done, raw=2367952 result_size=1714982
+R0 [P2] iter 26: split done, delta_size=1714982
+R0 [P2] iter 26: dedup done, delta_size=1714982
+R0 [P2] iter 26: subtract done, delta_size=817348
+R0 [P2] iter 26: merge done, full_size=12796266
+R0 [P2] iter 27 done: global_full_size=12796266
+R0 [P2] iter 27: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=817348 full_size=12796266
+R0 [P2] iter 27: join done, raw=2432070 result_size=1766486
+R0 [P2] iter 27: split done, delta_size=1766486
+R0 [P2] iter 27: dedup done, delta_size=1766486
+R0 [P2] iter 27: subtract done, delta_size=838222
+R0 [P2] iter 27: merge done, full_size=13634488
+R0 [P2] iter 28 done: global_full_size=13634488
+R0 [P2] iter 28: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=838222 full_size=13634488
+R0 [P2] iter 28: join done, raw=2493856 result_size=1816540
+R0 [P2] iter 28: split done, delta_size=1816540
+R0 [P2] iter 28: dedup done, delta_size=1816540
+R0 [P2] iter 28: subtract done, delta_size=858278
+R0 [P2] iter 28: merge done, full_size=14492766
+R0 [P2] iter 29 done: global_full_size=14492766
+R0 [P2] iter 29: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=858278 full_size=14492766
+R0 [P2] iter 29: join done, raw=2553160 result_size=1864989
+R0 [P2] iter 29: split done, delta_size=1864989
+R0 [P2] iter 29: dedup done, delta_size=1864989
+R0 [P2] iter 29: subtract done, delta_size=877476
+R0 [P2] iter 29: merge done, full_size=15370242
+R0 [P2] iter 30 done: global_full_size=15370242
+R0 [P2] iter 30: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=877476 full_size=15370242
+R0 [P2] iter 30: join done, raw=2609926 result_size=1911725
+R0 [P2] iter 30: split done, delta_size=1911725
+R0 [P2] iter 30: dedup done, delta_size=1911725
+R0 [P2] iter 30: subtract done, delta_size=895788
+R0 [P2] iter 30: merge done, full_size=16266030
+R0 [P2] iter 31 done: global_full_size=16266030
+R0 [P2] iter 31: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=895788 full_size=16266030
+R0 [P2] iter 31: join done, raw=2664008 result_size=1956628
+R0 [P2] iter 31: split done, delta_size=1956628
+R0 [P2] iter 31: dedup done, delta_size=1956628
+R0 [P2] iter 31: subtract done, delta_size=913198
+R0 [P2] iter 31: merge done, full_size=17179228
+R0 [P2] iter 32 done: global_full_size=17179228
+R0 [P2] iter 32: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=913198 full_size=17179228
+R0 [P2] iter 32: join done, raw=2715284 result_size=1999774
+R0 [P2] iter 32: split done, delta_size=1999774
+R0 [P2] iter 32: dedup done, delta_size=1999774
+R0 [P2] iter 32: subtract done, delta_size=929744
+R0 [P2] iter 32: merge done, full_size=18108972
+R0 [P2] iter 33 done: global_full_size=18108972
+R0 [P2] iter 33: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=929744 full_size=18108972
+R0 [P2] iter 33: join done, raw=2764026 result_size=2041344
+R0 [P2] iter 33: split done, delta_size=2041344
+R0 [P2] iter 33: dedup done, delta_size=2041344
+R0 [P2] iter 33: subtract done, delta_size=945422
+R0 [P2] iter 33: merge done, full_size=19054394
+R0 [P2] iter 34 done: global_full_size=19054394
+R0 [P2] iter 34: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=945422 full_size=19054394
+R0 [P2] iter 34: join done, raw=2810174 result_size=2081288
+R0 [P2] iter 34: split done, delta_size=2081288
+R0 [P2] iter 34: dedup done, delta_size=2081288
+R0 [P2] iter 34: subtract done, delta_size=960238
+R0 [P2] iter 34: merge done, full_size=20014632
+R0 [P2] iter 35 done: global_full_size=20014632
+R0 [P2] iter 35: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=960238 full_size=20014632
+R0 [P2] iter 35: join done, raw=2853734 result_size=2119585
+R0 [P2] iter 35: split done, delta_size=2119585
+R0 [P2] iter 35: dedup done, delta_size=2119585
+R0 [P2] iter 35: subtract done, delta_size=974160
+R0 [P2] iter 35: merge done, full_size=20988792
+R0 [P2] iter 36 done: global_full_size=20988792
+R0 [P2] iter 36: PRE-JOIN GPU mem: 84.5GB free / 85.1GB total | delta_size=974160 full_size=20988792
+R0 [P2] iter 36: join done, raw=2894646 result_size=2156185
+R0 [P2] iter 36: split done, delta_size=2156185
+R0 [P2] iter 36: dedup done, delta_size=2156185
+R0 [P2] iter 36: subtract done, delta_size=987192
+R0 [P2] iter 36: merge done, full_size=21975984
+R0 [P2] iter 37 done: global_full_size=21975984
+R0 [P2] iter 37: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=987192 full_size=21975984
+R0 [P2] iter 37: join done, raw=2932908 result_size=2191076
+R0 [P2] iter 37: split done, delta_size=2191076
+R0 [P2] iter 37: dedup done, delta_size=2191076
+R0 [P2] iter 37: subtract done, delta_size=999334
+R0 [P2] iter 37: merge done, full_size=22975318
+R0 [P2] iter 38 done: global_full_size=22975318
+R0 [P2] iter 38: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=999334 full_size=22975318
+R0 [P2] iter 38: join done, raw=2968524 result_size=2224214
+R0 [P2] iter 38: split done, delta_size=2224214
+R0 [P2] iter 38: dedup done, delta_size=2224214
+R0 [P2] iter 38: subtract done, delta_size=1010560
+R0 [P2] iter 38: merge done, full_size=23985878
+R0 [P2] iter 39 done: global_full_size=23985878
+R0 [P2] iter 39: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=1010560 full_size=23985878
+R0 [P2] iter 39: join done, raw=3001336 result_size=2255488
+R0 [P2] iter 39: split done, delta_size=2255488
+R0 [P2] iter 39: dedup done, delta_size=2255488
+R0 [P2] iter 39: subtract done, delta_size=1020818
+R0 [P2] iter 39: merge done, full_size=25006696
+R0 [P2] iter 40 done: global_full_size=25006696
+R0 [P2] iter 40: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=1020818 full_size=25006696
+R0 [P2] iter 40: join done, raw=3031258 result_size=2284836
+R0 [P2] iter 40: split done, delta_size=2284836
+R0 [P2] iter 40: dedup done, delta_size=2284836
+R0 [P2] iter 40: subtract done, delta_size=1030102
+R0 [P2] iter 40: merge done, full_size=26036798
+R0 [P2] iter 41 done: global_full_size=26036798
+R0 [P2] iter 41: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=1030102 full_size=26036798
+R0 [P2] iter 41: join done, raw=3058306 result_size=2312223
+R0 [P2] iter 41: split done, delta_size=2312223
+R0 [P2] iter 41: dedup done, delta_size=2312223
+R0 [P2] iter 41: subtract done, delta_size=1038392
+R0 [P2] iter 41: merge done, full_size=27075190
+R0 [P2] iter 42 done: global_full_size=27075190
+R0 [P2] iter 42: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=1038392 full_size=27075190
+R0 [P2] iter 42: join done, raw=3082412 result_size=2337497
+R0 [P2] iter 42: split done, delta_size=2337497
+R0 [P2] iter 42: dedup done, delta_size=2337497
+R0 [P2] iter 42: subtract done, delta_size=1045664
+R0 [P2] iter 42: merge done, full_size=28120854
+R0 [P2] iter 43 done: global_full_size=28120854
+R0 [P2] iter 43: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=1045664 full_size=28120854
+R0 [P2] iter 43: join done, raw=3103454 result_size=2360536
+R0 [P2] iter 43: split done, delta_size=2360536
+R0 [P2] iter 43: dedup done, delta_size=2360536
+R0 [P2] iter 43: subtract done, delta_size=1051914
+R0 [P2] iter 43: merge done, full_size=29172768
+R0 [P2] iter 44 done: global_full_size=29172768
+R0 [P2] iter 44: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=1051914 full_size=29172768
+R0 [P2] iter 44: join done, raw=3121400 result_size=2381368
+R0 [P2] iter 44: split done, delta_size=2381368
+R0 [P2] iter 44: dedup done, delta_size=2381368
+R0 [P2] iter 44: subtract done, delta_size=1057128
+R0 [P2] iter 44: merge done, full_size=30229896
+R0 [P2] iter 45 done: global_full_size=30229896
+R0 [P2] iter 45: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=1057128 full_size=30229896
+R0 [P2] iter 45: join done, raw=3136286 result_size=2399948
+R0 [P2] iter 45: split done, delta_size=2399948
+R0 [P2] iter 45: dedup done, delta_size=2399948
+R0 [P2] iter 45: subtract done, delta_size=1061290
+R0 [P2] iter 45: merge done, full_size=31291186
+R0 [P2] iter 46 done: global_full_size=31291186
+R0 [P2] iter 46: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=1061290 full_size=31291186
+R0 [P2] iter 46: join done, raw=3147996 result_size=2416282
+R0 [P2] iter 46: split done, delta_size=2416282
+R0 [P2] iter 46: dedup done, delta_size=2416282
+R0 [P2] iter 46: subtract done, delta_size=1064442
+R0 [P2] iter 46: merge done, full_size=32355628
+R0 [P2] iter 47 done: global_full_size=32355628
+R0 [P2] iter 47: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=1064442 full_size=32355628
+R0 [P2] iter 47: join done, raw=3156744 result_size=2430561
+R0 [P2] iter 47: split done, delta_size=2430561
+R0 [P2] iter 47: dedup done, delta_size=2430561
+R0 [P2] iter 47: subtract done, delta_size=1066664
+R0 [P2] iter 47: merge done, full_size=33422292
+R0 [P2] iter 48 done: global_full_size=33422292
+R0 [P2] iter 48: PRE-JOIN GPU mem: 84.4GB free / 85.1GB total | delta_size=1066664 full_size=33422292
+R0 [P2] iter 48: join done, raw=3162888 result_size=2442943
+R0 [P2] iter 48: split done, delta_size=2442943
+R0 [P2] iter 48: dedup done, delta_size=2442943
+R0 [P2] iter 48: subtract done, delta_size=1067960
+R0 [P2] iter 48: merge done, full_size=34490252
+R0 [P2] iter 49 done: global_full_size=34490252
+R0 [P2] iter 49: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=1067960 full_size=34490252
+R0 [P2] iter 49: join done, raw=3166362 result_size=2453240
+R0 [P2] iter 49: split done, delta_size=2453240
+R0 [P2] iter 49: dedup done, delta_size=2453240
+R0 [P2] iter 49: subtract done, delta_size=1068338
+R0 [P2] iter 49: merge done, full_size=35558590
+R0 [P2] iter 50 done: global_full_size=35558590
+R0 [P2] iter 50: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=1068338 full_size=35558590
+R0 [P2] iter 50: join done, raw=3167174 result_size=2461364
+R0 [P2] iter 50: split done, delta_size=2461364
+R0 [P2] iter 50: dedup done, delta_size=2461364
+R0 [P2] iter 50: subtract done, delta_size=1067788
+R0 [P2] iter 50: merge done, full_size=36626378
+R0 [P2] iter 51 done: global_full_size=36626378
+R0 [P2] iter 51: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=1067788 full_size=36626378
+R0 [P2] iter 51: join done, raw=3165236 result_size=2467250
+R0 [P2] iter 51: split done, delta_size=2467250
+R0 [P2] iter 51: dedup done, delta_size=2467250
+R0 [P2] iter 51: subtract done, delta_size=1066342
+R0 [P2] iter 51: merge done, full_size=37692720
+R0 [P2] iter 52 done: global_full_size=37692720
+R0 [P2] iter 52: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=1066342 full_size=37692720
+R0 [P2] iter 52: join done, raw=3160704 result_size=2470922
+R0 [P2] iter 52: split done, delta_size=2470922
+R0 [P2] iter 52: dedup done, delta_size=2470922
+R0 [P2] iter 52: subtract done, delta_size=1063950
+R0 [P2] iter 52: merge done, full_size=38756670
+R0 [P2] iter 53 done: global_full_size=38756670
+R0 [P2] iter 53: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=1063950 full_size=38756670
+R0 [P2] iter 53: join done, raw=3153210 result_size=2472095
+R0 [P2] iter 53: split done, delta_size=2472095
+R0 [P2] iter 53: dedup done, delta_size=2472095
+R0 [P2] iter 53: subtract done, delta_size=1060576
+R0 [P2] iter 53: merge done, full_size=39817246
+R0 [P2] iter 54 done: global_full_size=39817246
+R0 [P2] iter 54: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=1060576 full_size=39817246
+R0 [P2] iter 54: join done, raw=3142812 result_size=2470859
+R0 [P2] iter 54: split done, delta_size=2470859
+R0 [P2] iter 54: dedup done, delta_size=2470859
+R0 [P2] iter 54: subtract done, delta_size=1056260
+R0 [P2] iter 54: merge done, full_size=40873506
+R0 [P2] iter 55 done: global_full_size=40873506
+R0 [P2] iter 55: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=1056260 full_size=40873506
+R0 [P2] iter 55: join done, raw=3129616 result_size=2467344
+R0 [P2] iter 55: split done, delta_size=2467344
+R0 [P2] iter 55: dedup done, delta_size=2467344
+R0 [P2] iter 55: subtract done, delta_size=1050998
+R0 [P2] iter 55: merge done, full_size=41924504
+R0 [P2] iter 56 done: global_full_size=41924504
+R0 [P2] iter 56: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=1050998 full_size=41924504
+R0 [P2] iter 56: join done, raw=3113656 result_size=2461406
+R0 [P2] iter 56: split done, delta_size=2461406
+R0 [P2] iter 56: dedup done, delta_size=2461406
+R0 [P2] iter 56: subtract done, delta_size=1044736
+R0 [P2] iter 56: merge done, full_size=42969240
+R0 [P2] iter 57 done: global_full_size=42969240
+R0 [P2] iter 57: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=1044736 full_size=42969240
+R0 [P2] iter 57: join done, raw=3094722 result_size=2452818
+R0 [P2] iter 57: split done, delta_size=2452818
+R0 [P2] iter 57: dedup done, delta_size=2452818
+R0 [P2] iter 57: subtract done, delta_size=1037470
+R0 [P2] iter 57: merge done, full_size=44006710
+R0 [P2] iter 58 done: global_full_size=44006710
+R0 [P2] iter 58: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=1037470 full_size=44006710
+R0 [P2] iter 58: join done, raw=3072794 result_size=2441570
+R0 [P2] iter 58: split done, delta_size=2441570
+R0 [P2] iter 58: dedup done, delta_size=2441570
+R0 [P2] iter 58: subtract done, delta_size=1029230
+R0 [P2] iter 58: merge done, full_size=45035940
+R0 [P2] iter 59 done: global_full_size=45035940
+R0 [P2] iter 59: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=1029230 full_size=45035940
+R0 [P2] iter 59: join done, raw=3047952 result_size=2427731
+R0 [P2] iter 59: split done, delta_size=2427731
+R0 [P2] iter 59: dedup done, delta_size=2427731
+R0 [P2] iter 59: subtract done, delta_size=1020036
+R0 [P2] iter 59: merge done, full_size=46055976
+R0 [P2] iter 60 done: global_full_size=46055976
+R0 [P2] iter 60: PRE-JOIN GPU mem: 84.3GB free / 85.1GB total | delta_size=1020036 full_size=46055976
+R0 [P2] iter 60: join done, raw=3020406 result_size=2411381
+R0 [P2] iter 60: split done, delta_size=2411381
+R0 [P2] iter 60: dedup done, delta_size=2411381
+R0 [P2] iter 60: subtract done, delta_size=1009892
+R0 [P2] iter 60: merge done, full_size=47065868
+R0 [P2] iter 61 done: global_full_size=47065868
+R0 [P2] iter 61: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=1009892 full_size=47065868
+R0 [P2] iter 61: join done, raw=2989888 result_size=2392364
+R0 [P2] iter 61: split done, delta_size=2392364
+R0 [P2] iter 61: dedup done, delta_size=2392364
+R0 [P2] iter 61: subtract done, delta_size=998806
+R0 [P2] iter 61: merge done, full_size=48064674
+R0 [P2] iter 62 done: global_full_size=48064674
+R0 [P2] iter 62: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=998806 full_size=48064674
+R0 [P2] iter 62: join done, raw=2956646 result_size=2370866
+R0 [P2] iter 62: split done, delta_size=2370866
+R0 [P2] iter 62: dedup done, delta_size=2370866
+R0 [P2] iter 62: subtract done, delta_size=986868
+R0 [P2] iter 62: merge done, full_size=49051542
+R0 [P2] iter 63 done: global_full_size=49051542
+R0 [P2] iter 63: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=986868 full_size=49051542
+R0 [P2] iter 63: join done, raw=2920836 result_size=2347091
+R0 [P2] iter 63: split done, delta_size=2347091
+R0 [P2] iter 63: dedup done, delta_size=2347091
+R0 [P2] iter 63: subtract done, delta_size=974114
+R0 [P2] iter 63: merge done, full_size=50025656
+R0 [P2] iter 64 done: global_full_size=50025656
+R0 [P2] iter 64: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=974114 full_size=50025656
+R0 [P2] iter 64: join done, raw=2882892 result_size=2321222
+R0 [P2] iter 64: split done, delta_size=2321222
+R0 [P2] iter 64: dedup done, delta_size=2321222
+R0 [P2] iter 64: subtract done, delta_size=960620
+R0 [P2] iter 64: merge done, full_size=50986276
+R0 [P2] iter 65 done: global_full_size=50986276
+R0 [P2] iter 65: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=960620 full_size=50986276
+R0 [P2] iter 65: join done, raw=2842644 result_size=2293119
+R0 [P2] iter 65: split done, delta_size=2293119
+R0 [P2] iter 65: dedup done, delta_size=2293119
+R0 [P2] iter 65: subtract done, delta_size=946480
+R0 [P2] iter 65: merge done, full_size=51932756
+R0 [P2] iter 66 done: global_full_size=51932756
+R0 [P2] iter 66: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=946480 full_size=51932756
+R0 [P2] iter 66: join done, raw=2800460 result_size=2263137
+R0 [P2] iter 66: split done, delta_size=2263137
+R0 [P2] iter 66: dedup done, delta_size=2263137
+R0 [P2] iter 66: subtract done, delta_size=931680
+R0 [P2] iter 66: merge done, full_size=52864436
+R0 [P2] iter 67 done: global_full_size=52864436
+R0 [P2] iter 67: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=931680 full_size=52864436
+R0 [P2] iter 67: join done, raw=2756204 result_size=2231292
+R0 [P2] iter 67: split done, delta_size=2231292
+R0 [P2] iter 67: dedup done, delta_size=2231292
+R0 [P2] iter 67: subtract done, delta_size=916296
+R0 [P2] iter 67: merge done, full_size=53780732
+R0 [P2] iter 68 done: global_full_size=53780732
+R0 [P2] iter 68: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=916296 full_size=53780732
+R0 [P2] iter 68: join done, raw=2710392 result_size=2197962
+R0 [P2] iter 68: split done, delta_size=2197962
+R0 [P2] iter 68: dedup done, delta_size=2197962
+R0 [P2] iter 68: subtract done, delta_size=900398
+R0 [P2] iter 68: merge done, full_size=54681130
+R0 [P2] iter 69 done: global_full_size=54681130
+R0 [P2] iter 69: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=900398 full_size=54681130
+R0 [P2] iter 69: join done, raw=2662978 result_size=2163148
+R0 [P2] iter 69: split done, delta_size=2163148
+R0 [P2] iter 69: dedup done, delta_size=2163148
+R0 [P2] iter 69: subtract done, delta_size=883966
+R0 [P2] iter 69: merge done, full_size=55565096
+R0 [P2] iter 70 done: global_full_size=55565096
+R0 [P2] iter 70: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=883966 full_size=55565096
+R0 [P2] iter 70: join done, raw=2613968 result_size=2126886
+R0 [P2] iter 70: split done, delta_size=2126886
+R0 [P2] iter 70: dedup done, delta_size=2126886
+R0 [P2] iter 70: subtract done, delta_size=867060
+R0 [P2] iter 70: merge done, full_size=56432156
+R0 [P2] iter 71 done: global_full_size=56432156
+R0 [P2] iter 71: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=867060 full_size=56432156
+R0 [P2] iter 71: join done, raw=2563518 result_size=2089406
+R0 [P2] iter 71: split done, delta_size=2089406
+R0 [P2] iter 71: dedup done, delta_size=2089406
+R0 [P2] iter 71: subtract done, delta_size=849716
+R0 [P2] iter 71: merge done, full_size=57281872
+R0 [P2] iter 72 done: global_full_size=57281872
+R0 [P2] iter 72: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=849716 full_size=57281872
+R0 [P2] iter 72: join done, raw=2511960 result_size=2050880
+R0 [P2] iter 72: split done, delta_size=2050880
+R0 [P2] iter 72: dedup done, delta_size=2050880
+R0 [P2] iter 72: subtract done, delta_size=831970
+R0 [P2] iter 72: merge done, full_size=58113842
+R0 [P2] iter 73 done: global_full_size=58113842
+R0 [P2] iter 73: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=831970 full_size=58113842
+R0 [P2] iter 73: join done, raw=2459254 result_size=2011294
+R0 [P2] iter 73: split done, delta_size=2011294
+R0 [P2] iter 73: dedup done, delta_size=2011294
+R0 [P2] iter 73: subtract done, delta_size=813912
+R0 [P2] iter 73: merge done, full_size=58927754
+R0 [P2] iter 74 done: global_full_size=58927754
+R0 [P2] iter 74: PRE-JOIN GPU mem: 84.2GB free / 85.1GB total | delta_size=813912 full_size=58927754
+R0 [P2] iter 74: join done, raw=2405652 result_size=1970806
+R0 [P2] iter 74: split done, delta_size=1970806
+R0 [P2] iter 74: dedup done, delta_size=1970806
+R0 [P2] iter 74: subtract done, delta_size=795612
+R0 [P2] iter 74: merge done, full_size=59723366
+R0 [P2] iter 75 done: global_full_size=59723366
+R0 [P2] iter 75: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=795612 full_size=59723366
+R0 [P2] iter 75: join done, raw=2351250 result_size=1929610
+R0 [P2] iter 75: split done, delta_size=1929610
+R0 [P2] iter 75: dedup done, delta_size=1929610
+R0 [P2] iter 75: subtract done, delta_size=777060
+R0 [P2] iter 75: merge done, full_size=60500426
+R0 [P2] iter 76 done: global_full_size=60500426
+R0 [P2] iter 76: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=777060 full_size=60500426
+R0 [P2] iter 76: join done, raw=2296170 result_size=1887718
+R0 [P2] iter 76: split done, delta_size=1887718
+R0 [P2] iter 76: dedup done, delta_size=1887718
+R0 [P2] iter 76: subtract done, delta_size=758310
+R0 [P2] iter 76: merge done, full_size=61258736
+R0 [P2] iter 77 done: global_full_size=61258736
+R0 [P2] iter 77: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=758310 full_size=61258736
+R0 [P2] iter 77: join done, raw=2240506 result_size=1845334
+R0 [P2] iter 77: split done, delta_size=1845334
+R0 [P2] iter 77: dedup done, delta_size=1845334
+R0 [P2] iter 77: subtract done, delta_size=739492
+R0 [P2] iter 77: merge done, full_size=61998228
+R0 [P2] iter 78 done: global_full_size=61998228
+R0 [P2] iter 78: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=739492 full_size=61998228
+R0 [P2] iter 78: join done, raw=2184678 result_size=1802794
+R0 [P2] iter 78: split done, delta_size=1802794
+R0 [P2] iter 78: dedup done, delta_size=1802794
+R0 [P2] iter 78: subtract done, delta_size=720606
+R0 [P2] iter 78: merge done, full_size=62718834
+R0 [P2] iter 79 done: global_full_size=62718834
+R0 [P2] iter 79: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=720606 full_size=62718834
+R0 [P2] iter 79: join done, raw=2128658 result_size=1760141
+R0 [P2] iter 79: split done, delta_size=1760141
+R0 [P2] iter 79: dedup done, delta_size=1760141
+R0 [P2] iter 79: subtract done, delta_size=701778
+R0 [P2] iter 79: merge done, full_size=63420612
+R0 [P2] iter 80 done: global_full_size=63420612
+R0 [P2] iter 80: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=701778 full_size=63420612
+R0 [P2] iter 80: join done, raw=2072860 result_size=1717626
+R0 [P2] iter 80: split done, delta_size=1717626
+R0 [P2] iter 80: dedup done, delta_size=1717626
+R0 [P2] iter 80: subtract done, delta_size=682954
+R0 [P2] iter 80: merge done, full_size=64103566
+R0 [P2] iter 81 done: global_full_size=64103566
+R0 [P2] iter 81: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=682954 full_size=64103566
+R0 [P2] iter 81: join done, raw=2017134 result_size=1675069
+R0 [P2] iter 81: split done, delta_size=1675069
+R0 [P2] iter 81: dedup done, delta_size=1675069
+R0 [P2] iter 81: subtract done, delta_size=664086
+R0 [P2] iter 81: merge done, full_size=64767652
+R0 [P2] iter 82 done: global_full_size=64767652
+R0 [P2] iter 82: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=664086 full_size=64767652
+R0 [P2] iter 82: join done, raw=1961266 result_size=1632254
+R0 [P2] iter 82: split done, delta_size=1632254
+R0 [P2] iter 82: dedup done, delta_size=1632254
+R0 [P2] iter 82: subtract done, delta_size=645162
+R0 [P2] iter 82: merge done, full_size=65412814
+R0 [P2] iter 83 done: global_full_size=65412814
+R0 [P2] iter 83: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=645162 full_size=65412814
+R0 [P2] iter 83: join done, raw=1905204 result_size=1589166
+R0 [P2] iter 83: split done, delta_size=1589166
+R0 [P2] iter 83: dedup done, delta_size=1589166
+R0 [P2] iter 83: subtract done, delta_size=626310
+R0 [P2] iter 83: merge done, full_size=66039124
+R0 [P2] iter 84 done: global_full_size=66039124
+R0 [P2] iter 84: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=626310 full_size=66039124
+R0 [P2] iter 84: join done, raw=1849290 result_size=1546128
+R0 [P2] iter 84: split done, delta_size=1546128
+R0 [P2] iter 84: dedup done, delta_size=1546128
+R0 [P2] iter 84: subtract done, delta_size=607488
+R0 [P2] iter 84: merge done, full_size=66646612
+R0 [P2] iter 85 done: global_full_size=66646612
+R0 [P2] iter 85: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=607488 full_size=66646612
+R0 [P2] iter 85: join done, raw=1793498 result_size=1503030
+R0 [P2] iter 85: split done, delta_size=1503030
+R0 [P2] iter 85: dedup done, delta_size=1503030
+R0 [P2] iter 85: subtract done, delta_size=588738
+R0 [P2] iter 85: merge done, full_size=67235350
+R0 [P2] iter 86 done: global_full_size=67235350
+R0 [P2] iter 86: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=588738 full_size=67235350
+R0 [P2] iter 86: join done, raw=1738006 result_size=1460052
+R0 [P2] iter 86: split done, delta_size=1460052
+R0 [P2] iter 86: dedup done, delta_size=1460052
+R0 [P2] iter 86: subtract done, delta_size=570042
+R0 [P2] iter 86: merge done, full_size=67805392
+R0 [P2] iter 87 done: global_full_size=67805392
+R0 [P2] iter 87: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=570042 full_size=67805392
+R0 [P2] iter 87: join done, raw=1682688 result_size=1417058
+R0 [P2] iter 87: split done, delta_size=1417058
+R0 [P2] iter 87: dedup done, delta_size=1417058
+R0 [P2] iter 87: subtract done, delta_size=551376
+R0 [P2] iter 87: merge done, full_size=68356768
+R0 [P2] iter 88 done: global_full_size=68356768
+R0 [P2] iter 88: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=551376 full_size=68356768
+R0 [P2] iter 88: join done, raw=1627326 result_size=1373937
+R0 [P2] iter 88: split done, delta_size=1373937
+R0 [P2] iter 88: dedup done, delta_size=1373937
+R0 [P2] iter 88: subtract done, delta_size=532672
+R0 [P2] iter 88: merge done, full_size=68889440
+R0 [P2] iter 89 done: global_full_size=68889440
+R0 [P2] iter 89: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=532672 full_size=68889440
+R0 [P2] iter 89: join done, raw=1571834 result_size=1330586
+R0 [P2] iter 89: split done, delta_size=1330586
+R0 [P2] iter 89: dedup done, delta_size=1330586
+R0 [P2] iter 89: subtract done, delta_size=514046
+R0 [P2] iter 89: merge done, full_size=69403486
+R0 [P2] iter 90 done: global_full_size=69403486
+R0 [P2] iter 90: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=514046 full_size=69403486
+R0 [P2] iter 90: join done, raw=1516626 result_size=1287516
+R0 [P2] iter 90: split done, delta_size=1287516
+R0 [P2] iter 90: dedup done, delta_size=1287516
+R0 [P2] iter 90: subtract done, delta_size=495656
+R0 [P2] iter 90: merge done, full_size=69899142
+R0 [P2] iter 91 done: global_full_size=69899142
+R0 [P2] iter 91: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=495656 full_size=69899142
+R0 [P2] iter 91: join done, raw=1462252 result_size=1245101
+R0 [P2] iter 91: split done, delta_size=1245101
+R0 [P2] iter 91: dedup done, delta_size=1245101
+R0 [P2] iter 91: subtract done, delta_size=477538
+R0 [P2] iter 91: merge done, full_size=70376680
+R0 [P2] iter 92 done: global_full_size=70376680
+R0 [P2] iter 92: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=477538 full_size=70376680
+R0 [P2] iter 92: join done, raw=1408838 result_size=1203542
+R0 [P2] iter 92: split done, delta_size=1203542
+R0 [P2] iter 92: dedup done, delta_size=1203542
+R0 [P2] iter 92: subtract done, delta_size=459872
+R0 [P2] iter 92: merge done, full_size=70836552
+R0 [P2] iter 93 done: global_full_size=70836552
+R0 [P2] iter 93: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=459872 full_size=70836552
+R0 [P2] iter 93: join done, raw=1356710 result_size=1163086
+R0 [P2] iter 93: split done, delta_size=1163086
+R0 [P2] iter 93: dedup done, delta_size=1163086
+R0 [P2] iter 93: subtract done, delta_size=442546
+R0 [P2] iter 93: merge done, full_size=71279098
+R0 [P2] iter 94 done: global_full_size=71279098
+R0 [P2] iter 94: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=442546 full_size=71279098
+R0 [P2] iter 94: join done, raw=1305494 result_size=1123198
+R0 [P2] iter 94: split done, delta_size=1123198
+R0 [P2] iter 94: dedup done, delta_size=1123198
+R0 [P2] iter 94: subtract done, delta_size=425326
+R0 [P2] iter 94: merge done, full_size=71704424
+R0 [P2] iter 95 done: global_full_size=71704424
+R0 [P2] iter 95: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=425326 full_size=71704424
+R0 [P2] iter 95: join done, raw=1254526 result_size=1083024
+R0 [P2] iter 95: split done, delta_size=1083024
+R0 [P2] iter 95: dedup done, delta_size=1083024
+R0 [P2] iter 95: subtract done, delta_size=407568
+R0 [P2] iter 95: merge done, full_size=72111992
+R0 [P2] iter 96 done: global_full_size=72111992
+R0 [P2] iter 96: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=407568 full_size=72111992
+R0 [P2] iter 96: join done, raw=1202466 result_size=1041806
+R0 [P2] iter 96: split done, delta_size=1041806
+R0 [P2] iter 96: dedup done, delta_size=1041806
+R0 [P2] iter 96: subtract done, delta_size=389318
+R0 [P2] iter 96: merge done, full_size=72501310
+R0 [P2] iter 97 done: global_full_size=72501310
+R0 [P2] iter 97: PRE-JOIN GPU mem: 84.1GB free / 85.1GB total | delta_size=389318 full_size=72501310
+R0 [P2] iter 97: join done, raw=1148928 result_size=999010
+R0 [P2] iter 97: split done, delta_size=999010
+R0 [P2] iter 97: dedup done, delta_size=999010
+R0 [P2] iter 97: subtract done, delta_size=370622
+R0 [P2] iter 97: merge done, full_size=72871932
+R0 [P2] iter 98 done: global_full_size=72871932
+R0 [P2] iter 98: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=370622 full_size=72871932
+R0 [P2] iter 98: join done, raw=1094026 result_size=954878
+R0 [P2] iter 98: split done, delta_size=954878
+R0 [P2] iter 98: dedup done, delta_size=954878
+R0 [P2] iter 98: subtract done, delta_size=351900
+R0 [P2] iter 98: merge done, full_size=73223832
+R0 [P2] iter 99 done: global_full_size=73223832
+R0 [P2] iter 99: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=351900 full_size=73223832
+R0 [P2] iter 99: join done, raw=1038876 result_size=910319
+R0 [P2] iter 99: split done, delta_size=910319
+R0 [P2] iter 99: dedup done, delta_size=910319
+R0 [P2] iter 99: subtract done, delta_size=333254
+R0 [P2] iter 99: merge done, full_size=73557086
+R0 [P2] iter 100 done: global_full_size=73557086
+R0 [P2] iter 100: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=333254 full_size=73557086
+R0 [P2] iter 100: join done, raw=983940 result_size=865870
+R0 [P2] iter 100: split done, delta_size=865870
+R0 [P2] iter 100: dedup done, delta_size=865870
+R0 [P2] iter 100: subtract done, delta_size=315154
+R0 [P2] iter 100: merge done, full_size=73872240
+R0 [P2] iter 101 done: global_full_size=73872240
+R0 [P2] iter 101: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=315154 full_size=73872240
+R0 [P2] iter 101: join done, raw=930728 result_size=822897
+R0 [P2] iter 101: split done, delta_size=822897
+R0 [P2] iter 101: dedup done, delta_size=822897
+R0 [P2] iter 101: subtract done, delta_size=297798
+R0 [P2] iter 101: merge done, full_size=74170038
+R0 [P2] iter 102 done: global_full_size=74170038
+R0 [P2] iter 102: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=297798 full_size=74170038
+R0 [P2] iter 102: join done, raw=879722 result_size=781616
+R0 [P2] iter 102: split done, delta_size=781616
+R0 [P2] iter 102: dedup done, delta_size=781616
+R0 [P2] iter 102: subtract done, delta_size=281168
+R0 [P2] iter 102: merge done, full_size=74451206
+R0 [P2] iter 103 done: global_full_size=74451206
+R0 [P2] iter 103: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=281168 full_size=74451206
+R0 [P2] iter 103: join done, raw=830690 result_size=742111
+R0 [P2] iter 103: split done, delta_size=742111
+R0 [P2] iter 103: dedup done, delta_size=742111
+R0 [P2] iter 103: subtract done, delta_size=265418
+R0 [P2] iter 103: merge done, full_size=74716624
+R0 [P2] iter 104 done: global_full_size=74716624
+R0 [P2] iter 104: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=265418 full_size=74716624
+R0 [P2] iter 104: join done, raw=784264 result_size=704632
+R0 [P2] iter 104: split done, delta_size=704632
+R0 [P2] iter 104: dedup done, delta_size=704632
+R0 [P2] iter 104: subtract done, delta_size=250598
+R0 [P2] iter 104: merge done, full_size=74967222
+R0 [P2] iter 105 done: global_full_size=74967222
+R0 [P2] iter 105: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=250598 full_size=74967222
+R0 [P2] iter 105: join done, raw=740588 result_size=669370
+R0 [P2] iter 105: split done, delta_size=669370
+R0 [P2] iter 105: dedup done, delta_size=669370
+R0 [P2] iter 105: subtract done, delta_size=236723
+R0 [P2] iter 105: merge done, full_size=75203945
+R0 [P2] iter 106 done: global_full_size=75203945
+R0 [P2] iter 106: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=236723 full_size=75203945
+R0 [P2] iter 106: join done, raw=699777 result_size=636175
+R0 [P2] iter 106: split done, delta_size=636175
+R0 [P2] iter 106: dedup done, delta_size=636175
+R0 [P2] iter 106: subtract done, delta_size=223547
+R0 [P2] iter 106: merge done, full_size=75427492
+R0 [P2] iter 107 done: global_full_size=75427492
+R0 [P2] iter 107: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=223547 full_size=75427492
+R0 [P2] iter 107: join done, raw=661083 result_size=604871
+R0 [P2] iter 107: split done, delta_size=604871
+R0 [P2] iter 107: dedup done, delta_size=604871
+R0 [P2] iter 107: subtract done, delta_size=211451
+R0 [P2] iter 107: merge done, full_size=75638943
+R0 [P2] iter 108 done: global_full_size=75638943
+R0 [P2] iter 108: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=211451 full_size=75638943
+R0 [P2] iter 108: join done, raw=625707 result_size=576104
+R0 [P2] iter 108: split done, delta_size=576104
+R0 [P2] iter 108: dedup done, delta_size=576104
+R0 [P2] iter 108: subtract done, delta_size=200404
+R0 [P2] iter 108: merge done, full_size=75839347
+R0 [P2] iter 109 done: global_full_size=75839347
+R0 [P2] iter 109: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=200404 full_size=75839347
+R0 [P2] iter 109: join done, raw=593550 result_size=549745
+R0 [P2] iter 109: split done, delta_size=549745
+R0 [P2] iter 109: dedup done, delta_size=549745
+R0 [P2] iter 109: subtract done, delta_size=190202
+R0 [P2] iter 109: merge done, full_size=76029549
+R0 [P2] iter 110 done: global_full_size=76029549
+R0 [P2] iter 110: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=190202 full_size=76029549
+R0 [P2] iter 110: join done, raw=563982 result_size=525114
+R0 [P2] iter 110: split done, delta_size=525114
+R0 [P2] iter 110: dedup done, delta_size=525114
+R0 [P2] iter 110: subtract done, delta_size=180649
+R0 [P2] iter 110: merge done, full_size=76210198
+R0 [P2] iter 111 done: global_full_size=76210198
+R0 [P2] iter 111: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=180649 full_size=76210198
+R0 [P2] iter 111: join done, raw=536153 result_size=502014
+R0 [P2] iter 111: split done, delta_size=502014
+R0 [P2] iter 111: dedup done, delta_size=502014
+R0 [P2] iter 111: subtract done, delta_size=171830
+R0 [P2] iter 111: merge done, full_size=76382028
+R0 [P2] iter 112 done: global_full_size=76382028
+R0 [P2] iter 112: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=171830 full_size=76382028
+R0 [P2] iter 112: join done, raw=510224 result_size=479959
+R0 [P2] iter 112: split done, delta_size=479959
+R0 [P2] iter 112: dedup done, delta_size=479959
+R0 [P2] iter 112: subtract done, delta_size=163672
+R0 [P2] iter 112: merge done, full_size=76545700
+R0 [P2] iter 113 done: global_full_size=76545700
+R0 [P2] iter 113: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=163672 full_size=76545700
+R0 [P2] iter 113: join done, raw=486312 result_size=459686
+R0 [P2] iter 113: split done, delta_size=459686
+R0 [P2] iter 113: dedup done, delta_size=459686
+R0 [P2] iter 113: subtract done, delta_size=155995
+R0 [P2] iter 113: merge done, full_size=76701695
+R0 [P2] iter 114 done: global_full_size=76701695
+R0 [P2] iter 114: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=155995 full_size=76701695
+R0 [P2] iter 114: join done, raw=463809 result_size=441282
+R0 [P2] iter 114: split done, delta_size=441282
+R0 [P2] iter 114: dedup done, delta_size=441282
+R0 [P2] iter 114: subtract done, delta_size=149660
+R0 [P2] iter 114: merge done, full_size=76851355
+R0 [P2] iter 115 done: global_full_size=76851355
+R0 [P2] iter 115: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=149660 full_size=76851355
+R0 [P2] iter 115: join done, raw=445316 result_size=425701
+R0 [P2] iter 115: split done, delta_size=425701
+R0 [P2] iter 115: dedup done, delta_size=425701
+R0 [P2] iter 115: subtract done, delta_size=143518
+R0 [P2] iter 115: merge done, full_size=76994873
+R0 [P2] iter 116 done: global_full_size=76994873
+R0 [P2] iter 116: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=143518 full_size=76994873
+R0 [P2] iter 116: join done, raw=427350 result_size=409111
+R0 [P2] iter 116: split done, delta_size=409111
+R0 [P2] iter 116: dedup done, delta_size=409111
+R0 [P2] iter 116: subtract done, delta_size=136666
+R0 [P2] iter 116: merge done, full_size=77131539
+R0 [P2] iter 117 done: global_full_size=77131539
+R0 [P2] iter 117: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=136666 full_size=77131539
+R0 [P2] iter 117: join done, raw=407194 result_size=392905
+R0 [P2] iter 117: split done, delta_size=392905
+R0 [P2] iter 117: dedup done, delta_size=392905
+R0 [P2] iter 117: subtract done, delta_size=131726
+R0 [P2] iter 117: merge done, full_size=77263265
+R0 [P2] iter 118 done: global_full_size=77263265
+R0 [P2] iter 118: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=131726 full_size=77263265
+R0 [P2] iter 118: join done, raw=392762 result_size=378496
+R0 [P2] iter 118: split done, delta_size=378496
+R0 [P2] iter 118: dedup done, delta_size=378496
+R0 [P2] iter 118: subtract done, delta_size=125603
+R0 [P2] iter 118: merge done, full_size=77388868
+R0 [P2] iter 119 done: global_full_size=77388868
+R0 [P2] iter 119: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=125603 full_size=77388868
+R0 [P2] iter 119: join done, raw=374687 result_size=362623
+R0 [P2] iter 119: split done, delta_size=362623
+R0 [P2] iter 119: dedup done, delta_size=362623
+R0 [P2] iter 119: subtract done, delta_size=118293
+R0 [P2] iter 119: merge done, full_size=77507161
+R0 [P2] iter 120 done: global_full_size=77507161
+R0 [P2] iter 120: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=118293 full_size=77507161
+R0 [P2] iter 120: join done, raw=353017 result_size=343604
+R0 [P2] iter 120: split done, delta_size=343604
+R0 [P2] iter 120: dedup done, delta_size=343604
+R0 [P2] iter 120: subtract done, delta_size=114740
+R0 [P2] iter 120: merge done, full_size=77621901
+R0 [P2] iter 121 done: global_full_size=77621901
+R0 [P2] iter 121: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=114740 full_size=77621901
+R0 [P2] iter 121: join done, raw=342508 result_size=330841
+R0 [P2] iter 121: split done, delta_size=330841
+R0 [P2] iter 121: dedup done, delta_size=330841
+R0 [P2] iter 121: subtract done, delta_size=108452
+R0 [P2] iter 121: merge done, full_size=77730353
+R0 [P2] iter 122 done: global_full_size=77730353
+R0 [P2] iter 122: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=108452 full_size=77730353
+R0 [P2] iter 122: join done, raw=323780 result_size=312327
+R0 [P2] iter 122: split done, delta_size=312327
+R0 [P2] iter 122: dedup done, delta_size=312327
+R0 [P2] iter 122: subtract done, delta_size=100860
+R0 [P2] iter 122: merge done, full_size=77831213
+R0 [P2] iter 123 done: global_full_size=77831213
+R0 [P2] iter 123: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=100860 full_size=77831213
+R0 [P2] iter 123: join done, raw=301296 result_size=292937
+R0 [P2] iter 123: split done, delta_size=292937
+R0 [P2] iter 123: dedup done, delta_size=292937
+R0 [P2] iter 123: subtract done, delta_size=95222
+R0 [P2] iter 123: merge done, full_size=77926435
+R0 [P2] iter 124 done: global_full_size=77926435
+R0 [P2] iter 124: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=95222 full_size=77926435
+R0 [P2] iter 124: join done, raw=284598 result_size=275602
+R0 [P2] iter 124: split done, delta_size=275602
+R0 [P2] iter 124: dedup done, delta_size=275602
+R0 [P2] iter 124: subtract done, delta_size=88853
+R0 [P2] iter 124: merge done, full_size=78015288
+R0 [P2] iter 125 done: global_full_size=78015288
+R0 [P2] iter 125: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=88853 full_size=78015288
+R0 [P2] iter 125: join done, raw=265659 result_size=253929
+R0 [P2] iter 125: split done, delta_size=253929
+R0 [P2] iter 125: dedup done, delta_size=253929
+R0 [P2] iter 125: subtract done, delta_size=78197
+R0 [P2] iter 125: merge done, full_size=78093485
+R0 [P2] iter 126 done: global_full_size=78093485
+R0 [P2] iter 126: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=78197 full_size=78093485
+R0 [P2] iter 126: join done, raw=233957 result_size=206823
+R0 [P2] iter 126: split done, delta_size=206823
+R0 [P2] iter 126: dedup done, delta_size=206823
+R0 [P2] iter 126: subtract done, delta_size=50513
+R0 [P2] iter 126: merge done, full_size=78143998
+R0 [P2] iter 127 done: global_full_size=78143998
+R0 [P2] iter 127: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=50513 full_size=78143998
+R0 [P2] iter 127: join done, raw=151742 result_size=146410
+R0 [P2] iter 127: split done, delta_size=146410
+R0 [P2] iter 127: dedup done, delta_size=146410
+R0 [P2] iter 127: subtract done, delta_size=32972
+R0 [P2] iter 127: merge done, full_size=78176970
+R0 [P2] iter 128 done: global_full_size=78176970
+R0 [P2] iter 128: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=32972 full_size=78176970
+R0 [P2] iter 128: join done, raw=99384 result_size=95600
+R0 [P2] iter 128: split done, delta_size=95600
+R0 [P2] iter 128: dedup done, delta_size=95600
+R0 [P2] iter 128: subtract done, delta_size=29382
+R0 [P2] iter 128: merge done, full_size=78206352
+R0 [P2] iter 129 done: global_full_size=78206352
+R0 [P2] iter 129: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=29382 full_size=78206352
+R0 [P2] iter 129: join done, raw=88470 result_size=85718
+R0 [P2] iter 129: split done, delta_size=85718
+R0 [P2] iter 129: dedup done, delta_size=85718
+R0 [P2] iter 129: subtract done, delta_size=26540
+R0 [P2] iter 129: merge done, full_size=78232892
+R0 [P2] iter 130 done: global_full_size=78232892
+R0 [P2] iter 130: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=26540 full_size=78232892
+R0 [P2] iter 130: join done, raw=79774 result_size=77884
+R0 [P2] iter 130: split done, delta_size=77884
+R0 [P2] iter 130: dedup done, delta_size=77884
+R0 [P2] iter 130: subtract done, delta_size=24458
+R0 [P2] iter 130: merge done, full_size=78257350
+R0 [P2] iter 131 done: global_full_size=78257350
+R0 [P2] iter 131: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=24458 full_size=78257350
+R0 [P2] iter 131: join done, raw=73400 result_size=71902
+R0 [P2] iter 131: split done, delta_size=71902
+R0 [P2] iter 131: dedup done, delta_size=71902
+R0 [P2] iter 131: subtract done, delta_size=22858
+R0 [P2] iter 131: merge done, full_size=78280208
+R0 [P2] iter 132 done: global_full_size=78280208
+R0 [P2] iter 132: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=22858 full_size=78280208
+R0 [P2] iter 132: join done, raw=68552 result_size=67216
+R0 [P2] iter 132: split done, delta_size=67216
+R0 [P2] iter 132: dedup done, delta_size=67216
+R0 [P2] iter 132: subtract done, delta_size=21426
+R0 [P2] iter 132: merge done, full_size=78301634
+R0 [P2] iter 133 done: global_full_size=78301634
+R0 [P2] iter 133: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=21426 full_size=78301634
+R0 [P2] iter 133: join done, raw=64244 result_size=62992
+R0 [P2] iter 133: split done, delta_size=62992
+R0 [P2] iter 133: dedup done, delta_size=62992
+R0 [P2] iter 133: subtract done, delta_size=20086
+R0 [P2] iter 133: merge done, full_size=78321720
+R0 [P2] iter 134 done: global_full_size=78321720
+R0 [P2] iter 134: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=20086 full_size=78321720
+R0 [P2] iter 134: join done, raw=60212 result_size=59006
+R0 [P2] iter 134: split done, delta_size=59006
+R0 [P2] iter 134: dedup done, delta_size=59006
+R0 [P2] iter 134: subtract done, delta_size=18832
+R0 [P2] iter 134: merge done, full_size=78340552
+R0 [P2] iter 135 done: global_full_size=78340552
+R0 [P2] iter 135: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=18832 full_size=78340552
+R0 [P2] iter 135: join done, raw=56446 result_size=55262
+R0 [P2] iter 135: split done, delta_size=55262
+R0 [P2] iter 135: dedup done, delta_size=55262
+R0 [P2] iter 135: subtract done, delta_size=17644
+R0 [P2] iter 135: merge done, full_size=78358196
+R0 [P2] iter 136 done: global_full_size=78358196
+R0 [P2] iter 136: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=17644 full_size=78358196
+R0 [P2] iter 136: join done, raw=52882 result_size=51716
+R0 [P2] iter 136: split done, delta_size=51716
+R0 [P2] iter 136: dedup done, delta_size=51716
+R0 [P2] iter 136: subtract done, delta_size=16492
+R0 [P2] iter 136: merge done, full_size=78374688
+R0 [P2] iter 137 done: global_full_size=78374688
+R0 [P2] iter 137: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=16492 full_size=78374688
+R0 [P2] iter 137: join done, raw=49426 result_size=48280
+R0 [P2] iter 137: split done, delta_size=48280
+R0 [P2] iter 137: dedup done, delta_size=48280
+R0 [P2] iter 137: subtract done, delta_size=15360
+R0 [P2] iter 137: merge done, full_size=78390048
+R0 [P2] iter 138 done: global_full_size=78390048
+R0 [P2] iter 138: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=15360 full_size=78390048
+R0 [P2] iter 138: join done, raw=46036 result_size=44916
+R0 [P2] iter 138: split done, delta_size=44916
+R0 [P2] iter 138: dedup done, delta_size=44916
+R0 [P2] iter 138: subtract done, delta_size=14244
+R0 [P2] iter 138: merge done, full_size=78404292
+R0 [P2] iter 139 done: global_full_size=78404292
+R0 [P2] iter 139: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=14244 full_size=78404292
+R0 [P2] iter 139: join done, raw=42694 result_size=41610
+R0 [P2] iter 139: split done, delta_size=41610
+R0 [P2] iter 139: dedup done, delta_size=41610
+R0 [P2] iter 139: subtract done, delta_size=13212
+R0 [P2] iter 139: merge done, full_size=78417504
+R0 [P2] iter 140 done: global_full_size=78417504
+R0 [P2] iter 140: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=13212 full_size=78417504
+R0 [P2] iter 140: join done, raw=39610 result_size=38552
+R0 [P2] iter 140: split done, delta_size=38552
+R0 [P2] iter 140: dedup done, delta_size=38552
+R0 [P2] iter 140: subtract done, delta_size=12276
+R0 [P2] iter 140: merge done, full_size=78429780
+R0 [P2] iter 141 done: global_full_size=78429780
+R0 [P2] iter 141: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=12276 full_size=78429780
+R0 [P2] iter 141: join done, raw=36820 result_size=35768
+R0 [P2] iter 141: split done, delta_size=35768
+R0 [P2] iter 141: dedup done, delta_size=35768
+R0 [P2] iter 141: subtract done, delta_size=11416
+R0 [P2] iter 141: merge done, full_size=78441196
+R0 [P2] iter 142 done: global_full_size=78441196
+R0 [P2] iter 142: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=11416 full_size=78441196
+R0 [P2] iter 142: join done, raw=34266 result_size=33218
+R0 [P2] iter 142: split done, delta_size=33218
+R0 [P2] iter 142: dedup done, delta_size=33218
+R0 [P2] iter 142: subtract done, delta_size=10652
+R0 [P2] iter 142: merge done, full_size=78451848
+R0 [P2] iter 143 done: global_full_size=78451848
+R0 [P2] iter 143: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=10652 full_size=78451848
+R0 [P2] iter 143: join done, raw=31982 result_size=30936
+R0 [P2] iter 143: split done, delta_size=30936
+R0 [P2] iter 143: dedup done, delta_size=30936
+R0 [P2] iter 143: subtract done, delta_size=9896
+R0 [P2] iter 143: merge done, full_size=78461744
+R0 [P2] iter 144 done: global_full_size=78461744
+R0 [P2] iter 144: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=9896 full_size=78461744
+R0 [P2] iter 144: join done, raw=29714 result_size=28682
+R0 [P2] iter 144: split done, delta_size=28682
+R0 [P2] iter 144: dedup done, delta_size=28682
+R0 [P2] iter 144: subtract done, delta_size=9172
+R0 [P2] iter 144: merge done, full_size=78470916
+R0 [P2] iter 145 done: global_full_size=78470916
+R0 [P2] iter 145: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=9172 full_size=78470916
+R0 [P2] iter 145: join done, raw=27544 result_size=26534
+R0 [P2] iter 145: split done, delta_size=26534
+R0 [P2] iter 145: dedup done, delta_size=26534
+R0 [P2] iter 145: subtract done, delta_size=8516
+R0 [P2] iter 145: merge done, full_size=78479432
+R0 [P2] iter 146 done: global_full_size=78479432
+R0 [P2] iter 146: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=8516 full_size=78479432
+R0 [P2] iter 146: join done, raw=25570 result_size=24582
+R0 [P2] iter 146: split done, delta_size=24582
+R0 [P2] iter 146: dedup done, delta_size=24582
+R0 [P2] iter 146: subtract done, delta_size=7824
+R0 [P2] iter 146: merge done, full_size=78487256
+R0 [P2] iter 147 done: global_full_size=78487256
+R0 [P2] iter 147: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=7824 full_size=78487256
+R0 [P2] iter 147: join done, raw=23490 result_size=22544
+R0 [P2] iter 147: split done, delta_size=22544
+R0 [P2] iter 147: dedup done, delta_size=22544
+R0 [P2] iter 147: subtract done, delta_size=7136
+R0 [P2] iter 147: merge done, full_size=78494392
+R0 [P2] iter 148 done: global_full_size=78494392
+R0 [P2] iter 148: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=7136 full_size=78494392
+R0 [P2] iter 148: join done, raw=21430 result_size=20550
+R0 [P2] iter 148: split done, delta_size=20550
+R0 [P2] iter 148: dedup done, delta_size=20550
+R0 [P2] iter 148: subtract done, delta_size=6468
+R0 [P2] iter 148: merge done, full_size=78500860
+R0 [P2] iter 149 done: global_full_size=78500860
+R0 [P2] iter 149: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=6468 full_size=78500860
+R0 [P2] iter 149: join done, raw=19430 result_size=18628
+R0 [P2] iter 149: split done, delta_size=18628
+R0 [P2] iter 149: dedup done, delta_size=18628
+R0 [P2] iter 149: subtract done, delta_size=5832
+R0 [P2] iter 149: merge done, full_size=78506692
+R0 [P2] iter 150 done: global_full_size=78506692
+R0 [P2] iter 150: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=5832 full_size=78506692
+R0 [P2] iter 150: join done, raw=17526 result_size=16798
+R0 [P2] iter 150: split done, delta_size=16798
+R0 [P2] iter 150: dedup done, delta_size=16798
+R0 [P2] iter 150: subtract done, delta_size=5284
+R0 [P2] iter 150: merge done, full_size=78511976
+R0 [P2] iter 151 done: global_full_size=78511976
+R0 [P2] iter 151: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=5284 full_size=78511976
+R0 [P2] iter 151: join done, raw=15896 result_size=15224
+R0 [P2] iter 151: split done, delta_size=15224
+R0 [P2] iter 151: dedup done, delta_size=15224
+R0 [P2] iter 151: subtract done, delta_size=4856
+R0 [P2] iter 151: merge done, full_size=78516832
+R0 [P2] iter 152 done: global_full_size=78516832
+R0 [P2] iter 152: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=4856 full_size=78516832
+R0 [P2] iter 152: join done, raw=14628 result_size=13990
+R0 [P2] iter 152: split done, delta_size=13990
+R0 [P2] iter 152: dedup done, delta_size=13990
+R0 [P2] iter 152: subtract done, delta_size=4476
+R0 [P2] iter 152: merge done, full_size=78521308
+R0 [P2] iter 153 done: global_full_size=78521308
+R0 [P2] iter 153: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=4476 full_size=78521308
+R0 [P2] iter 153: join done, raw=13480 result_size=12876
+R0 [P2] iter 153: split done, delta_size=12876
+R0 [P2] iter 153: dedup done, delta_size=12876
+R0 [P2] iter 153: subtract done, delta_size=4084
+R0 [P2] iter 153: merge done, full_size=78525392
+R0 [P2] iter 154 done: global_full_size=78525392
+R0 [P2] iter 154: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=4084 full_size=78525392
+R0 [P2] iter 154: join done, raw=12304 result_size=11750
+R0 [P2] iter 154: split done, delta_size=11750
+R0 [P2] iter 154: dedup done, delta_size=11750
+R0 [P2] iter 154: subtract done, delta_size=3712
+R0 [P2] iter 154: merge done, full_size=78529104
+R0 [P2] iter 155 done: global_full_size=78529104
+R0 [P2] iter 155: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=3712 full_size=78529104
+R0 [P2] iter 155: join done, raw=11190 result_size=10692
+R0 [P2] iter 155: split done, delta_size=10692
+R0 [P2] iter 155: dedup done, delta_size=10692
+R0 [P2] iter 155: subtract done, delta_size=3320
+R0 [P2] iter 155: merge done, full_size=78532424
+R0 [P2] iter 156 done: global_full_size=78532424
+R0 [P2] iter 156: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=3320 full_size=78532424
+R0 [P2] iter 156: join done, raw=10002 result_size=9578
+R0 [P2] iter 156: split done, delta_size=9578
+R0 [P2] iter 156: dedup done, delta_size=9578
+R0 [P2] iter 156: subtract done, delta_size=2920
+R0 [P2] iter 156: merge done, full_size=78535344
+R0 [P2] iter 157 done: global_full_size=78535344
+R0 [P2] iter 157: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=2920 full_size=78535344
+R0 [P2] iter 157: join done, raw=8788 result_size=8448
+R0 [P2] iter 157: split done, delta_size=8448
+R0 [P2] iter 157: dedup done, delta_size=8448
+R0 [P2] iter 157: subtract done, delta_size=2572
+R0 [P2] iter 157: merge done, full_size=78537916
+R0 [P2] iter 158 done: global_full_size=78537916
+R0 [P2] iter 158: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=2572 full_size=78537916
+R0 [P2] iter 158: join done, raw=7746 result_size=7470
+R0 [P2] iter 158: split done, delta_size=7470
+R0 [P2] iter 158: dedup done, delta_size=7470
+R0 [P2] iter 158: subtract done, delta_size=2288
+R0 [P2] iter 158: merge done, full_size=78540204
+R0 [P2] iter 159 done: global_full_size=78540204
+R0 [P2] iter 159: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=2288 full_size=78540204
+R0 [P2] iter 159: join done, raw=6898 result_size=6668
+R0 [P2] iter 159: split done, delta_size=6668
+R0 [P2] iter 159: dedup done, delta_size=6668
+R0 [P2] iter 159: subtract done, delta_size=2020
+R0 [P2] iter 159: merge done, full_size=78542224
+R0 [P2] iter 160 done: global_full_size=78542224
+R0 [P2] iter 160: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=2020 full_size=78542224
+R0 [P2] iter 160: join done, raw=6094 result_size=5912
+R0 [P2] iter 160: split done, delta_size=5912
+R0 [P2] iter 160: dedup done, delta_size=5912
+R0 [P2] iter 160: subtract done, delta_size=1784
+R0 [P2] iter 160: merge done, full_size=78544008
+R0 [P2] iter 161 done: global_full_size=78544008
+R0 [P2] iter 161: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=1784 full_size=78544008
+R0 [P2] iter 161: join done, raw=5382 result_size=5242
+R0 [P2] iter 161: split done, delta_size=5242
+R0 [P2] iter 161: dedup done, delta_size=5242
+R0 [P2] iter 161: subtract done, delta_size=1596
+R0 [P2] iter 161: merge done, full_size=78545604
+R0 [P2] iter 162 done: global_full_size=78545604
+R0 [P2] iter 162: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=1596 full_size=78545604
+R0 [P2] iter 162: join done, raw=4816 result_size=4704
+R0 [P2] iter 162: split done, delta_size=4704
+R0 [P2] iter 162: dedup done, delta_size=4704
+R0 [P2] iter 162: subtract done, delta_size=1424
+R0 [P2] iter 162: merge done, full_size=78547028
+R0 [P2] iter 163 done: global_full_size=78547028
+R0 [P2] iter 163: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=1424 full_size=78547028
+R0 [P2] iter 163: join done, raw=4298 result_size=4212
+R0 [P2] iter 163: split done, delta_size=4212
+R0 [P2] iter 163: dedup done, delta_size=4212
+R0 [P2] iter 163: subtract done, delta_size=1280
+R0 [P2] iter 163: merge done, full_size=78548308
+R0 [P2] iter 164 done: global_full_size=78548308
+R0 [P2] iter 164: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=1280 full_size=78548308
+R0 [P2] iter 164: join done, raw=3862 result_size=3796
+R0 [P2] iter 164: split done, delta_size=3796
+R0 [P2] iter 164: dedup done, delta_size=3796
+R0 [P2] iter 164: subtract done, delta_size=1132
+R0 [P2] iter 164: merge done, full_size=78549440
+R0 [P2] iter 165 done: global_full_size=78549440
+R0 [P2] iter 165: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=1132 full_size=78549440
+R0 [P2] iter 165: join done, raw=3412 result_size=3364
+R0 [P2] iter 165: split done, delta_size=3364
+R0 [P2] iter 165: dedup done, delta_size=3364
+R0 [P2] iter 165: subtract done, delta_size=988
+R0 [P2] iter 165: merge done, full_size=78550428
+R0 [P2] iter 166 done: global_full_size=78550428
+R0 [P2] iter 166: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=988 full_size=78550428
+R0 [P2] iter 166: join done, raw=2974 result_size=2950
+R0 [P2] iter 166: split done, delta_size=2950
+R0 [P2] iter 166: dedup done, delta_size=2950
+R0 [P2] iter 166: subtract done, delta_size=876
+R0 [P2] iter 166: merge done, full_size=78551304
+R0 [P2] iter 167 done: global_full_size=78551304
+R0 [P2] iter 167: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=876 full_size=78551304
+R0 [P2] iter 167: join done, raw=2634 result_size=2626
+R0 [P2] iter 167: split done, delta_size=2626
+R0 [P2] iter 167: dedup done, delta_size=2626
+R0 [P2] iter 167: subtract done, delta_size=796
+R0 [P2] iter 167: merge done, full_size=78552100
+R0 [P2] iter 168 done: global_full_size=78552100
+R0 [P2] iter 168: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=796 full_size=78552100
+R0 [P2] iter 168: join done, raw=2390 result_size=2388
+R0 [P2] iter 168: split done, delta_size=2388
+R0 [P2] iter 168: dedup done, delta_size=2388
+R0 [P2] iter 168: subtract done, delta_size=736
+R0 [P2] iter 168: merge done, full_size=78552836
+R0 [P2] iter 169 done: global_full_size=78552836
+R0 [P2] iter 169: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=736 full_size=78552836
+R0 [P2] iter 169: join done, raw=2208 result_size=2208
+R0 [P2] iter 169: split done, delta_size=2208
+R0 [P2] iter 169: dedup done, delta_size=2208
+R0 [P2] iter 169: subtract done, delta_size=680
+R0 [P2] iter 169: merge done, full_size=78553516
+R0 [P2] iter 170 done: global_full_size=78553516
+R0 [P2] iter 170: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=680 full_size=78553516
+R0 [P2] iter 170: join done, raw=2040 result_size=2040
+R0 [P2] iter 170: split done, delta_size=2040
+R0 [P2] iter 170: dedup done, delta_size=2040
+R0 [P2] iter 170: subtract done, delta_size=624
+R0 [P2] iter 170: merge done, full_size=78554140
+R0 [P2] iter 171 done: global_full_size=78554140
+R0 [P2] iter 171: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=624 full_size=78554140
+R0 [P2] iter 171: join done, raw=1872 result_size=1872
+R0 [P2] iter 171: split done, delta_size=1872
+R0 [P2] iter 171: dedup done, delta_size=1872
+R0 [P2] iter 171: subtract done, delta_size=568
+R0 [P2] iter 171: merge done, full_size=78554708
+R0 [P2] iter 172 done: global_full_size=78554708
+R0 [P2] iter 172: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=568 full_size=78554708
+R0 [P2] iter 172: join done, raw=1704 result_size=1704
+R0 [P2] iter 172: split done, delta_size=1704
+R0 [P2] iter 172: dedup done, delta_size=1704
+R0 [P2] iter 172: subtract done, delta_size=508
+R0 [P2] iter 172: merge done, full_size=78555216
+R0 [P2] iter 173 done: global_full_size=78555216
+R0 [P2] iter 173: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=508 full_size=78555216
+R0 [P2] iter 173: join done, raw=1524 result_size=1524
+R0 [P2] iter 173: split done, delta_size=1524
+R0 [P2] iter 173: dedup done, delta_size=1524
+R0 [P2] iter 173: subtract done, delta_size=436
+R0 [P2] iter 173: merge done, full_size=78555652
+R0 [P2] iter 174 done: global_full_size=78555652
+R0 [P2] iter 174: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=436 full_size=78555652
+R0 [P2] iter 174: join done, raw=1308 result_size=1308
+R0 [P2] iter 174: split done, delta_size=1308
+R0 [P2] iter 174: dedup done, delta_size=1308
+R0 [P2] iter 174: subtract done, delta_size=372
+R0 [P2] iter 174: merge done, full_size=78556024
+R0 [P2] iter 175 done: global_full_size=78556024
+R0 [P2] iter 175: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=372 full_size=78556024
+R0 [P2] iter 175: join done, raw=1116 result_size=1116
+R0 [P2] iter 175: split done, delta_size=1116
+R0 [P2] iter 175: dedup done, delta_size=1116
+R0 [P2] iter 175: subtract done, delta_size=324
+R0 [P2] iter 175: merge done, full_size=78556348
+R0 [P2] iter 176 done: global_full_size=78556348
+R0 [P2] iter 176: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=324 full_size=78556348
+R0 [P2] iter 176: join done, raw=972 result_size=972
+R0 [P2] iter 176: split done, delta_size=972
+R0 [P2] iter 176: dedup done, delta_size=972
+R0 [P2] iter 176: subtract done, delta_size=280
+R0 [P2] iter 176: merge done, full_size=78556628
+R0 [P2] iter 177 done: global_full_size=78556628
+R0 [P2] iter 177: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=280 full_size=78556628
+R0 [P2] iter 177: join done, raw=840 result_size=840
+R0 [P2] iter 177: split done, delta_size=840
+R0 [P2] iter 177: dedup done, delta_size=840
+R0 [P2] iter 177: subtract done, delta_size=256
+R0 [P2] iter 177: merge done, full_size=78556884
+R0 [P2] iter 178 done: global_full_size=78556884
+R0 [P2] iter 178: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=256 full_size=78556884
+R0 [P2] iter 178: join done, raw=768 result_size=768
+R0 [P2] iter 178: split done, delta_size=768
+R0 [P2] iter 178: dedup done, delta_size=768
+R0 [P2] iter 178: subtract done, delta_size=232
+R0 [P2] iter 178: merge done, full_size=78557116
+R0 [P2] iter 179 done: global_full_size=78557116
+R0 [P2] iter 179: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=232 full_size=78557116
+R0 [P2] iter 179: join done, raw=696 result_size=696
+R0 [P2] iter 179: split done, delta_size=696
+R0 [P2] iter 179: dedup done, delta_size=696
+R0 [P2] iter 179: subtract done, delta_size=208
+R0 [P2] iter 179: merge done, full_size=78557324
+R0 [P2] iter 180 done: global_full_size=78557324
+R0 [P2] iter 180: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=208 full_size=78557324
+R0 [P2] iter 180: join done, raw=624 result_size=624
+R0 [P2] iter 180: split done, delta_size=624
+R0 [P2] iter 180: dedup done, delta_size=624
+R0 [P2] iter 180: subtract done, delta_size=184
+R0 [P2] iter 180: merge done, full_size=78557508
+R0 [P2] iter 181 done: global_full_size=78557508
+R0 [P2] iter 181: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=184 full_size=78557508
+R0 [P2] iter 181: join done, raw=552 result_size=552
+R0 [P2] iter 181: split done, delta_size=552
+R0 [P2] iter 181: dedup done, delta_size=552
+R0 [P2] iter 181: subtract done, delta_size=148
+R0 [P2] iter 181: merge done, full_size=78557656
+R0 [P2] iter 182 done: global_full_size=78557656
+R0 [P2] iter 182: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=148 full_size=78557656
+R0 [P2] iter 182: join done, raw=444 result_size=444
+R0 [P2] iter 182: split done, delta_size=444
+R0 [P2] iter 182: dedup done, delta_size=444
+R0 [P2] iter 182: subtract done, delta_size=108
+R0 [P2] iter 182: merge done, full_size=78557764
+R0 [P2] iter 183 done: global_full_size=78557764
+R0 [P2] iter 183: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=108 full_size=78557764
+R0 [P2] iter 183: join done, raw=324 result_size=324
+R0 [P2] iter 183: split done, delta_size=324
+R0 [P2] iter 183: dedup done, delta_size=324
+R0 [P2] iter 183: subtract done, delta_size=72
+R0 [P2] iter 183: merge done, full_size=78557836
+R0 [P2] iter 184 done: global_full_size=78557836
+R0 [P2] iter 184: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=72 full_size=78557836
+R0 [P2] iter 184: join done, raw=216 result_size=216
+R0 [P2] iter 184: split done, delta_size=216
+R0 [P2] iter 184: dedup done, delta_size=216
+R0 [P2] iter 184: subtract done, delta_size=48
+R0 [P2] iter 184: merge done, full_size=78557884
+R0 [P2] iter 185 done: global_full_size=78557884
+R0 [P2] iter 185: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=48 full_size=78557884
+R0 [P2] iter 185: join done, raw=144 result_size=144
+R0 [P2] iter 185: split done, delta_size=144
+R0 [P2] iter 185: dedup done, delta_size=144
+R0 [P2] iter 185: subtract done, delta_size=24
+R0 [P2] iter 185: merge done, full_size=78557908
+R0 [P2] iter 186 done: global_full_size=78557908
+R0 [P2] iter 186: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=24 full_size=78557908
+R0 [P2] iter 186: join done, raw=72 result_size=72
+R0 [P2] iter 186: split done, delta_size=72
+R0 [P2] iter 186: dedup done, delta_size=72
+R0 [P2] iter 186: subtract done, delta_size=4
+R0 [P2] iter 186: merge done, full_size=78557912
+R0 [P2] iter 187 done: global_full_size=78557912
+R0 [P2] iter 187: PRE-JOIN GPU mem: 84.0GB free / 85.1GB total | delta_size=4 full_size=78557912
+R0 [P2] iter 187: join done, raw=12 result_size=12
+R0 [P2] iter 187: split done, delta_size=12
+R0 [P2] iter 187: dedup done, delta_size=12
+R0 [P2] iter 187: subtract done, delta_size=0
+R0 [P2] iter 188 done: global_full_size=78557912
+Phase 2: 3.0758s | TC(g^k) = 78557912 tuples, 188 iterations
+  Join: 0.9127s | Dedup: 0.2500s | Subtract: 0.1467s | Merge: 0.4740s | HT build: 0.0022s
+  Comm: 1.1314s
+Phase 1: 0.0560s | seed_size=49152 (length 1), g^k_size=49152
+Phase 2: 3.0758s | TC(g^k) = 78557912 tuples, 188 iterations
+  Join: 0.9127s | Dedup: 0.2500s | Subtract: 0.1467s | Merge: 0.4740s | HT build: 0.0022s
+  Comm: 1.1314s
+Phase 3: 0.0000s (skipped — single GPU)
+─────────────────────────────────────
+Total: 3.1318s | TC size: 78557912

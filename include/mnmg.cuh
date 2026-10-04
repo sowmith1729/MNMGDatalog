@@ -23,6 +23,7 @@
 #include <mpi.h>
 
 // ── Thrust ───────────────────────────────────────────────────────────────────
+#include <thrust/binary_search.h>
 #include <thrust/copy.h>
 #include <thrust/count.h>
 #include <thrust/device_ptr.h>

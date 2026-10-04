@@ -6,8 +6,9 @@ option(ENABLE_TIMESTAMPS "Enable timestamp logging" ON)
 option(ENABLE_DEBUG "Enable debug mode" OFF)
 
 # ─── Global settings ───────────────────────────────────────────────────────
-set(CMAKE_CUDA_STANDARD 14)
-set(CMAKE_CXX_STANDARD 14)
+# C++17 is the minimum for CCCL 3.x (CUDA 13+); still fine on CUDA 12.x.
+set(CMAKE_CUDA_STANDARD 17)
+set(CMAKE_CXX_STANDARD 17)
 
 if(ENABLE_DEBUG)
     set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -g -DDEBUG")

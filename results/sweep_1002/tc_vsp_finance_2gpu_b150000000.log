@@ -1,0 +1,6 @@
+1790975245927690897,FILE-IO start,1
+1790975245935450493,FILE-IO end,1
+# Input,# Process,# Iterations,# TC,Total Time,Join,Buffer preparation,Communication,Deduplication,Merge,Initialization,Hashtable,Finalization,Clear,File I/O
+552020,2,520,910070918,31.3899,4.7832,0.0001,0.0080,2.4322,24.1196,0.0105,0.0002,0.0056,0.0305,0.5440
+1790975245931063335,FILE-IO start,0
+1790975245935454201,FILE-IO end,0
